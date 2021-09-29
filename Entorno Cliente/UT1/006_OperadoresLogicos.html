@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Comprobar el rango por dentro
+        let age = prompt(`¿Qué edad tienes?`,``);
+        if (age >= 14 && age <= 90){
+            alert("Valor dentro de rango");
+        }
+    </script>
+    <script>
+        //Comprobar el rango por fuera (pt1)
+        let age2 = prompt(`¿Qué edad tienes?`,``);
+        if (!(age2>=14 && age2<=90)){
+            alert("Valor dentro de rango");
+        }
+    </script>
+    <script>
+        //Comprobar el rango por fuera (pt2)
+        let age3 = prompt(`¿Qué edad tienes?`,``);
+        if (age3 < 14 || age3 > 90){
+            alert("Valor dentro de rango");
+        }
+    </script>
+    <script>
+        //Comprobar el inicio de sesión
+        let inicioSesion = prompt(`Ingrese su nombre de usuario`,``);
+        let contraseña;
+        if(inicioSesion==`` || inicioSesion==null){
+            alert(`Cancelado`);
+        }else if(inicioSesion == "Admin"){
+            contraseña = prompt("Ingrese una contraseña");
+            if(inicioSesion==`` || inicioSesion==null){
+                alert(`Cancelado`);
+            }else if(contraseña=="TheMaster"){
+                alert(`¡Bienvenido!`);
+            }else{
+                alert('Contraseña incorrecta');
+            }
+        }else{
+            alert(`No te conozco`);
+        }
+    </script>
+</body>
+</html>
