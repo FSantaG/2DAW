@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Mostrar números pares en bucle for
+        for (let i = 2; i <= 10; i++) {
+            if (i % 2 == 0) {
+                alert(i);
+            }
+        }
+    </script>
+    <script>
+        /*
+        Reemplazar for por while.
+        Código original:
+        for (let i = 0; i < 3; i++) {
+            alert( `número ${i}!` );
+        }
+        */
+        let i = 0;
+        while (i < 3) {
+            alert(`número ${i}!`);
+            i++;
+        }
+    </script>
+    <script>
+        //Repetir hasta que la entrada sea válida
+        let numIntroducido = prompt(`Ingrese un número mayor que 100`);
+        while (numIntroducido < 100 || numIntroducido == null || numIntroducido == ``){
+            numIntroducido = prompt ('Introduzca un número válido');
+        }
+    </script>
+    <script>
+        //Mostrar números primos
+        let numTope = prompt(`Ingrese un número`);
+        for (let i = 1; i<=numTope; i++){
+        }
+    </script>
+</body>
+
+</html>
