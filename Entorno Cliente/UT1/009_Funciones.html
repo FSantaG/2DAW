@@ -21,7 +21,42 @@
         }
         */
         function checkAge(age) {
-             return (age>18)?true:confirm('¿Tienes permiso de tus padres?');
+             return (age>18) ? true : confirm('¿Tienes permiso de tus padres?');
+        }
+    </script>
+    <script>
+        /*Reescribir usando el operador OR (||) en lugar de if
+        Código inicial:
+        function checkAge(age) {
+            if (age > 18) {
+                return true;
+            } else {
+                return confirm('¿Tienes permiso de tus padres?');
+            }
+        }
+        */
+       function checkAge2(age){
+           return (age > 18) || confirm('¿Tienes permiso de tus padres?');
+       }
+    </script>
+    <script>
+        //Función min(a,b)
+        function min(a,b){
+            if(a<=b){
+                return a;
+            }else{
+                return b;
+            }
+        }
+
+        alert(min(2, 5));
+        alert(min(3, -1));
+        alert(min(1, 1));
+    </script>
+    <script>
+        //Función pow(x,n)
+        function pow(x,n){
+            
         }
     </script>
 </body>
