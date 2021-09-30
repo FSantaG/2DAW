@@ -34,14 +34,19 @@
     <script>
         //Repetir hasta que la entrada sea válida
         let numIntroducido = prompt(`Ingrese un número mayor que 100`);
-        while (numIntroducido < 100 || numIntroducido == null || numIntroducido == ``){
-            numIntroducido = prompt ('Introduzca un número válido');
+        while (numIntroducido < 100 || numIntroducido == null || numIntroducido == ``) {
+            numIntroducido = prompt('Introduzca un número válido');
         }
     </script>
     <script>
-        //Mostrar números primos
-        let numTope = prompt(`Ingrese un número`);
-        for (let i = 1; i<=numTope; i++){
+        let n = 10;
+        nextPrime:
+        for (let i = 2; i <= n; i++) {
+            for (let j = 2; j < i; j++) {
+                if (i % j == 0) continue nextPrime;
+            }
+
+            alert(i);
         }
     </script>
 </body>
