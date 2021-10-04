@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresiones De Funciones</title>
+</head>
+<body>
+    <script>
+        //EJERCICIO DE EJEMPLO
+        function suma(sum1, sum2){
+            let resultado=sum1+sum2;
+            return resultado;
+        }
+        function resta(rest1, rest2){
+            let resultado=rest1-rest2;
+            return resultado;
+        }
+        function multiplicación(mult1, mult2){
+            let resultado=mult1*mult2;
+            return resultado;
+        }
+        function división(div1, div2){
+            let resultado=div1/div2;
+            return resultado;
+        }
+        function calcular(núm1, núm2, operación){
+            alert(operación(núm1, núm2));
+        }
+
+        calcular(30, 2, división);
+    </script>
+</body>
+</html>
