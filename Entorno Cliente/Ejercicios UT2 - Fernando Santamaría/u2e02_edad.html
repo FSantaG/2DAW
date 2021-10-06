@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>   
+        let edad=prompt('¿Qué edad tienes');
+        if(edad>=0 && Boolean(edad)!=false){
+            if(edad>=0 && edad<=12){
+                alert("Niño");
+            }else if(edad>=13 && edad<=26){
+                alert("Joven");
+            }else if(edad>=27 && edad<=60){
+                alert("Adulto");
+            }else {
+                alert("Jubilado");
+            }
+        }else{
+            alert(Error("Valor introducido no válido"));
+        }
+    </script>
+</body>
+</html>
