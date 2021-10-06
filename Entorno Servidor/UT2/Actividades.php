@@ -247,18 +247,53 @@
     <br>
     <h2>Ejercicio 13</h2>
     <?php
-        $dígitoIntroducido = 472;
-        $esCapicua
+        $dígitoIntroducido = 111;
+
+        $centenas=intdiv($dígitoIntroducido,100);
+        $unidadestemp=$dígitoIntroducido % 100;
+        $unidades=$unidadestemp%10;
+        
+        if($unidades==$centenas){
+            echo "El valor introducido: <b>",$dígitoIntroducido,"</b> es capicua";
+        }else{
+            echo "El valor introducido: <b>",$dígitoIntroducido,"</b> NO es capicua";
+        }
     ?>
     <br>
     <h2>Ejercicio 14</h2>
     <?php
-    
+    $resultadoAnterior=1;
+    echo $resultadoAnterior,"<br>";
+    for($i=2;$i<=10;$i++){
+        $resultado=$resultadoAnterior + $i;
+        $resultadoAnterior=$resultado;
+        echo $resultadoAnterior,"<br>";
+    }
     ?>
     <br>
     <h2>Ejercicio 15</h2>
     <?php
+    $diaNac=10;
+    $mesNac=7;
+    $añoNac=2001;
+
+    $preSuma=$diaNac+$mesNac+$añoNac;
+    $digito1= intdiv($preSuma,1000);
+    $preSuma=$preSuma%1000;
+    $digito2=intdiv($preSuma,100);
+    $preSuma=$preSuma%100;
+    $digito3=intdiv($preSuma,10);
+    $preSuma=$preSuma%10;
+    $digito4=$preSuma;
+
+    $preSuma2=$digito1+$digito2+$digito3+$digito4;
     
+    $digito1=intdiv($preSuma2,10);
+    $digito2=$preSuma2%10;
+
+    $suma=$digito1+$digito2;
+    echo $suma;
+
     ?>
 </body>
 </html>
