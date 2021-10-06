@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let horas=9;
+        let minutos=0;
+        for(horas; horas<22;minutos+=30){
+            if(minutos==60){
+                horas++;
+                minutos=0;
+            }
+            if(minutos==0){
+                document.write(horas,":",minutos,"0<br>");   
+            }else{
+                document.write(horas,":",minutos,"<br>");            
+            }
+            if(horas==21 && minutos==30){
+                break;
+            }
+        }
+    </script>
+</body>
+</html>
