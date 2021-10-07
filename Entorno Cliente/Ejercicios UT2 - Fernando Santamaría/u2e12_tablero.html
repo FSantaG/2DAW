@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let cadenaTexto = "";
+      for (let j = 0; j <= 8; j++) {
+        if (j % 2 == 0) {
+          for (let i = 1; i <= 8; i++) {
+            if (i % 2 == 0) {
+              cadenaTexto += " ";
+            }
+            if (i % 2 != 0) {
+              cadenaTexto += "#";
+            }
+            if (i % 8 == 0) {
+              console.log(cadenaTexto);
+              cadenaTexto = "";
+            }
+          }
+        } else {
+          for (let i = 1; i <= 8; i++) {
+            if (i % 2 != 0) {
+              cadenaTexto += " ";
+            }
+            if (i % 2 == 0) {
+              cadenaTexto += "#";
+            }
+            if (i % 8 == 0) {
+              console.log(cadenaTexto);
+              cadenaTexto = "";
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
