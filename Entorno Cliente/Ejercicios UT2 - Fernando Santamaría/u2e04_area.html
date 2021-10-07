@@ -1,68 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let figura=prompt("Escoja una figura ((s)Cuadrado, (t)Triángulo, (c)Círculo)","");
-        let mensajeError="Introduzca un número positivo, por favor";
-        while (figura!="S" && figura!="T" && figura!="C" && figura!="s" && figura!="t" && figura!="c"){
-            alert(Error("Seleccione un valor válido, por favor"))
-            figura=prompt("Escoga una figura ((s)Cuadrado, (t)Triángulo, (c)Círculo)","");
-        }
-        switch(figura){
-            case "S": 
-            case "s":
-                let ladoCuadrado=prompt("Longitud del lado");
-                while (!Number(ladoCuadrado) || ladoCuadrado<=0){
-                    alert(Error(mensajeError));
-                    ladoCuadrado=prompt("Longitud del lado");
-                }
-                document.write("Cuadrado <br>Lado: ", ladoCuadrado,"<br>Área: ",
-                ladoCuadrado**2,"<br>Perímetro: ", ladoCuadrado*4);
-                break;
-            case "T":
-            case "t":
-                let base=prompt("Longitud del primer lado (Base)");
-                while (!Number(base) || base<=0){
-                    alert(Error(mensajeError));
-                    base=prompt("Longitud del primer lado (Base)");
-                }
-                let ladoT2=prompt("Longitud del segundo lado");
-                while (!Number(ladoT2) || ladoT2<=0){
-                    alert(Error(mensajeError));
-                    ladoT2=prompt("Longitud del segundo lado");
-                }
-                let ladoT3=prompt("Longitud del tercer lado");
-                while (!Number(ladoT3) || ladoT3<=0){
-                    alert(Error(mensajeError));
-                    ladoT3=prompt("Longitud del tercer lado");
-                }
-                let alturaT=prompt("Altura del triángulo");
-                while (!Number(alturaT) || alturaT<=0){
-                    alert(Error(mensajeError));
-                    alturaT=prompt("Altura del triángulo");
-                }
-                document.write("Triángulo <br>Lados: ", base,", ",ladoT2,
-                ", ",ladoT3,"<br>Altura: ", alturaT, "<br>Área: ", 
-                base*alturaT/2,"<br>Perímetro: ", 
-                Number(base)+Number(ladoT2)+Number(ladoT3));
-                break;
-            case "C":
-            case "c":
-            let radio=prompt("Radio del círculo");
-                while (!Number(radio) || radio<=0){
-                    alert(Error(mensajeError));
-                    radio=prompt("Radio del círculo");
-                }
-                document.write("Círculo <br>Radio: ", radio,"<br>Área: ",
-                Math.PI*(radio**2),"<br>Perímetro: ", 2*Math.PI*radio);
-                break;
-        }
+      let figura = prompt(
+        "Escoja una figura ((s)Cuadrado, (t)Triángulo, (c)Círculo)",
+        ""
+      );
+      let mensajeError = "Introduzca un número positivo, por favor";
+      while (
+        figura != "S" &&
+        figura != "T" &&
+        figura != "C" &&
+        figura != "s" &&
+        figura != "t" &&
+        figura != "c"
+      ) {
+        alert(Error("Seleccione un valor válido, por favor"));
+        figura = prompt(
+          "Escoga una figura ((s)Cuadrado, (t)Triángulo, (c)Círculo)",
+          ""
+        );
+      }
+      switch (figura) {
+        case "S":
+        case "s":
+          let ladoCuadrado = prompt("Longitud del lado");
+          while (!Number(ladoCuadrado) || ladoCuadrado <= 0) {
+            alert(Error(mensajeError));
+            ladoCuadrado = prompt("Longitud del lado");
+          }
+          document.write(
+            "Cuadrado <br>Lado: ",
+            ladoCuadrado,
+            "<br>Área: ",
+            ladoCuadrado ** 2,
+            "<br>Perímetro: ",
+            ladoCuadrado * 4
+          );
+          break;
+        case "T":
+        case "t":
+          let base = prompt("Longitud del primer lado (Base)");
+          while (!Number(base) || base <= 0) {
+            alert(Error(mensajeError));
+            base = prompt("Longitud del primer lado (Base)");
+          }
+          let ladoT2 = prompt("Longitud del segundo lado");
+          while (!Number(ladoT2) || ladoT2 <= 0) {
+            alert(Error(mensajeError));
+            ladoT2 = prompt("Longitud del segundo lado");
+          }
+          let ladoT3 = prompt("Longitud del tercer lado");
+          while (!Number(ladoT3) || ladoT3 <= 0) {
+            alert(Error(mensajeError));
+            ladoT3 = prompt("Longitud del tercer lado");
+          }
+          let alturaT = prompt("Altura del triángulo");
+          while (!Number(alturaT) || alturaT <= 0) {
+            alert(Error(mensajeError));
+            alturaT = prompt("Altura del triángulo");
+          }
+          document.write(
+            "Triángulo <br>Lados: ",
+            base,
+            ", ",
+            ladoT2,
+            ", ",
+            ladoT3,
+            "<br>Altura: ",
+            alturaT,
+            "<br>Área: ",
+            (base * alturaT) / 2,
+            "<br>Perímetro: ",
+            Number(base) + Number(ladoT2) + Number(ladoT3)
+          );
+          break;
+        case "C":
+        case "c":
+          let radio = prompt("Radio del círculo");
+          while (!Number(radio) || radio <= 0) {
+            alert(Error(mensajeError));
+            radio = prompt("Radio del círculo");
+          }
+          document.write(
+            "Círculo <br>Radio: ",
+            radio,
+            "<br>Área: ",
+            Math.PI * radio ** 2,
+            "<br>Perímetro: ",
+            2 * Math.PI * radio
+          );
+          break;
+      }
     </script>
-</body>
+  </body>
 </html>

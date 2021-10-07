@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let acceso=prompt("CONTROL PARENTAL: ¿Cuál fue el 1er presidente de la democracia española?");
-        while(acceso != "Adolfo Suarez"){
-        if(acceso =="Suarez"){
-            alert(Error("Te falta el nombre"));
-            acceso=prompt("CONTROL PARENTAL: ¿Cuál fue el 1er presidente de la democracia española?");
-        }else if(acceso=="Adolfo"){
-            alert(Error("Te falta el apellido"));
-            acceso=prompt("CONTROL PARENTAL: ¿Cuál fue el 1er presidente de la democracia española?");
-        }else{
-            alert(Error("Inténtelo de nuevo"));
-            acceso=prompt("CONTROL PARENTAL: ¿Cuál fue el 1er presidente de la democracia española?");
+      let acceso = prompt(
+        "CONTROL PARENTAL: ¿Cuál fue el 1er presidente de la democracia española?"
+      );
+      while (acceso != "Adolfo Suarez") {
+        if (acceso == "Suarez") {
+          alert(Error("Te falta el nombre"));
+          acceso = prompt(
+            "CONTROL PARENTAL: ¿Cuál fue el 1er presidente de la democracia española?"
+          );
+        } else if (acceso == "Adolfo") {
+          alert(Error("Te falta el apellido"));
+          acceso = prompt(
+            "CONTROL PARENTAL: ¿Cuál fue el 1er presidente de la democracia española?"
+          );
+        } else {
+          alert(Error("Inténtelo de nuevo"));
+          acceso = prompt(
+            "CONTROL PARENTAL: ¿Cuál fue el 1er presidente de la democracia española?"
+          );
         }
-    }
-        alert("Acceso confirmado")
+      }
+      alert("Acceso confirmado");
     </script>
-</body>
+  </body>
 </html>

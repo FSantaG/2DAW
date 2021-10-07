@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let edad=prompt("Introduzca una edad");
-        let mensaje = (edad < 0|| Boolean(edad)==false)?Error("Valor introducido no válido"):
-            (edad>=0 && edad<=12)?'Niño':
-            (edad>=12 && edad<=26)?'Joven':
-            (edad>=27 && edad<=60)?'Adulto':'Jubilado'       
-        alert(mensaje);
+      let edad = prompt("Introduzca una edad");
+      let mensaje =
+        edad < 0 || Boolean(edad) == false
+          ? Error("Valor introducido no válido")
+          : edad >= 0 && edad <= 12
+          ? "Niño"
+          : edad >= 12 && edad <= 26
+          ? "Joven"
+          : edad >= 27 && edad <= 60
+          ? "Adulto"
+          : "Jubilado";
+      alert(mensaje);
     </script>
-</body>
+  </body>
 </html>

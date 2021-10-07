@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function contarBs(cadena) {
+        let contador = 0;
+        for (let i = 0; i <= cadena.length - 1; i++) {
+          if (cadena[i] == "B") {
+            contador++;
+          }
+        }
+        return contador;
+      }
+      function contarCaracter(cadena, caracter) {
+        let contador = 0;
+        for (let i = 0; i <= cadena.length - 1; i++) {
+          if (cadena[i] == caracter) {
+            contador++;
+          }
+        }
+        return contador;
+      }
+      let respuesta = prompt("Escriba algo");
+      let letra = prompt("¿Qué letra quieres contabilizar?");
+      document.write(
+        "Número de 'B' en la cadena introducida: ",
+        contarBs(respuesta),
+        "<br>"
+      );
+      document.write(
+        "Número de '",
+        letra,
+        "' en la cadena introducida: ",
+        contarCaracter(respuesta, letra),
+        "<br>"
+      );
+    </script>
+  </body>
+</html>

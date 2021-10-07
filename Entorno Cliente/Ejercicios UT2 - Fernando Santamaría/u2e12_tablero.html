@@ -11,31 +11,25 @@
       let cadenaTexto = "";
       let númFilas = 8;
       for (let j = 0; j < númFilas; j++) {
-        if (j % 2 == 0) {
-          for (let i = 1; i <= númFilas; i++) {
+        for (let i = 1; i <= númFilas; i++) {
+          if (j % 2 == 0) {
             if (i % 2 == 0) {
               cadenaTexto += " ";
             }
             if (i % 2 != 0) {
               cadenaTexto += "#";
             }
-            if (i % númFilas == 0) {
-              console.log(cadenaTexto);
-              cadenaTexto = "";
+          } else {
+            if (i % 2 != 0) {
+              cadenaTexto += " ";
+            }
+            if (i % 2 == 0) {
+              cadenaTexto += "#";
             }
           }
-        } else {
-          for (let i = 1; i <= númFilas; i++) {
-            if (i % 2 != 0) {
-              cadenaTexto += " ";
-            }
-            if (i % 2 == 0) {
-              cadenaTexto += "#";
-            }
-            if (i % númFilas == 0) {
-              console.log(cadenaTexto);
-              cadenaTexto = "";
-            }
+          if (i % númFilas == 0) {
+            console.log(cadenaTexto);
+            cadenaTexto = "";
           }
         }
       }
