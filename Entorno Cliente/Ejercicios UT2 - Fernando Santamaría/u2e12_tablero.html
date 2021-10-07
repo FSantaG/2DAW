@@ -9,29 +9,30 @@
   <body>
     <script>
       let cadenaTexto = "";
-      for (let j = 0; j <= 8; j++) {
+      let númFilas = 8;
+      for (let j = 0; j < númFilas; j++) {
         if (j % 2 == 0) {
-          for (let i = 1; i <= 8; i++) {
+          for (let i = 1; i <= númFilas; i++) {
             if (i % 2 == 0) {
               cadenaTexto += " ";
             }
             if (i % 2 != 0) {
               cadenaTexto += "#";
             }
-            if (i % 8 == 0) {
+            if (i % númFilas == 0) {
               console.log(cadenaTexto);
               cadenaTexto = "";
             }
           }
         } else {
-          for (let i = 1; i <= 8; i++) {
+          for (let i = 1; i <= númFilas; i++) {
             if (i % 2 != 0) {
               cadenaTexto += " ";
             }
             if (i % 2 == 0) {
               cadenaTexto += "#";
             }
-            if (i % 8 == 0) {
+            if (i % númFilas == 0) {
               console.log(cadenaTexto);
               cadenaTexto = "";
             }
