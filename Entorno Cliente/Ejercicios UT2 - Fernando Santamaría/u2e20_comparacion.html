@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let igualdad1 = 10 == 10 ? "TRUE" : "FALSE";
+      let igualdad2 = 10 === 10 ? "TRUE" : "FALSE";
+      let igualdad3 = 10 === 10.0 ? "TRUE" : "FALSE";
+      let igualdad4 = "Ada" == "ada" ? "TRUE" : "FALSE";
+      let igualdad5 = "Ada" > "ada" ? "TRUE" : "FALSE";
+      let igualdad6 = "Ada" < "ada" ? "TRUE" : "FALSE";
+      let igualdad7 = "123" == 123 ? "TRUE" : "FALSE";
+      let igualdad8 = "123" === 123 ? "TRUE" : "FALSE";
+      let igualdad9 = Number("123") === 123 ? "TRUE" : "FALSE";
+      alert(
+        "La operación 10 == 10 vale: " +
+          igualdad1 +
+          "\n La operación 10 === 10 vale: " +
+          igualdad2 +
+          "\n La operación 10 === 10.0 vale: " +
+          igualdad3 +
+          '\n La operación "Ada" == "ada" vale: ' +
+          igualdad4 +
+          '\n La operación  "Ada" > "ada" vale: ' +
+          igualdad5 +
+          '\n La operación "Ada" < "ada" vale: ' +
+          igualdad6 +
+          '\n La operación "123" == 123 vale: ' +
+          igualdad7 +
+          '\n La operación "123" === 123 vale: ' +
+          igualdad8 +
+          '\n La operación Number("123") === 123 vale: ' +
+          igualdad9
+      );
+    </script>
+  </body>
+</html>
