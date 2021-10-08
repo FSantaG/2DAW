@@ -54,6 +54,14 @@
     <br>
     <h2>Ejercicio 2</h2>
     <?php
+        $alumno = array('Nombre'=>"Manolo", 'Edad'=>18, "Calificación"=>7);
+        foreach($alumno as $clave=>$valor){
+            echo "$clave=>$valor<br>";
+        }
+    ?>
+    <br>
+    <h2>Ejercicio 3</h2>
+    <?php
         $lectivos=array("otoño"=>60, "invierto"=>51, "primavera"=>57, "verano"=>7);
 
         $menosdias=300;
@@ -66,9 +74,14 @@
         echo "La estación menos lectiva es $estmenoslectiva y tiene $menosdias dias lectivos";
     ?>
     <br>
-    <h2>Ejercicio 3</h2>
+    <h2>Ejercicio 4</h2>
     <?php
-    
+        $matriz=array('parte1'=>array(1,0),'parte2'=>array(0,1));
+           /*  /* if($matriz['parte1'[0]]=$matriz['parte2'[1]]) && $matriz['parte1'[0]]=1 && $matriz['parte2'[1]]=1){
+                echo "La matriz es identidad";
+            }else { 
+                echo "La matriz NO es identidad";
+            } */
     ?>
 </body>
 </html>
