@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function construirbinario(número) {
+        let númbinario = "";
+        while (número > 1) {
+          if (número % 2 != 0) {
+            númbinario += "1";
+          } else {
+            númbinario += "0";
+          }
+          número = Math.floor(número / 2);
+        }
+        númbinario += String(número);
+        return númbinario;
+      }
+
+      let valor = prompt("Introduzca un número");
+      while (!Number(valor) || Number(valor) < 0) {
+        valor = prompt("Introduzca un número");
+      }
+      alert(construirbinario(valor));
+      /*       function convertTobinary(número) {
+        let númBinario = 0;
+        let resto,
+          i = 1,
+          paso = 1;
+        while (número != 0) {
+          resto = número % 2;
+          console.log(
+            `Step ${paso++}: ${número}/2, Remainder = ${resto}, Quotient = ${parseInt(
+              número / 2
+            )}`
+          );
+          número = parseInt(número / 2);
+          númBinario = númBinario + resto * i;
+          i = i * 10;
+        }
+        console.log(`binary: ${númBinario}`);
+      }
+
+      // take input
+      let number = prompt("Enter a decimal number: ");
+
+      convertTobinary(number); */
+    </script>
+  </body>
+</html>
