@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EJERCICIOS UT2</title>
 </head>
 
 <body>
@@ -173,14 +173,29 @@
     <br>
     <h2>Ejercicio 9</h2>
     <?php
-    $num1 = 10;
-    $num2 = 7;
-    $num3 = -3;
+    $núm1 = 10;
+    $núm2 = 7;
+    $núm3 = -3;
+    $nummax=$num1;
+    $maximos=1;
 
-    $numMayor = ($num1 > $num2) ? $num1 : $num2;
-    $numMayor = ($numMayor > $num3) ? $numMayor : $num3;
-
-    echo "El mayor número es: ", "<b>", $numMayor, "</b>";
+    if($nummax<=$núm2){
+        if($nummax==$núm2){
+            $maximos++;
+        }else{
+            $nummax=$núm2;
+            $maximos=1;
+        }
+    }
+    if($nummax<=$núm3){
+        if($nummax==$núm3){
+            $maximos++;
+        }else{
+            $nummax=$núm3;
+            $maximos=1;
+        }
+    }
+    echo "El máximo es $nummax y aparece $maximos veces"
     ?>
     <br>
     <h2>Ejercicio 10</h2>
