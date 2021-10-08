@@ -53,5 +53,22 @@
     ?>
     <br>
     <h2>Ejercicio 2</h2>
+    <?php
+        $lectivos=array("otoño"=>60, "invierto"=>51, "primavera"=>57, "verano"=>7);
+
+        $menosdias=300;
+        foreach($lectivos as $clave => $valor){
+            if($valor < $menosdias){
+                $menosdias=$valor;
+                $estmenoslectiva=$clave;
+            }
+        }
+        echo "La estación menos lectiva es $estmenoslectiva y tiene $menosdias dias lectivos";
+    ?>
+    <br>
+    <h2>Ejercicio 3</h2>
+    <?php
+    
+    ?>
 </body>
 </html>
