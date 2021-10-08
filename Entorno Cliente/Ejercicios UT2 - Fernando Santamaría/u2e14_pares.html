@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function esPar(número) {
+        let par = false;
+        if ((número - 2) % 2 == 0) {
+          par = true;
+        }
+        return par;
+      }
+      let valor = prompt("Introduzca un número, por favor");
+      while (!Number(valor)) {
+        valor = prompt("Introduzca un número, por favor");
+      }
+      switch (esPar(valor)) {
+        case true:
+          alert("Es par");
+          break;
+        case false:
+          alert("Es impar");
+          break;
+      }
+    </script>
+  </body>
+</html>
