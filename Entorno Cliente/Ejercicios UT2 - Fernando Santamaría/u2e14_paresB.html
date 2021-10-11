@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let esPar = (número) => {
+        if (número <= 1) {
+          if (número == 0) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+        console.log(número);
+        return esPar(número - 2);
+      };
+
+      let valor = prompt("Introduzca un número, por favor");
+      while (!Number(valor)) {
+        valor = prompt("Introduzca un número, por favor");
+      }
+      switch (esPar(valor)) {
+        case true:
+          alert("Es par");
+          break;
+        case false:
+          alert("Es impar");
+          break;
+      }
+    </script>
+  </body>
+</html>
