@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let nombre = "Fernando";
+      let apellido = "Santamaría";
+      let edad = 20;
+      let añoNacimiento = 2001;
+
+      //Apartado a) Alert con frase con comillas simples
+      alert("Me llamo '" + nombre + "'");
+      //Apartado b) Alert con nombres y apellidos separados por salto de línea
+      alert("Nombre: " + nombre + "\nApellido: " + apellido);
+      //Apartado c) Alert con suma de edad y año nacimiento
+      alert(
+        String(añoNacimiento) +
+          "+" +
+          String(edad) +
+          "=" +
+          +(añoNacimiento + edad)
+      );
+      //Apartado d) Alert con suma de todas las variables
+      alert(nombre + apellido + edad + añoNacimiento);
+    </script>
+  </body>
+</html>
