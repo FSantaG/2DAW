@@ -105,15 +105,16 @@
     <br>
     <h2>Ejercicio 5</h2>
     <?php
-        $tabla=array(array(-8,1,4),array(1,7,4),array(3,4,9));
-        
+        //Crear y visualizar array 3x3
+        $tabla=array(array(2,-3,5),array(-3,0,7),array(5,7,1));
+        //$tabla=array(array(1,2,3),array(4,5,6),array(7,8,9));
         for($i=0;$i<count($tabla);$i++){
             for($j=0;$j<count($tabla[$i]);$j++){
                 echo $tabla[$i][$j]," ";
             }
             echo "<br>";
         }
-
+        //Comprobar que es simétrica
         $simétrica=true;
         for($i=0;$i<count($tabla) && $simétrica;$i++){
             for($j=0;$j<count($tabla[$i]) && $simétrica;$j++){
@@ -128,40 +129,69 @@
             echo "La matriz no es simétrica";
         }
         echo "<br>";
-        
-        $suma=0;
-        $matriz=array();
-            for($j=0;$j<count($tabla[$i]);$j++){
-                for($i=0;$i<=2;$i++){
-                    $suma+=$tabla[$i][$j];
+
+        /*Visualización en una matriz unidimensional que guarde la suma
+        de sus filas*/
+        $sumaFilas=0;
+        $matrizSumFilas=array();
+            for($i=0;$i<count($tabla);$i++){
+                for($j=0;$j<count($tabla);$j++){
+                    $sumaFilas+=$tabla[$i][$j];
                 }
-                $matriz[]=$suma;
-                $suma=0;
+                $matrizSumFilas[$i]=$sumaFilas;
+                $sumaFilas=0;
+            }
+        
+        echo "Matriz unidimensional resultante de la suma de los valores de las filas: <br>";
+        for($i=0;$i<=2;$i++){
+            echo $matrizSumFilas[$i]," ";
+        }
+        echo "<br>";
+        /*Visualización en una matriz unidimensional 
+        que guarde la suma de sus columnas*/
+        $sumaColumnas=0;
+        $matrizSumColumnas=array();
+            for($j=0;$j<count($tabla);$j++){
+                for($i=0;$i<count($tabla);$i++){
+                    $sumaColumnas+=$tabla[$i][$j];
+                }
+                $matrizSumColumnas[$j]=$sumaColumnas;
+                $sumaColumnas=0;
                 $i=0;
             }
-        echo "Array suma: <br>";
-        for($i=0;$i<count($matriz);$i++){
-            echo $matriz[$i],"<br>";
+        echo "Matriz unidimensional resultante de la suma de los valores de las columnas: <br>";
+        for($i=0;$i<=2;$i++){
+            echo $matrizSumColumnas[$i]," ";
         }
-
-        $búsqueda = 9;
-        $mensaje = "El número $búsqueda se encuentra en las coordenadas ";
-        for($i=0;$i<count($tabla);$i++){
-            for($j=0;$j<count($tabla[$i]);$j++){
-                if($tabla[$i][$j]==$búsqueda){
-                    $coordx=$i+1;
-                    $coordy=$j+1;
+        echo "<br>";
+        //Buscar un valor en la matriz
+        $valor=5;
+        $encontrado=false;
+        for($i=0;$i<count($tabla); $i++){
+            for($j=0; $j<count($tabla[$i]); $j++){
+                if($tabla[$i][$j]==$valor){
+                    $encontrado=true;
+                    $posicion[$i][]=$fila=$i;
+                    $col=$j;
+                    break;
                 }
             }
         }
-        echo "Valor: ", $búsqueda,
-        "<br>",
-        "Ubicación: (",$coordx,",",$coordy,") <br>";
+        echo var_dump($posicion);
     ?>
     <br>
     <h2>Ejercicio 6</h2>
     <?php
-    
+        $animales=array("Domesticos"=>array("Perro", "Gato"),"Salvajes"=>array("Lobo","Zebra","Jabalí"));
+        var_dump($animales);
+
+        foreach($animales as $clase=>$valor){
+            echo $clase,": ";
+            for($i=0;$i<count($valor); $i++){
+                echo $valor[$i]," ";
+            }
+            echo "<br>";
+        }
     ?>
     <br>
     <h2>Ejercicio 7</h2>
