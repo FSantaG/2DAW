@@ -242,6 +242,26 @@
                 }
             }
         }
+        $máxMedia=0;
+        $mediaTemp=0;
+        foreach($notas as $alumno=>$datos){
+            foreach($datos as $matricula){
+                if (is_array($matricula)){               
+                        foreach($matricula as $nota){
+                            $mediaTemp += (int)($nota);
+                        }
+                    $mediaCalif[]=$mediaTemp/2;
+                    $mediaTemp=0;
+                }
+            }
+        }
+        for($i=0;$i<count($mediaCalif); $i++){
+            if($mediaCalif[$i]>$máxMedia){
+                $máxMedia = $mediaCalif[$i];
+                $máxAlumno=$i+1;
+            }
+        }
+        echo "El alumno $máxAlumno tiene la mayor media ($máxMedia)";
     ?>
     <br>
     <h2>Ejercicio 10</h2>
