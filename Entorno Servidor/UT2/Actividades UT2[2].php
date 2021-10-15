@@ -201,12 +201,47 @@
     <br>
     <h2>Ejercicio 8</h2>
     <?php
-    
+        $oscars = array("Antonio Banderas"=>array("Dolor y Gloria", "La piel que habito"), "Brad Pitt"=>"Erase una vez...Hollywood", "Laura Darn"=>"Historia de un matrimonio");
+        
+        foreach($oscars as $actor =>$valor){
+            echo "$actor: ";
+            if(is_array($valor)){
+                foreach ($valor as $pelicula){
+                    echo "'$pelicula' ";
+                }
+                echo "<br>";
+            }else{
+                echo "'$valor' <br>";
+            }
+        }
+
     ?>
     <br>
     <h2>Ejercicio 9</h2>
     <?php
-    
+        $notas = array(
+            "Alumno 1"=>array(769184, "Notas"=>array(5,8)),
+            "Alumno 2"=>array(717612, "Notas"=>array(4,7)),
+            "Alumno 3"=>array(760391, "Notas"=>array(4,6)),
+            "Alumno 4"=>array(498589, "Notas"=>array(8,6)),
+            "Alumno 5"=>array(608589, "Notas"=>array(7,6))
+        );
+        $media=0;
+        foreach($notas as $alumno=>$datos){
+            foreach($datos as $matricula){
+                if (is_array($matricula)){               
+                        foreach($matricula as $nota){
+                            $media += (int)($nota);
+                        }
+                }else{
+                    echo "Media de $matricula: " ;
+                }
+                if($media!=0){
+                    echo $media/2, "<br>";
+                    $media=0;
+                }
+            }
+        }
     ?>
     <br>
     <h2>Ejercicio 10</h2>
