@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notas</title>
+  </head>
+  <body>
+    <script>
+      //Número de alumnos
+      let MAXIMO_ALUMNOS = 20;
+      let MODULOS = 5;
+      /*Bucle principal. Realiza 20 veces la comprobación de alumnos,
+        hasta que se compruebe el último alumno*/
+      for (let i = 1; i <= MAXIMO_ALUMNOS; i++) {
+        /*Comprueba que el nombre del alumno sea "válido".
+        Si presiona Cancelar o introduce vacío, repite la pregunta*/
+        let alumno = prompt("Nombre del alumno:");
+        while (alumno == "" || !alumno) {
+          alumno = prompt("Nombre del alumno:");
+        }
+        /*Comprueba la situación del alumno*/
+        let situacionAlumno = prompt(
+          "Situación del alumno:\nMatriculado (1)\nMatricula Anulada (2)\nÚltimo Alumno (3)"
+        );
+        while (
+          situacionAlumno != 1 &&
+          situacionAlumno != 2 &&
+          situacionAlumno != 3
+        ) {
+          situacionAlumno = prompt(
+            "Situación del alumno:\nMatriculado (1)\nMatricula Anulada (2)\nÚltimo Alumno (3)"
+          );
+        }
+        if (situacionAlumno == 1) {
+          for (let j = 1; j <= MODULOS; j++) {
+            let nota = prompt(`Nota del alumno en módulo ${j}`);
+            if (j == MODULOS) break;
+            let masModulos = prompt("¿Está matriculado en más módulos? S/N");
+            while (
+              masModulos != "S" &&
+              masModulos != "N" &&
+              masModulos != "s" &&
+              masModulos != "n"
+            ) {
+              masModulos = prompt("¿Está matriculado en más módulos? S/N");
+            }
+            if (masModulos == "N" || masModulos == "n") {
+              break;
+            }
+          }
+        } else if (situacionAlumno == 3) {
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>

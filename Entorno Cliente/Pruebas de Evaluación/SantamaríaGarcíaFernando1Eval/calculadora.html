@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <script>
+      /*Suma los valores introducidos como parámetros, devolviendo 
+        el resultado*/
+      function sumar(sum1, sum2) {
+        let suma = Number(sum1) + Number(sum2);
+        return suma;
+      }
+      /*Resta los valores introducidos como parámetros, devolviendo 
+      el resultado*/
+      function restar(rest1, rest2) {
+        let resta = rest1 - rest2;
+        return resta;
+      }
+      /* Multiplica los valores introducidos como parámetros, devolviendo
+    el resultado */
+      function multiplicar(factor1, factor2) {
+        let multiplicación = factor1 * factor2;
+        return multiplicación;
+      }
+      /*divide los valores introducidos como parámetros, devolviendo 
+      el resultado en forma de cociente entero y resto*/
+      function dividir(dividendo, divisor) {
+        let cociente = parseInt(dividendo / divisor);
+        let resto = dividendo % divisor;
+        let mensaje = `Cociente: ${cociente}, Resto: ${resto}`;
+        return mensaje;
+      }
+      /*Realiza el módulo los valores introducidos como parámetros, 
+      devolviendo el resultado*/
+      function modular(mod1, mod2) {
+        let modulo = mod1 % mod2;
+        return modulo;
+      }
+      /*Realiza la potencia de un número introducido como parámetro, 
+      elevado al segundo dígito introducido*/
+      function exponenciar(base, exponente) {
+        let potencia = base ** exponente;
+        return potencia;
+      }
+      //Variable que controla la salida del programa
+      let salir = false;
+      /*Variable que controla la selección. En caso de no ser un valor
+      admitido, realizará de nuevo la petición, hasta que se ofrezca un valor
+      válido*/
+      while (salir == false) {
+        let seleccion = prompt(
+          "Seleccione una operación, por favor:\na) Suma (+)\nb) Resta (-)\nc) Multiplicación (*)\nd) División (/)\ne) Resto entero (%)\nf) Exponenciación (**)\ng) SALIR (x)"
+        );
+        while (
+          seleccion != "+" &&
+          seleccion != "-" &&
+          seleccion != "*" &&
+          seleccion != "/" &&
+          seleccion != "%" &&
+          seleccion != "**" &&
+          seleccion != "x"
+        ) {
+          seleccion = prompt(
+            "Seleccione una operación, por favor:\na) Suma (+)\nb) Resta (-)\nc) Multiplicación (*)\nd) División (/)\ne) Resto entero (%)\nf) Exponenciación (**)\ng) SALIR (x)"
+          );
+        }
+        //Valida la salida.
+        if (seleccion == "x") {
+          salir = true;
+        }
+        /*Doble switch. El primero comprueba la salida, si se ha introducido
+        una operación válida, pedirá al usuario dos dígitos válidos, 
+        realizando la operación solicitada. Si por el contrario, ha solicitado 
+        cerrar el programa, muestra un mensaje de despedida*/
+        if (salir == false) {
+          let digito1 = prompt("Introduzca el primer número");
+          while (!Number(digito1)) {
+            digito1 = prompt("Introduzca el primer número");
+          }
+          let digito2 = prompt("Introduzca el segundo número");
+          while (!Number(digito2)) {
+            digito2 = prompt("Introduzca el segundo número");
+          }
+          switch (seleccion) {
+            case "+":
+              alert(`${digito1} + ${digito2} = ${sumar(digito1, digito2)}`);
+              break;
+            case "-":
+              alert(`${digito1} - ${digito2} = ${restar(digito1, digito2)}`);
+              break;
+            case "*":
+              alert(
+                `${digito1} * ${digito2} = ${multiplicar(digito1, digito2)}`
+              );
+              break;
+            case "/":
+              alert(`${digito1} / ${digito2} = ${dividir(digito1, digito2)}`);
+              break;
+            case "%":
+              alert(
+                `${digito1} módulo ${digito2} = ${modular(digito1, digito2)}`
+              );
+              break;
+            case "**":
+              alert(
+                `${digito1} ^ ${digito2} = ${exponenciar(digito1, digito2)}`
+              );
+              break;
+          }
+        } else {
+          alert("¡Hasta la vista!");
+        }
+      }
+    </script>
+  </body>
+</html>
