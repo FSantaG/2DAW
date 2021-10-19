@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suma de propiedades de un objeto</title>
+  </head>
+  <body>
+    <h1>Suma de propiedades de un objeto</h1>
+    <h3>
+      Con un objeto salarios, escribe el código para sumar todos los salarios,
+      almacenando el resultado en una variable "Suma". <br />Si salarios está
+      vacío, dará 0
+    </h3>
+    <script>
+      let salaries = {
+        Manolo: 170,
+        Pepe: 160,
+        Mónica: 260,
+      };
+      let suma = 0;
+      for (clave in salaries) {
+        suma += salaries[clave];
+      }
+      alert(`La suma de salarios es: ${suma}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verificar los vacíos</title>
+  </head>
+  <body>
+    <h1>Verificar los vacíos</h1>
+    <h3>
+      Escribe la función isEmpty(obj) que devuelva true si el objeto no tiene
+      propiedades. En caso contrario, false
+    </h3>
+    <script>
+      function isEmpty(objeto) {
+        let contador = 0;
+        for (clave in objeto) {
+          contador++;
+        }
+        if (contador == 0) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      let usuario = {
+        age: "17",
+        id: "67859B",
+      };
+      alert(isEmpty(usuario));
+    </script>
+  </body>
+</html>
