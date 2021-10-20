@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Encadenamiento</h1>
+    <h3>Modificar código para que sea encadenable</h3>
+    <script>
+      /*
+        Se le añade return this porque si se quiere concatenar métodos, se requiere una referencia del mismo nivel.
+        */
+      let ladder = {
+        step: 0,
+        up() {
+          this.step++;
+          return this;
+        },
+        down() {
+          this.step--;
+          return this;
+        },
+        showStep: function () {
+          // muestra el peldaño actual
+          alert(this.step);
+          return this;
+        },
+      };
+
+      ladder.up().up().down().showStep();
+    </script>
+  </body>
+</html>

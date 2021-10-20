@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Crear una calculadora</h1>
+    <h3>
+      Crear un objeto calculator con 3 métodos:<br />
+      read(): pide dos valores y los almacena como propiedades de objeto <br />
+      sum(): devuelve la suma de los valores almacenados <br />
+      mul(): multiplica los valores almacenados y devuelve el resultado
+    </h3>
+    <script>
+      //   let calculator = {
+      //     read(valor1, valor2) {
+      //       this.dígito1 = valor1;
+      //       this.dígito2 = valor2;
+      //     },
+      //     sum() {
+      //       let suma = Number(this.dígito1) + Number(this.dígito2);
+      //       return suma;
+      //     },
+      //     mul() {
+      //       let multiplicación = this.dígito1 * this.dígito2;
+      //       return multiplicación;
+      //     },
+      //   };
+
+      //   calculator.read(1, 2);
+      //   alert(calculator.sum());
+      //   alert(calculator.mul());
+
+      //Versión corregida:
+
+      let calculator = {
+        read() {
+          this.dígito1 = prompt("¿Primer número?");
+          this.dígito2 = prompt("¿Segundo número?");
+        },
+        sum() {
+          let suma = Number(this.dígito1) + Number(this.dígito2);
+          return suma;
+        },
+        mul() {
+          let multiplicación = this.dígito1 * this.dígito2;
+          return multiplicación;
+        },
+      };
+
+      calculator.read();
+      alert(calculator.sum());
+      alert(calculator.mul());
+    </script>
+  </body>
+</html>
