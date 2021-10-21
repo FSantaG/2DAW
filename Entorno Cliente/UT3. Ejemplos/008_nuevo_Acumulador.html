@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Acumulador</h1>
+    <h3>
+      Crear una función Acumulador, que guarde un valor inicial, y vaya sumando
+      a este valor los números introducidos mediante un prompt gracias a un
+      método interno llamado read()
+    </h3>
+    <script>
+      function Accumulator(valorInicial) {
+        this.value = Number(valorInicial);
+        this.read = function () {
+          this.value += Number(prompt("¿Valor?"));
+        };
+      }
+
+      let accumulator = new Accumulator(1); // valor inicial 1
+
+      accumulator.read(); // agrega el valor introducido por el usuario
+      accumulator.read(); // agrega el valor introducido por el usuario
+
+      alert(accumulator.value); // muestra la suma de estos valores
+    </script>
+  </body>
+</html>

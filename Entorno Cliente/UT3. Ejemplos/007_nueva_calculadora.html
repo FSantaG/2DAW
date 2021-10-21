@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Nueva Calculadora</h1>
+    <h3>
+      Desarrollar un constructor "Calculadora" que cree objetos con 3 métodos:
+      <br />Uno de lectura, mediante el cual el ususario introduzca 2 valores y
+      los almacene<br />Uno de suma, que los sume y devuelva el resultado<br />
+      Uno de multiplicación, que los multiplique y devuelva el producto
+    </h3>
+    <script>
+      function Calculator() {
+        this.read = function () {
+          this.num1 = prompt("Primer dígito: ");
+          this.num2 = prompt("Segundo dígito: ");
+        };
+        this.sum = function () {
+          return Number(this.num1) + Number(this.num2);
+        };
+        this.mult = function () {
+          return this.num1 * this.num2;
+        };
+      }
+
+      let calculator = new Calculator();
+      calculator.read();
+
+      alert("Sum=" + calculator.sum());
+      alert("Mul=" + calculator.mult());
+    </script>
+  </body>
+</html>
