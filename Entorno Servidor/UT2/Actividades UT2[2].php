@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Actividades [2]</title>
 </head>
 <body>
     <h2>Ejercicio 1</h2>
@@ -266,10 +266,53 @@
     <br>
     <h2>Ejercicio 10</h2>
     <?php
-    
+        $ciclos = array("ASIR"=> array("-18"=>5, "18-22"=>7, "+22"=>3),
+        "DAW"=>array("-18"=>15, "18-22"=>0, "+22"=>0),
+        "DAM"=>array("-18"=>20, "18-22"=>0, "+22"=>0),
+        "Medio"=>array("-18"=>2, "18-22"=>13, "+22"=>0));
+
+        foreach($ciclos as $modulo=>$alumnos){
+                if($alumnos["18-22"]==0 && $alumnos["+22"]==0){
+                        echo "En el módulo $modulo hay sólo alumnos menores de edad (",$alumnos["-18"],") <br>";
+                }
+        }
     ?>
     <br>
     <h2>Ejercicio 11</h2>
+    <?php
+        $frase = "A mi me mima";
+        $fraseminus=strtolower($frase); //convertir todos los caracteres a minúsculas
+        $sinblancos=" ";//construir un nuevo string sin los caracteres blancos
+        for ($i=0;$i<strlen($fraseminus);$i++){
+           if($fraseminus[$i]!=" ") {
+
+           }
+        }
+    
+    
+    if($palindromo){
+                echo "$frase es un palíndromo";
+    }else{
+                echo "$frase no es un palíndromo";
+    }
+    ?>
+    <br>
+    <h2>Ejercicio 12</h2>
+    <?php
+    
+    ?>
+    <br>
+    <h2>Ejercicio 13</h2>
+    <?php
+    
+    ?>
+    <br>
+    <h2>Ejercicio 14</h2>
+    <?php
+    
+    ?>
+    <br>
+    <h2>Ejercicio 15</h2>
     <?php
     
     ?>
