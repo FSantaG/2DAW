@@ -220,11 +220,11 @@
     <h2>Ejercicio 9</h2>
     <?php
         $notas = array(
-            "Alumno 1"=>array(769184, "Notas"=>array(5,8)),
-            "Alumno 2"=>array(717612, "Notas"=>array(4,7)),
-            "Alumno 3"=>array(760391, "Notas"=>array(4,6)),
-            "Alumno 4"=>array(498589, "Notas"=>array(8,6)),
-            "Alumno 5"=>array(608589, "Notas"=>array(7,6))
+            "Alumno 1"=>array("Matrícula"=>769184, "Notas"=>array(5,8)),
+            "Alumno 2"=>array("Matrícula"=>717612, "Notas"=>array(4,7)),
+            "Alumno 3"=>array("Matrícula"=>760391, "Notas"=>array(4,6)),
+            "Alumno 4"=>array("Matrícula"=>498589, "Notas"=>array(8,3)),
+            "Alumno 5"=>array("Matrícula"=>608589, "Notas"=>array(7,6))
         );
         $media=0;
         foreach($notas as $alumno=>$datos){
@@ -258,43 +258,47 @@
         for($i=0;$i<count($mediaCalif); $i++){
             if($mediaCalif[$i]>$máxMedia){
                 $máxMedia = $mediaCalif[$i];
-                $máxAlumno=$i+1;
+                $máxAlumno=$i+1; //El +1 sirve para corresponder el valor de la posición del array con el número del alumno
             }
         }
-        echo "El alumno $máxAlumno tiene la mayor media ($máxMedia)";
+        $alumnoMáximo = "Alumno $máxAlumno";
+        echo "El alumno ", $notas[$alumnoMáximo]["Matrícula"]," tiene la mayor media ($máxMedia)";
     ?>
     <br>
     <h2>Ejercicio 10</h2>
     <?php
         $ciclos = array("ASIR"=> array("-18"=>5, "18-22"=>7, "+22"=>3),
-        "DAW"=>array("-18"=>15, "18-22"=>0, "+22"=>0),
+        "DAW"=>array("-18"=>0, "18-22"=>15, "+22"=>0),
         "DAM"=>array("-18"=>20, "18-22"=>0, "+22"=>0),
         "Medio"=>array("-18"=>2, "18-22"=>13, "+22"=>0));
 
         foreach($ciclos as $modulo=>$alumnos){
-                if($alumnos["18-22"]==0 && $alumnos["+22"]==0){
-                        echo "En el módulo $modulo hay sólo alumnos menores de edad (",$alumnos["-18"],") <br>";
+                if($alumnos["-18"]==0 && $alumnos["+22"]==0){
+                        echo "En el módulo $modulo hay sólo alumnos menores de edad (",$alumnos["18-22"],") <br>";
                 }
         }
     ?>
     <br>
     <h2>Ejercicio 11</h2>
     <?php
-        $frase = "A mi me mima";
-        $fraseminus=strtolower($frase); //convertir todos los caracteres a minúsculas
-        $sinblancos=" ";//construir un nuevo string sin los caracteres blancos
-        for ($i=0;$i<strlen($fraseminus);$i++){
-           if($fraseminus[$i]!=" ") {
+        $frase="";
+        $frase2="";
+        $palindromo="dabale arroz a la zorra el abad";
 
-           }
+        for($i = 1; $i < strlen($palindromo); $i++){
+            if($palindromo[strlen($palindromo) - $i] != " "){
+                $frase .= $palindromo[strlen($palindromo)-$i];
+            }
+            if($palindromo[$i-1] != " "){
+                $frase2 .= $palindromo[$i-1];
+            }
         }
-    
-    
-    if($palindromo){
-                echo "$frase es un palíndromo";
-    }else{
-                echo "$frase no es un palíndromo";
-    }
+
+        if($frase==$frase2){
+            echo "True";
+        }else{
+            echo "False";
+        }
     ?>
     <br>
     <h2>Ejercicio 12</h2>
