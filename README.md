@@ -1,2 +1,2 @@
 # 2DAW
-Entorno global para prácticas y otras mandangas
+Entorno donde almaceno los ejercicios realizados durante mi estancia en el segundo curso de Desarrollo de aplicaciones web.
