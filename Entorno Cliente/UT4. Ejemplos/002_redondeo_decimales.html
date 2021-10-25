@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redondear Correctamente 6.35</title>
+  </head>
+  <body>
+    <script>
+      alert((1.35).toFixed(1));
+      alert((6.35).toFixed(1));
+
+      //Solución: Podría multiplicarse por 10 el valor
+      //inicial, hacer el redondeo, y dividir el resultado
+      //entre 10.
+
+      alert(Math.round(6.35 * 10) / 10);
+    </script>
+  </body>
+</html>

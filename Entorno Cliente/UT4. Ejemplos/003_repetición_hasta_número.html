@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repetir hasta que el número introducido sea un número</title>
+  </head>
+  <body>
+    <script>
+      function readNumber() {
+        let valor;
+        while (!isFinite(valor) || valor == null) {
+          valor = prompt("Introduzca un número");
+        }
+        return valor;
+      }
+
+      readNumber();
+    </script>
+  </body>
+</html>
