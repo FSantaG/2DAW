@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u3e01_cuenta</title>
+  </head>
+  <body>
+    <script>
+      function ingresar() {
+        let saldoAñadido = +prompt("Indique la cantidad a añadir", "0");
+        cuenta.saldo += saldoAñadido;
+        return alert("Saldo añadido con éxito");
+      }
+
+      function extraer() {
+        let saldoRetirado = +prompt(
+          "Indique la cantidad a retirar de la cuenta",
+          "0"
+        );
+        cuenta.saldo -= saldoRetirado;
+        return alert("Saldo retirado con éxito");
+      }
+
+      function informar() {
+        return alert(`La cantidad actual en la cuenta es de ${cuenta.saldo}`);
+      }
+
+      let cuenta = {
+        titular: "Alex",
+        saldo: 0,
+      };
+
+      let salida = false;
+      while (!salida) {
+        let respuesta = +prompt(
+          "Introduzca una opción válida \n(1) Añadir saldo\n(2) Retirar saldo\n(3) Consultar saldo actual"
+        );
+        switch (respuesta) {
+          case 1:
+            ingresar();
+            break;
+          case 2:
+            extraer();
+            break;
+          case 3:
+            informar();
+            break;
+          default:
+            salida = true;
+            alert(
+              "Ante la incapacidad de analizar su respuesta, el programa ha decidido cerrar la ejecución. Refresque la página, y vuelva a intentarlo"
+            );
+            break;
+        }
+      }
+
+      cuenta.saldoMáximo = 1000;
+      cuenta.fechaApertura = "25/10/2021";
+      document.write(
+        "Se han añadido las propiedades saldoMáximo: 1000 y fechaApertura: 25/10/2021 <br>"
+      );
+
+      delete cuenta.saldoMáximo;
+      document.write("Se ha eliminado el saldo máximo");
+    </script>
+  </body>
+</html>
