@@ -11,7 +11,7 @@
       function readNumber() {
         let valor;
         while (!isFinite(valor) || valor == null) {
-          valor = prompt("Introduzca un número");
+          valor = prompt("Introduzca un número", 0);
         }
         return valor;
       }
