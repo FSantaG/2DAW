@@ -8,11 +8,14 @@
   </head>
   <body>
     <script>
+      //Para que incluya ambos valores, y tengan las mismas
+      //posibilidades, se suma uno al máximo, y se resta el
+      //mínimo.
       function randomInteger(min, max) {
-        return Math.round(min + Math.random() * (max - min));
+        return Math.floor(min + Math.random() * (max + 1 - min));
       }
 
-      document.write(randomInteger(1, 50));
+      document.write(randomInteger(2, 5));
     </script>
   </body>
 </html>
