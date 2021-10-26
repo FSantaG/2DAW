@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u3e02_discos</title>
+  </head>
+  <body>
+    <script>
+      function Disco(nombre, grupo, año, tipo, loc = 0, prestado = false) {
+        this.nombre = nombre;
+        this.grupo = grupo;
+        this.año = año;
+        tipo = tipo.toLowerCase();
+        if (
+          tipo != "rock" &&
+          tipo != "pop" &&
+          tipo != "punk" &&
+          tipo != "indie"
+        ) {
+          alert(
+            Error(
+              "Género de música no admitido (“rock”, “pop”, “punk” o “indie”). Se considerará como no introducido"
+            )
+          );
+          this.tipo = "N/A";
+        } else {
+          this.tipo = tipo;
+        }
+        this.loc = loc;
+        prestado = prestado.toLowerCase();
+        if (prestado != "si" && prestado != "no") {
+          this.prestado = false;
+        } else if ((prestado = "si")) {
+          this.prestado = true;
+        } else {
+          this.prestado = false;
+        }
+        this.cambiarLoc = function (nuevaLoc) {
+          if (!Number(nuevaLoc)) {
+            alert(
+              Error(
+                "valor introducido no válido. Valor establecido por deecto: 0"
+              )
+            );
+            this.loc = 0;
+          } else {
+            this.loc = nuevaLoc;
+          }
+        };
+        this.cambiarEstatus = function (estatus) {
+          this.prestado = estatus;
+        };
+        this.mostrar = function () {
+          alert("Nombre del disco: " + this.nombre);
+          alert("Grupo: " + this.grupo);
+          alert("Año de salida: " + this.año);
+          alert("Género: " + this.tipo);
+          alert("Localización (Número de estantería): " + this.loc);
+          alert("¿Prestado? " + this.prestado);
+        };
+      }
+
+      let disco = new Disco(
+        prompt("Nombre del disco:"),
+        prompt("Grupo "),
+        prompt("Año de salida:"),
+        prompt("Género (“rock”, “pop”, “punk” o “indie”):"),
+        prompt("Localización (Número de estantería):"),
+        prompt("¿Prestado? (true=si, false=no)")
+      );
+
+      let menu;
+      let salida = false;
+      while (salida == false) {
+        menu = prompt(`Seleccione una opción:
+      1) Mostrar información del disco
+      2) Cambiar disco de estantería
+      3) Prestar
+      4) Devolver
+      E) Salir del programa`);
+        switch (menu) {
+          case "1":
+            disco.mostrar();
+            break;
+          case "2":
+            disco.cambiarLoc(prompt("Elija la nueva ubicación", 0));
+            break;
+          case "3":
+            if (disco.prestado == false) {
+              disco.cambiarEstatus(true);
+              alert("Disco prestado");
+              break;
+            } else {
+              alert("El disco ya está prestado");
+              break;
+            }
+          case "4":
+            if (disco.prestado == true) {
+              disco.cambiarEstatus(false);
+              alert("Disco devuelto");
+              break;
+            } else {
+              alert("El disco ya está devuelto");
+              break;
+            }
+          case "E":
+          case "e":
+            salida = true;
+            break;
+          default:
+            alert("Por favor, introduzca un valor válido");
+        }
+      }
+    </script>
+  </body>
+</html>
