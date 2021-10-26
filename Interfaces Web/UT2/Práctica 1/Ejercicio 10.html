@@ -9,13 +9,19 @@
       body {
         font-family: sans-serif;
       }
-      table {
+      table,
+      td,
+      th {
         border: solid black 1px;
+        border-collapse: collapse;
+        text-align: center;
+        vertical-align: center;
+        padding: 5px;
       }
       #index {
         background-color: rgba(231, 231, 231, 255);
       }
-      #amarillo {
+      .amarillo {
         background-color: rgba(255, 255, 206, 255);
       }
     </style>
@@ -35,10 +41,10 @@
       </tr>
       <tr>
         <th><img src="./img/euro.png" />Euro/Dolar</th>
-        <td id="amarillo">1.2524</td>
-        <td id="amarillo">1.2527</td>
-        <td id="amarillo">1.2539</td>
-        <td id="amarillo">1.2488</td>
+        <td class="amarillo">1.2524</td>
+        <td class="amarillo">1.2527</td>
+        <td class="amarillo">1.2539</td>
+        <td class="amarillo">1.2488</td>
       </tr>
       <tr>
         <th><img src="./img/dolar.png" />Dolar/Yen</th>
@@ -49,10 +55,10 @@
       </tr>
       <tr>
         <th><img src="./img/libra.png" />Libra/Dolar</th>
-        <td id="amarillo">1.8606</td>
-        <td id="amarillo">1.8611</td>
-        <td id="amarillo">1.8651</td>
-        <td id="amarillo">1.8522</td>
+        <td class="amarillo">1.8606</td>
+        <td class="amarillo">1.8611</td>
+        <td class="amarillo">1.8651</td>
+        <td class="amarillo">1.8522</td>
       </tr>
       <tr>
         <th><img src="./img/yen.png" />Yen/Euro</th>
