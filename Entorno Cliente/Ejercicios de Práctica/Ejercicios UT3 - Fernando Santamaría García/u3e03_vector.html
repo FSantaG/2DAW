@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u3e03_vector</title>
+  </head>
+  <body>
+    <script>
+      function Vector(x, y) {
+        this.x = x;
+        this.y = y;
+        let longitud = Math.sqrt(x ** 2 + y ** 2);
+        this.longitud = longitud;
+        this.getX = function () {
+          return x;
+        };
+        this.setX = function (nuevaX) {
+          x = nuevaX;
+        };
+        this.getY = function () {
+          return y;
+        };
+        this.setY = function (nuevaY) {
+          x = nuevaY;
+        };
+        this.sumar = function (nuevaX, nuevaY) {
+          let sumaX = x + nuevaX;
+          let sumaY = y + nuevaY;
+          return "x: " + sumaX + ", y: " + sumaY;
+        };
+        this.restar = function (nuevaX, nuevaY) {
+          let restaX = x - nuevaX;
+          let restaY = y - nuevaY;
+          return "x: " + restaX + ", y: " + restaY;
+        };
+      }
+
+      console.log(new Vector(1, 2).sumar(2, 3)); // => {x: 3, y: 5};
+      console.log(new Vector(1, 2).restar(2, 3)); // => {x: -1, y: -1};
+      console.log(new Vector(3, 4).longitud); // => 5
+    </script>
+  </body>
+</html>
