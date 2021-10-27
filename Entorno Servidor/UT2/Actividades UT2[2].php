@@ -340,7 +340,33 @@
     <br>
     <h2>Ejercicio 14</h2>
     <?php
-    
+     $asientos = array(
+        "1" => "Libre",
+        "2" => "Ocupado",
+        "4" => "Libre",
+        "3" => "Ocupado",
+        "5" => "Ocupado",
+        "6" => "Ocupado",
+        "8" => "Ocupado",
+        "7" => "Ocupado",
+        "9" => "Libre",
+        "10" => "Ocupado",
+        "12" => "Ocupado",
+        "11" => "Ocupado",
+        "13" => "Libre",
+        "14" => "Ocupado",
+        "16" => "Libre",
+        "15" => "Ocupado",
+    );
+    $totalAsientosLibres=0;
+    $contador=0;
+    foreach($asientos as $numero=>$estado){
+        if($estado=="Libre"){
+            $contador++;
+            echo "$numero <br/>";
+        }
+    }
+    echo "Hay $contador asientos libres";
     ?>
     <br>
     <h2>Ejercicio 15</h2>
