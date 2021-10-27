@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u3e04_vehiculo</title>
+  </head>
+  <body>
+    <script>
+      function Vehiculo(color, marca, modelo, velocidadMaxima) {
+        this.color = color;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidadMaxima = velocidadMaxima;
+
+        this.comenzar = function () {
+          alert("Encender motor");
+        };
+        this.parar = function () {
+          alert("Apagar motor");
+        };
+        this.calcularDistMax = function (tiempo) {
+          let distanciaMax = 0;
+          distanciaMax = this.velocidadMaxima * (tiempo / 3600);
+          alert(
+            `La distancia recorrida en ${tiempo} segundos ha sido ${distanciaMax} kms`
+          );
+        };
+      }
+
+      let vehiculo = new Vehiculo(
+        prompt("¿Color?"),
+        prompt("Marca"),
+        prompt("¿Modelo?"),
+        prompt("¿Velocidad máxima que puede alcanzar?")
+      );
+
+      vehiculo.comenzar();
+      vehiculo.parar();
+      vehiculo.calcularDistMax(
+        +prompt("¿Cuánto tiempo has tenido encendido el motor?")
+      );
+    </script>
+  </body>
+</html>
