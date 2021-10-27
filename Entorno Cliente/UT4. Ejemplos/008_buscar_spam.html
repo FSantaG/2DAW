@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comprobar spam</title>
+  </head>
+  <body>
+    <script>
+      function checkSpam(str) {
+        let mensaje = str.toLowerCase();
+        return mensaje.includes("viagra") || mensaje.includes("xxx");
+      }
+
+      alert(checkSpam("compra ViAgRA ahora"));
+      alert(checkSpam("xxxxx gratis"));
+      alert(checkSpam("coneja inocente"));
+    </script>
+  </body>
+</html>
