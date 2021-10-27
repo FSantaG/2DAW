@@ -383,7 +383,6 @@
             foreach($numComponente as $componente){
                 if($componente == "Apache"){
                     $mensaje.="$plataforma ";
-
                 }
                 
             }
