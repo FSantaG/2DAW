@@ -360,18 +360,35 @@
     );
     $totalAsientosLibres=0;
     $contador=0;
+    $asiento="";
     foreach($asientos as $numero=>$estado){
         if($estado=="Libre"){
             $contador++;
-            echo "$numero <br/>";
+            $asiento.="$numero ";
         }
     }
-    echo "Hay $contador asientos libres";
+    echo "Hay $contador asientos libres: $asiento";
     ?>
     <br>
     <h2>Ejercicio 15</h2>
     <?php
-    
+        $plataformas = array(
+            "LAMP"=>array("Linux","Apache","MySQL","PHP"),
+            "WISA"=>array("Windows","IIS","SQL Server","ASP"),
+            "WAMP"=>array("Windows","Apache","MySQL","PHP"),
+            "WIMP"=>array("Windows","IIS","MySQL","PHP")
+        );
+        $mensaje="";
+        foreach($plataformas as $plataforma=>$numComponente){
+            foreach($numComponente as $componente){
+                if($componente == "Apache"){
+                    $mensaje.="$plataforma ";
+
+                }
+                
+            }
+        }
+        echo "Las plataformas que emplean APACHE son: $mensaje";
     ?>
 </body>
 </html>
