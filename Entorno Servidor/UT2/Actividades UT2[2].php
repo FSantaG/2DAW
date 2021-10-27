@@ -303,7 +303,14 @@
     <br>
     <h2>Ejercicio 12</h2>
     <?php
-    
+    $dni=71309228;
+    $letras=array("T","R","W","A","G", "M", "Y", "F", "P", "D", "X", "B", 
+    "N", "J", "Z", "S", "Q", "V",
+    "H", "L", "C", "K", "E");
+    function calcularLetraDNI($dni){
+        return $dni - ((int)($dni/23)*23);
+    }
+    echo $dni.$letras[calcularLetraDNI($dni)];
     ?>
     <br>
     <h2>Ejercicio 13</h2>
