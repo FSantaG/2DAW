@@ -315,7 +315,27 @@
     <br>
     <h2>Ejercicio 13</h2>
     <?php
-    
+        $castilla_leon=array(
+            "Ávila"=>array(9, 5),
+            "Burgos"=>array(40, 10),
+            "León"=>array(25, 7),
+            "Palencia"=>array(6, 0),
+            "Salamanca"=>array(12, 3),
+            "Segovia"=>array(9, 5),
+            "Soria"=>array(18, 18),
+            "Valladolid"=>array(3, 2),
+            "Zamora"=>array(13, 0)
+        );
+        $posicion=1; //La posición 1 es la que ocupan los hospitalizados en el array
+        function calcularHospitalizados($castilla_leon, $posicion){
+            $total=0;
+            foreach($castilla_leon as $clave=>$valor){
+                $total +=$castilla_leon[$clave][$posicion];
+            }
+            return $total;
+        }
+        
+        echo "La cantidad de hospitalizados es: ",calcularHospitalizados($castilla_leon, $posicion);
     ?>
     <br>
     <h2>Ejercicio 14</h2>
