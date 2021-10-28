@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suma de números ingresados</title>
+  </head>
+  <body>
+    <script>
+      function sumInput() {
+        let array = [],
+          salida = false,
+          valor,
+          suma = 0;
+        while (salida == false) {
+          valor = prompt("Introduzca un valor numérico");
+          if (Number(valor) || (valor == 0 && valor != "")) {
+            array.push(valor);
+          } else {
+            salida = true;
+          }
+        }
+        for (i = 0; i < array.length; i++) {
+          suma += +array[i];
+        }
+        alert(`Suma de los valores introducidos: ${suma}`);
+      }
+      sumInput();
+    </script>
+  </body>
+</html>

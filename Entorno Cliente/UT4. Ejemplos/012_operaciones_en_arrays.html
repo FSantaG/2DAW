@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operaciones en arrays</title>
+  </head>
+  <body>
+    <script>
+      // Crear un array styles con los items “Jazz” y “Blues”
+      let styles = ["Jazz", "Blues"];
+      for (let i = 0; i < styles.length; i++) {
+        document.write(styles[i] + "<br/>");
+      }
+      document.write("<br/>");
+      //Agregar “Rock-n-Roll” al final.
+      styles.push("Rock & Roll");
+      for (let i = 0; i < styles.length; i++) {
+        document.write(styles[i] + "<br/>");
+      }
+      document.write("<br/>");
+      //Reemplazar el valor en el medio por “Classics”. Tu código para encontrar el valor medio debe funcionar con cualquier array de longitud impar.
+      styles[Math.floor(styles.length / 2)] = "Classic";
+      for (let i = 0; i < styles.length; i++) {
+        document.write(styles[i] + "<br/>");
+      }
+      document.write("<br/>");
+      //Quitar el primer valor del array y mostrarlo.
+      alert(styles.shift());
+      for (let i = 0; i < styles.length; i++) {
+        document.write(styles[i] + "<br/>");
+      }
+      document.write("<br/>");
+      //Anteponer Rap y Reggae al array.
+      styles.unshift("Rap", "Reggue");
+      for (let i = 0; i < styles.length; i++) {
+        document.write(styles[i] + "<br/>");
+      }
+    </script>
+  </body>
+</html>
