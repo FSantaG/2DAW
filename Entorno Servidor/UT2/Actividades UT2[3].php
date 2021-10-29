@@ -224,7 +224,28 @@
     <br>
     <h1>Ejercicio 20 </h1>
     <?php
+        function caducar(&$farma){
+            for($i=0;$i<count($farma); $i++){
+                $f_unix=strtotime($farma[$i][1]);
+                $hoy=mktime(0,0,0,date("m"), date("d"), date("y"));
+                $caducado=$hoy-$f_unix;
+                var_dump($i);
+                var_dump($caducado);
+                if($caducado>0){
+                    echo $farma[$i][0]," está caducado. <br>";
+                    unset($farma[$i]);
+                }
+            }
+        }
 
+        $farmacia = array(array("ibuprofeno","4-2021"),
+        array("flutox","7-2019"),
+        array("betadine","12-2019"),
+        array("fenergan","5-2022"),
+        array("termalgin","8-2022"));
+        var_dump($farmacia);
+        caducar($farmacia);
+        var_dump($farmacia);
     ?>
     <br>
     <h1>Ejercicio 21 </h1>
