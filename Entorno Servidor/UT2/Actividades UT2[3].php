@@ -250,7 +250,18 @@
     <br>
     <h1>Ejercicio 21 </h1>
     <?php
-
+        //Caso 1: Da error
+        //Caso 2: Devuelve 1 porque se declara como global la variable var1 
+        //(Es mejor apsarla como parámetro)
+        //Caso 3: Devuelve primero un 2 y luego un 3
+        //Caso 4: En la primera rotación devuelve var2(2) y var3(11).
+        //Al vovlerlo a pasar, var2 se modifica porque var3 es estática, y mantiene el 11, pasando a 22, y
+        //asignando a var2 el valor 23.
+        //Caso 5: Devuelve $p = 2, aunque no modifica var1.
+        //Caso 6: Se muesta 11 porque se crea una variable var2 global
+        //Caso 7: Al ser un paso por referencia, la variable var1 pasada como parámetro
+        //de la función se modifica globalmente, por lo que al llamar a la variable, se mostrará un 2.
+        //Caso 8: Sería 150
     ?>
     <br>
     <h1>Ejercicio 22 </h1>
