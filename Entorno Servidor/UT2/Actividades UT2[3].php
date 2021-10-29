@@ -205,6 +205,20 @@
     <br>
     <h1>Ejercicio 19 </h1>
     <?php
+        function dias_navidad(){
+            date_default_timezone_set("Europe/Madrid");
+            $navidad=mktime(0,0,0,12,25,2021);
+            $hoy=mktime(0,0,0,date("m"), date("d"), date("y"));
+            $dif=($navidad-$hoy);
+            if($dif%86400 !=0){
+                $dias=(int)($dif/86400)+1;
+            }else{
+                $dias=(int)($dif/86400);
+            }
+            echo "Quedan $dias días para Navidad";
+        }
+
+        dias_navidad();
 
     ?>
     <br>
