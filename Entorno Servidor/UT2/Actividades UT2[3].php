@@ -194,7 +194,13 @@
     <br>
     <h1>Ejercicio 18 </h1>
     <?php
-
+        function calcularEdad($año, $mesNac, $diaNac){
+            $segundosUnix=mktime(0,0,0,$mesNac,$diaNac,$año);
+            $segundosV=time()-$segundosUnix;
+            $edad=$segundosV/60/60/24/365.25;
+            echo "Edad: ", (integer)$edad, " años.";
+        }
+        calcularEdad(2004,3,15);
     ?>
     <br>
     <h1>Ejercicio 19 </h1>
