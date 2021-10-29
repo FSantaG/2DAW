@@ -207,7 +207,7 @@
     <?php
         function dias_navidad(){
             date_default_timezone_set("Europe/Madrid");
-            $navidad=mktime(0,0,0,12,25,2021);
+            $navidad=mktime(0,0,0,12,25,date("y"));
             $hoy=mktime(0,0,0,date("m"), date("d"), date("y"));
             $dif=($navidad-$hoy);
             if($dif%86400 !=0){
