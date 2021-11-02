@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tablas</title>
+    <style>
+      form ul {
+        list-style-type: none;
+      }
+      form ul li {
+        padding: 3px;
+      }
+      form > ul > li:first-line {
+        font-weight: bold;
+      }
+      input:focus {
+        border: black solid 2px;
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formulario</h1>
+    <form method="get" action=".">
+      <ul>
+        <li>
+          Input HTML
+          <ul>
+            <li>
+              <label>Texto:<input name="mi_text" autofocus /></label>
+            </li>
+            <li>
+              <label
+                >Password:<input type="password" name="mi_pasword"
+              /></label>
+            </li>
+            <li>
+              <label>File:<input type="file" name="mi_file" required /></label>
+            </li>
+            <li>
+              <label>Hidden:<input type="hidden" name="mi_hidden" /></label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Input HTML 5: entradas de texto especiales
+          <ul>
+            <li>
+              <label>Search:<input type="search" name="buscar" /></label>
+            </li>
+            <li>
+              <label>Email:<input type="email" name="mi_email" /></label>
+            </li>
+            <li>
+              <label>Tel:<input type="tel" name="mi_tel" /></label>
+            </li>
+            <li>
+              <label>URL:<input type="url" name="mi_url" /></label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Input HTML 5: entradas numéricas
+          <ul>
+            <li>
+              <label>Number:<input type="number" name="mi_number" /></label>
+            </li>
+            <li>
+              <label>Range:<input type="range" name="mi_range" /></label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Input HTML 5: entradas de fecha y hora
+          <ul>
+            <li>
+              <label>Date:<input type="date" name="mi_date" /></label>
+            </li>
+            <li>
+              <label>Time:<input type="time" name="mi_time" /></label>
+            </li>
+            <li>
+              <label
+                >Datetime:<input type="datetime" name="mi_datetime"
+              /></label>
+            </li>
+            <li>
+              <label
+                >Datetime-local:<input
+                  type="datetime-local"
+                  name="mi_datetime-local"
+              /></label>
+            </li>
+            <li>
+              <label>Month:<input type="month" name="mi_month" /></label>
+            </li>
+            <li>
+              <label>Week:<input type="week" name="mi_week" /></label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Input HTML 5: entradas para seleccionar un color
+          <ul>
+            <li>
+              <label>Color:<input type="color" name="mi_color" /></label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <input type="submit" value="Enviar" /><input
+            type="reset"
+            value="Borrar"
+          />
+        </li>
+      </ul>
+    </form>
+  </body>
+</html>
