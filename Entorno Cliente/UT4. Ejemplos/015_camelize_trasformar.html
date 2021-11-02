@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transformar border-left-width en borderLeftWidth</title>
+  </head>
+  <body>
+    <script>
+      function camelize(texto) {
+        let palabras = texto.split("-");
+        let nuevoArray = [];
+        let palabra = "";
+        for (let i = 0; i < palabras.length; i++) {
+          if (i == 0) nuevoArray[i] = palabras[i];
+          else {
+            palabra = palabras[i][0].toUpperCase();
+            for (let j = 1; j < palabras[i].length; j++) {
+              palabra += palabras[i][j];
+            }
+            nuevoArray[i] = palabra;
+          }
+        }
+        return nuevoArray.join("");
+      }
+
+      alert(camelize("background-color"));
+      alert(camelize("list-style-image"));
+      alert(camelize("-webkit-transition"));
+    </script>
+  </body>
+</html>
