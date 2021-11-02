@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkbox y radio buttons</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>¡Unete!</legend>
+        Nuestros socios tienen muchas ventajas. ¡Y es gratis!
+        <ul>
+          <li>
+            <label
+              >Nombre y apellidos: <input type="text" name="nombre"
+            /></label>
+          </li>
+          <li>
+            <label>
+              Edad:
+              <ul>
+                <li><input type="radio" name="edad" />Menor de 20</li>
+                <li><input type="radio" name="edad" />Entre 20 y 40</li>
+                <li><input type="radio" name="edad" />Entre 40 y 60</li>
+                <li><input type="radio" name="edad" />Más de 60</li>
+              </ul>
+            </label>
+          </li>
+          <li>
+            <label>
+              Estudios:
+              <ul>
+                <li><input type="checkbox" name="estudios" />Bachiller</li>
+                <li>
+                  <input type="checkbox" name="estudios" />Formación Profesional
+                </li>
+                <li><input type="checkbox" name="estudios" />Inglés B2</li>
+                <li><input type="checkbox" name="estudios" />Francés B2</li>
+              </ul>
+            </label>
+          </li>
+        </ul>
+        <br />
+      </fieldset>
+      <input type="submit" value="Enviar" />
+    </form>
+  </body>
+</html>

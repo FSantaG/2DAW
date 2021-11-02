@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fechas y horas</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>¡Unete!</legend>
+        Nuestros socios tienen muchas ventajas. ¡Y es gratis!
+        <ul>
+          <li>
+            <label
+              >Fecha: <input type="date" value="2012-12-15" name="fecha" />
+            </label>
+          </li>
+          <li>
+            <label>Hora: <input type="time" value="12:30" name="hora" /></label>
+          </li>
+          <li>
+            <label>
+              Fecha y hora:
+              <input
+                type="datetime"
+                value="2012-12-15T12:30"
+                name="fecha y hora"
+              />
+            </label>
+          </li>
+          <li>
+            <label>
+              Fecha y hora (local):
+              <input
+                type="datetime-local"
+                value="2012-12-15T12:30"
+                name="fecha y hora local"
+              />
+            </label>
+          </li>
+          <li>
+            <label>
+              Mes: <input type="month" value="2015-12" name="mes" />
+            </label>
+          </li>
+          <li>
+            <label> Semana: <input type="week" name="semana" /> </label>
+          </li>
+        </ul>
+      </fieldset>
+      <input type="submit" value="Enviar" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Final</title>
+  </head>
+  <body>
+    <h1>Formulario de solicitud de zapatos</h1>
+    <form>
+      <fieldset name="info personal">
+        <legend>Información personal</legend>
+        <ul>
+          <li>Nombre: <input type="text" required name="nombre" /></li>
+          <li>Email: <input type="email" name="email" /></li>
+          <li>Teléfono: <input type="tel" name="telefono" /></li>
+          <li>
+            Cuéntanos tu historia... <br />
+            <textarea placeholder="No más de 300 caracteres"></textarea>
+          </li>
+        </ul>
+      </fieldset>
+      <h2>Diseña tus zapatos:</h2>
+      <fieldset name="diseño zapato">
+        <legend>Diseño personalizado</legend>
+        <fieldset>
+          <legend>Color (Elige uno)</legend>
+          <ul>
+            <li><input type="radio" name="color" />Rojo</li>
+            <li><input type="radio" name="color" />Azul</li>
+            <li><input type="radio" name="color" />Negro</li>
+            <li><input type="radio" name="color" />Plata</li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Caracteristicas (Elige las que quieras)</legend>
+          <ul>
+            <li>
+              <input type="checkbox" name="caracteristicas" />Con cordones
+            </li>
+            <li>
+              <input type="checkbox" name="caracteristicas" />Logo metálico
+            </li>
+            <li><input type="checkbox" name="caracteristicas" />Ligeras</li>
+            <li><input type="checkbox" name="caracteristicas" />Con música</li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Tamaño</legend>
+          Tamaño de los zapatos:
+          <select name="número">
+            <option>5</option>
+            <option>6</option>
+          </select>
+        </fieldset>
+      </fieldset>
+    </form>
+  </body>
+</html>

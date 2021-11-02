@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listas con scroll y multiselección</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <ul>
+          <li>
+            <label>
+              Color:
+              <select name="color">
+                <option value="rojo">Rojo</option>
+                <option value="azul">Azul</option>
+                <option value="negro">Negro</option>
+                <optgroup label="Metalizados">
+                  <option value="plateado">Plateado</option>
+                  <option value="dorado">Dorado</option>
+                </optgroup>
+              </select>
+            </label>
+          </li>
+          <li>
+            <label>
+              Caracteristicas:
+              <select name="caracteristicas" multiple>
+                <option value="cordones">Con cordones</option>
+                <option value="logo">Logo metálico</option>
+                <option value="ligeras">Ligeras</option>
+                <option value="musica">Con música</option>
+              </select>
+            </label>
+          </li>
+        </ul>
+        <input type="submit" value="Enviar" />
+      </fieldset>
+    </form>
+  </body>
+</html>
