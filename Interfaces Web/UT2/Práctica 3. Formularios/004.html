@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cuarto Formulario</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>¡Unete!</legend>
+        Nuestros socios tienen muchas ventajas. ¡Y es gratis!
+        <ul>
+          <li>
+            <label
+              >Nombre y apellidos: <input type="text" name="nombre"
+            /></label>
+          </li>
+          <li>
+            <label>
+              Edad: <input type="text" name="edad" list="edades" />
+              <datalist id="edades">
+                <option value="Menor de 20" />
+                <option value="Entre 20 y 40" />
+                <option value="Entre 40 y 60" />
+                <option value="Entre 60 y 80" />
+                <option value="Mayor de 80" />
+              </datalist>
+            </label>
+          </li>
+          <li>
+            <label>
+              Comentario:
+              <textarea placeholder="Escriba aquí su comentario"></textarea>
+            </label>
+          </li>
+        </ul>
+        <input type="submit" value="Enviar" />
+      </fieldset>
+    </form>
+  </body>
+</html>
