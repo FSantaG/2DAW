@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Probando los selectores</title>
+    <meta charset="utf-8" />
+    <style>
+      /* En rojo el texto que está dentro de un em que sea hijo de un p */
+      p > em {
+        color: red;
+      }
+      /* Los em que sea descendiente de un p (hijo, nieto, ...): subrayados y no itálica, normal. */
+      p em {
+        text-decoration: underline;
+        font-style: normal;
+      }
+      /* Todos los párrafos de cada div, menos el primero, indentados 1.5em */
+      div p:not(:first-child) {
+        padding: 1.5em;
+      }
+      /* El primer párrafo de cada div tachado */
+      div p:first-child {
+        text-decoration: line-through;
+      }
+      /* Seleccionar todos los h2 excepto el primero */
+      h2:not(:first-of-type) {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Probando los selectores</h1>
+    <h2>El <em>primer</em> capítulo</h2>
+    <div>
+      <p>
+        Lorem <span><em>ipsum dolor</em></span> sit amet, consectetuer
+        adipiscing elit. Praesent odio sem, tempor quis, <em>auctor eu</em>,
+        tempus at, enim.
+      </p>
+      <p>
+        Lorem <span><em>ipsum dolor</em></span> sit amet, consectetuer
+        adipiscing elit. Praesent odio sem, tempor quis, <em>auctor eu</em>,
+        tempus at, enim.
+      </p>
+    </div>
+    <h2>El <em>segundo</em> capítulo</h2>
+    <div>
+      <p>
+        Lorem <span><em>ipsum dolor</em></span> sit amet, consectetuer
+        adipiscing elit. Praesent odio sem, tempor quis, <em>auctor eu</em>,
+        tempus at, enim.
+      </p>
+      <p>
+        Lorem <span><em>ipsum dolor</em></span> sit amet, consectetuer
+        adipiscing elit. Praesent odio sem, tempor quis, <em>auctor eu</em>,
+        tempus at, enim.
+      </p>
+    </div>
+  </body>
+</html>
