@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ordenar en orden decreciente</title>
+  </head>
+  <body>
+    <script>
+      function compare(a, b) {
+        if (a > b) return -1;
+        if (a == b) return 0;
+        if (a < b) return 1;
+      }
+
+      let arr = [5, 2, 1, -10, 8];
+      arr.sort(compare);
+      alert(arr);
+    </script>
+  </body>
+</html>

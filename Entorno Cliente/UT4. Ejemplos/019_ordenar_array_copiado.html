@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Copiar y ordenar un array</title>
+  </head>
+  <body>
+    <script>
+      function copySorted(arr) {
+        let nuevoArray = [];
+        for (let i = 0; i < arr.length; i++) {
+          nuevoArray[i] = arr[i];
+        }
+        nuevoArray.sort();
+        return nuevoArray;
+      }
+
+      let arr = ["HTML", "JavaScript", "CSS"];
+
+      let sorted = copySorted(arr);
+
+      alert(sorted);
+      alert(arr);
+    </script>
+  </body>
+</html>
