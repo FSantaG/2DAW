@@ -6,17 +6,18 @@ class Alumno{
             const TASA =2;
 
             function __construct($num_matrícula, $nombre, $edad){
-                $this->num_matrícula=$num_matrícula; 
+                $this->num_matrícula=$num_matrícula;
                 $this->nombre=$nombre;
-                $this->edad=$edad; 
-            } 
-            public function importe_matricula(){
+                $this->edad=$edad;
+            }
+
+            public function importe_matricula(){ 
                 if((int)$this->edad>=18){ 
                     $precio_matricula=self::TASA; 
-                }else{
-                    $precio_matricula=0; 
-                } 
-                echo "El precio de la matrícula es de $precio_matricula euros"; 
-            } 
+                    }else{
+                        $precio_matricula=0; 
+                    } 
+                echo "El precio de la matrícula de $this->nombre es de $precio_matricula euros"; 
+        } 
     } 
 ?>
