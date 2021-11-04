@@ -9,12 +9,13 @@
   <body>
     <script>
       function copySorted(arr) {
-        let nuevoArray = [];
+        /* let nuevoArray = [];
         for (let i = 0; i < arr.length; i++) {
           nuevoArray[i] = arr[i];
         }
         nuevoArray.sort();
-        return nuevoArray;
+        return nuevoArray; */
+        return arr.slice().sort();
       }
 
       let arr = ["HTML", "JavaScript", "CSS"];
