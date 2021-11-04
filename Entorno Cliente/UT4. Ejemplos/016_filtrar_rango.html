@@ -9,7 +9,7 @@
   <body>
     <script>
       function filterRange(arr, a, b) {
-        let nuevoArray = [];
+        /* let nuevoArray = [];
         let contador = 0;
         for (let i = 0; i < arr.length; i++) {
           if (arr[i] >= a && arr[i] <= b) {
@@ -17,8 +17,8 @@
             contador++;
           }
         }
-        return nuevoArray;
-        //return arr.filter((item) => a <= item && item <= b);
+        return nuevoArray; */
+        return arr.filter((e) => a <= e && e <= b);
       }
 
       let arr = [5, 3, 8, 1];

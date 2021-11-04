@@ -8,29 +8,24 @@
   </head>
   <body>
     <script>
+      /*Al eliminar de un array valores con splice(), hay que tener 
+      en cuenta que la longitud del array decrece, por lo que el valor
+      que tomaba la posición 5 será sustituído por el siguiente.
+      
+      El error que daba se debía a que en el array, después del 5, al comprobar
+      el 6 este se borraba, y el 7 asumía su posición, por lo que al incrementar i,
+      el valor que se comprobaba no era 7, si no 8*/
       function filterRangeInPlace(arr, a, b) {
-        /* let contador = 0;
-        for (let i = 0; i < arr.length; i++) {
+        for (let i = arr.length - 1; i >= 0; i--) {
           if (arr[i] < a || arr[i] > b) {
             arr.splice(i, 1);
-          }
-        }
-
-        return arr; */
-        for (let i = 0; i < arr.length; i++) {
-          let val = arr[i];
-
-          // remueve aquellos elementos que se encuentran fuera del intervalo
-          if (val < a || val > b) {
-            arr.splice(i, 1);
-            i--;
           }
         }
       }
 
       let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
-      filterRangeInPlace(arr, 1, 5); // remueve los números excepto aquellos entre 1 y 4
+      filterRangeInPlace(arr, 1, 5);
       alert(arr);
     </script>
   </body>
