@@ -176,23 +176,23 @@
     $núm1 = 10;
     $núm2 = 7;
     $núm3 = -3;
-    $nummax=$num1;
-    $maximos=1;
+    $nummax = $num1;
+    $maximos = 1;
 
-    if($nummax<=$núm2){
-        if($nummax==$núm2){
+    if ($nummax <= $núm2) {
+        if ($nummax == $núm2) {
             $maximos++;
-        }else{
-            $nummax=$núm2;
-            $maximos=1;
+        } else {
+            $nummax = $núm2;
+            $maximos = 1;
         }
     }
-    if($nummax<=$núm3){
-        if($nummax==$núm3){
+    if ($nummax <= $núm3) {
+        if ($nummax == $núm3) {
             $maximos++;
-        }else{
-            $nummax=$núm3;
-            $maximos=1;
+        } else {
+            $nummax = $núm3;
+            $maximos = 1;
         }
     }
     echo "El máximo es $nummax y aparece $maximos veces"
