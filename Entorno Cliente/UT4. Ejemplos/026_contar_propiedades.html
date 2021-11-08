@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contar propiedades</title>
+  </head>
+  <body>
+    <script>
+      function count(obj) {
+        let contador = 0;
+        for (let valor of Object.keys(obj)) {
+          contador++;
+        }
+        return contador;
+      }
+
+      let user = {
+        name: "John",
+        age: 30,
+      };
+
+      alert(count(user));
+    </script>
+  </body>
+</html>

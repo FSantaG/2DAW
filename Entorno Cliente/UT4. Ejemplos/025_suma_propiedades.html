@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sumar las propiedades</title>
+  </head>
+  <body>
+    <script>
+      function sumSalaries(salaries) {
+        let suma = 0;
+        for (let value of Object.values(salaries)) {
+          suma += +value;
+        }
+        return suma;
+      }
+
+      let salaries = {
+        John: 100,
+        Pete: 300,
+        Mary: 250,
+      };
+
+      alert(sumSalaries(salaries));
+    </script>
+  </body>
+</html>
