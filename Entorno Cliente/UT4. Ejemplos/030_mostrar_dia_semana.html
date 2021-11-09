@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mostrar por pantalla un día de la semana</title>
+  </head>
+  <body>
+    <script>
+      function getWeekDay(date) {
+        let diaSemana = date.getDay();
+        switch (diaSemana) {
+          case 0:
+            return "SU";
+            break;
+          case 1:
+            return "MO";
+            break;
+          case 2:
+            return "TU";
+            break;
+          case 3:
+            return "WE";
+            break;
+          case 4:
+            return "TH";
+            break;
+          case 5:
+            return "FR";
+            break;
+          case 6:
+            return "SA";
+            break;
+        }
+      }
+
+      let date = new Date(2012, 0, 3);
+      alert(getWeekDay(date));
+    </script>
+  </body>
+</html>
