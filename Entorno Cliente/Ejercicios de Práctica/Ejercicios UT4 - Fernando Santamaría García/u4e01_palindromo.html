@@ -8,9 +8,26 @@
   </head>
   <body>
     <script>
-      function definirPalindromo(str) {
-        return 0; //Placeholder
+      function definirPalindromo(frase) {
+        let strSinEspacios = frase.trim(" ");
+        let caracteres = [];
+        let contador = 0;
+
+        caracteres = Array.from(frase);
+        caracteresInvertido = caracteres.reverse();
+        for (let i = 0; i <= caracteres.length; i++) {
+          if ((caracteres[i] = caracteresInvertido[i])) {
+            contador++;
+          }
+        }
+        if (contador == caracteres.length - 1) {
+          return "Asd";
+        } else {
+          return "Hola";
+        }
       }
+      let frase = "La ruta nos aportóasa otro paso natural";
+      alert(definirPalindromo(frase));
     </script>
   </body>
 </html>
