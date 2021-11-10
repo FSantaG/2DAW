@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Segundos trascurridos</title>
+  </head>
+  <body>
+    <script>
+      function getSecondsToday() {
+        let fechaHoy = new Date();
+        let doceHoras = new Date(
+          fechaHoy.getFullYear(),
+          fechaHoy.getMonth(),
+          fechaHoy.getDate(),
+          0,
+          0,
+          0
+        );
+        let diferencia = new Date(fechaHoy - doceHoras);
+        return Math.round(diferencia / 1000);
+      }
+
+      alert(getSecondsToday());
+    </script>
+  </body>
+</html>

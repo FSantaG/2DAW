@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¿Qué día del mes era hace algunos días atrás?</title>
+  </head>
+  <body>
+    <script>
+      function getDateAgo(date, days) {
+        let fechaCopiada = new Date(date);
+
+        fechaCopiada.setDate(date.getDate() - days);
+        return fechaCopiada;
+      }
+
+      let date = new Date(2015, 0, 2);
+
+      alert(getDateAgo(date, 1));
+      alert(getDateAgo(date, 2));
+      alert(getDateAgo(date, 365));
+    </script>
+  </body>
+</html>
