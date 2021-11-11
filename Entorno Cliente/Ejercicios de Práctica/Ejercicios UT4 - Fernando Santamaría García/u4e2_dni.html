@@ -8,9 +8,96 @@
   </head>
   <body>
     <script>
-      function comprobarDNI(dni) {
-        return 0; //Placeholder
+      function comprobarIdentificación(numID) {
+        let letrasDNI = [];
+        //Segmentación entre DNI o NIE
+        if (numID[0] != "X" || numID[0] != "Y" || numID[0] != "Z") {
+          let numero = numID.substr(0, 8);
+          let letra = numID.substr(8, 1);
+          /*TO DO
+            Cambiar el switch por un array local.
+          */
+          let valorNum = numero % 23;
+          switch (valorNum) {
+            case 0:
+              valorNum = "T";
+              break;
+            case 1:
+              valorNum = "R";
+              break;
+            case 2:
+              valorNum = "W";
+              break;
+            case 3:
+              valorNum = "A";
+              break;
+            case 4:
+              valorNum = "G";
+              break;
+            case 5:
+              valorNum = "M";
+              break;
+            case 6:
+              valorNum = "Y";
+              break;
+            case 7:
+              valorNum = "F";
+              break;
+            case 8:
+              valorNum = "P";
+              break;
+            case 9:
+              valorNum = "D";
+              break;
+            case 10:
+              valorNum = "X";
+              break;
+            case 11:
+              valorNum = "B";
+              break;
+            case 12:
+              valorNum = "N";
+              break;
+            case 13:
+              valorNum = "J";
+              break;
+            case 14:
+              valorNum = "Z";
+              break;
+            case 15:
+              valorNum = "S";
+              break;
+            case 16:
+              valorNum = "Q";
+              break;
+            case 17:
+              valorNum = "V";
+              break;
+            case 18:
+              valorNum = "H";
+              break;
+            case 19:
+              valorNum = "L";
+              break;
+            case 20:
+              valorNum = "C";
+              break;
+            case 21:
+              valorNum = "K";
+              break;
+            case 22:
+              valorNum = "E";
+              break;
+          }
+          if (valorNum == letra) {
+            return "Es válido";
+          } else {
+            return "No es válido";
+          }
+        } else {
+        }
       }
+      alert(comprobarIdentificación("56221526G"));
     </script>
   </body>
 </html>
