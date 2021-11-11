@@ -9,24 +9,27 @@
   <body>
     <script>
       function definirPalindromo(frase) {
-        let strSinEspacios = frase.trim(" ");
-        let caracteres = [];
-        let contador = 0;
+        /*str.replace(/ /g, "") sirve para eliminar los espacios
+        en blanco dentro de un string.*/
+        let strSinEspacios = frase.replace(/ /g, "");
+        strSinEspacios = strSinEspacios.toLowerCase();
 
-        caracteres = Array.from(frase);
-        caracteresInvertido = caracteres.reverse();
-        for (let i = 0; i <= caracteres.length; i++) {
-          if ((caracteres[i] = caracteresInvertido[i])) {
-            contador++;
-          }
-        }
-        if (contador == caracteres.length - 1) {
-          return "Asd";
+        let caracteresArray = [];
+        caracteresArray = Array.from(frase);
+
+        let caracteresInvertido = caracteresArray.reverse();
+        let strReves = caracteresInvertido.join("");
+        strReves = strReves.replace(/ /g, "");
+        strReves = strReves.toLowerCase();
+
+        if (strReves == strSinEspacios) {
+          return "Es un palíndromo";
         } else {
-          return "Hola";
+          return "No es un palíndromo";
         }
       }
-      let frase = "La ruta nos aportóasa otro paso natural";
+
+      let frase = "La ruta nos aporto otro paso natural";
       alert(definirPalindromo(frase));
     </script>
   </body>
