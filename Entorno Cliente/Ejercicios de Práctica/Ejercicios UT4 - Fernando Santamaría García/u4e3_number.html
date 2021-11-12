@@ -8,7 +8,24 @@
   </head>
   <body>
     <script>
-      function procesarNúmero(numero) {}
+      function procesarNúmero() {
+        let numero = prompt("Inserte un número válido", "0");
+        while (!Number(numero)) {
+          numero = prompt("Inserte un número válido", "0");
+        }
+        let binario = Number(numero).toString(2);
+        let octal = Number(numero).toString(8);
+        let hexadec = Number(numero).toString(16);
+
+        let decimales = numero + ".0000";
+
+        let numTemp = numero.split("").slice(1).join("");
+        let exponencial = numero[0] + "," + numTemp + "x10e" + numTemp.length;
+
+        return `Número: ${numero} \nEn notación científica: ${exponencial} \nCon 4 decimales: ${decimales} \nEn binario: ${binario} \nEn octal: ${octal} \nEn hexadecimal: ${hexadec}`;
+      }
+
+      alert(procesarNúmero());
     </script>
   </body>
 </html>
