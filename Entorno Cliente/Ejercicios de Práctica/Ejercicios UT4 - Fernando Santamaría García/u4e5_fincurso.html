@@ -8,7 +8,19 @@
   </head>
   <body>
     <script>
-      /*Hacer programa*/
+      function getDaysFinCurso() {
+        let hoy = new Date();
+        let finCurso = new Date(hoy.getFullYear(), 5, 23, 14);
+
+        let difMilisec = finCurso - hoy;
+        return (
+          "Hasta de final de curso quedan " +
+          Math.floor(difMilisec / 1000 / 60 / 60 / 24) +
+          " días"
+        );
+      }
+
+      alert(getDaysFinCurso());
     </script>
   </body>
 </html>

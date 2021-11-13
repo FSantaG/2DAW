@@ -8,7 +8,41 @@
   </head>
   <body>
     <script>
-      /*Hacer programa*/
+      function calcularCumpleaños() {
+        /*Obtener días faltantes hasta la fecha de cumpleaños*/
+        let diaNac = "",
+          mesNac = "";
+        while (!Number(diaNac) && !Number(mesNac)) {
+          diaNac = +prompt("¿Día de nacimiento?");
+          mesNac = +prompt("Mes de nacimiento (en número)");
+        }
+        let hoy = new Date();
+        let fechaNac = new Date(hoy.getFullYear(), mesNac - 1, diaNac);
+        añoActual = hoy.getFullYear();
+        if (fechaNac - hoy < 0) {
+          fechaNac.setFullYear(añoActual + 1);
+          añoActual++;
+        }
+        let difDias = fechaNac - hoy;
+
+        /*Obtener los cumpleaños que caerán en domingo*/
+        let contadorDomingos = 0;
+        for (let i = añoActual; i <= 2100; i++) {
+          fechaNac.setFullYear(i);
+          if (fechaNac.getDay() == 0) {
+            contadorDomingos++;
+          }
+        }
+
+        return (
+          "Quedan " +
+          Math.floor(difDias / 1000 / 60 / 60 / 24) +
+          " dias para tu cumpleaños.\nCumpleaños que caerán en domingo: " +
+          contadorDomingos
+        );
+      }
+
+      alert(calcularCumpleaños());
     </script>
   </body>
 </html>
