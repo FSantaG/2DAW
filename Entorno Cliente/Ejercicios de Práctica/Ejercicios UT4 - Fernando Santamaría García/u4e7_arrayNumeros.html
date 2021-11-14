@@ -8,7 +8,89 @@
   </head>
   <body>
     <script>
-      /*Hacer programa*/
+      function mostrarPares(arr) {
+        let arrayPares = [],
+          contador = 0,
+          mensaje = "";
+        let version = prompt(
+          "Elija qué versión quiere mostrar: \n1)Bucle for \n2)array.forEach() \n3)for...in \n4)for...of"
+        );
+        switch (version) {
+          case "1":
+            /*Versión de bucle for*/
+            for (let i = 0; i < arr.length; i++) {
+              if (arr[i] % 2 == 0) {
+                arrayPares[contador] = arr[i];
+                contador++;
+              }
+            }
+            return `Números pares: ${arrayPares}`;
+          case "2":
+            /*Versión de array.forEach()*/
+            arr.forEach((e) => {
+              if (e % 2 == 0) {
+                arrayPares[contador] = e;
+                contador++;
+              }
+            });
+            return `Números pares: ${arrayPares}`;
+          case "3":
+            /*Versión de for..in
+        Trabaja sobre claves*/
+            for (let clave in arr) {
+              if (arr[clave] % 2 == 0) {
+                arrayPares[contador] = arr[clave];
+                contador++;
+              }
+            }
+            return `Números pares: ${arrayPares}`;
+          case "4":
+            /*Versión de for...of
+        trabaja sobre valores*/
+            for (let valor of arr) {
+              if (valor % 2 == 0) {
+                arrayPares[contador] = valor;
+                contador++;
+              }
+            }
+            return `Números pares: ${arrayPares}`;
+          default: {
+            for (let valor of arr) {
+              if (valor % 2 == 0) {
+                arrayPares[contador] = valor;
+                contador++;
+              }
+            }
+            return `Mostrando versión de for...of: ${arrayPares}`;
+          }
+        }
+      }
+      function sumarElementos(arr) {
+        let suma = 0;
+        arr.forEach((e) => {
+          suma += +e;
+        });
+        return `Suma: ${suma}`;
+      }
+      function cambiarElemFinal(arr) {
+        arr.pop();
+        arr.push(prompt("Escriba el valor a introducir en el array"));
+        return arr;
+      }
+      function mostrarMax(arr) {
+        let max = 0;
+        for (let valor of arr) {
+          if (valor > max) {
+            max = valor;
+          }
+        }
+        return `Valor máximo: ${max}`;
+      }
+      let arrayNumeros = [7, 21, 44, 67, 29, 2];
+      alert(mostrarPares(arrayNumeros));
+      alert(sumarElementos(arrayNumeros));
+      alert(cambiarElemFinal(arrayNumeros));
+      alert(mostrarMax(arrayNumeros));
     </script>
   </body>
 </html>
