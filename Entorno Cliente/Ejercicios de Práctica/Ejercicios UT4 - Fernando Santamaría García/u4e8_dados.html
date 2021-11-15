@@ -8,7 +8,19 @@
   </head>
   <body>
     <script>
-      /*Hacer programa*/
+      function lanzarDado() {
+        const NUM_VECES = 36000;
+        let dado1 = 0;
+        let dado2 = 0;
+        let mapaSuma = new Map();
+        for (let i = 0; i < NUM_VECES; i++) {
+          dado1 = Math.floor(Math.random() * (7 - 1) + 1);
+          dado2 = Math.floor(Math.random() * (7 - 1) + 1);
+          mapaSuma.set(i, dado1 + dado2);
+          console.log(mapaSuma.get(i));
+        }
+      }
+      lanzarDado();
     </script>
   </body>
 </html>

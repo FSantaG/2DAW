@@ -8,7 +8,92 @@
   </head>
   <body>
     <script>
-      /*Hacer programa*/
+      function validDNI(dni) {
+        for (let i = 0; i < arrayAlumnos.length; i++) {
+          if (arrayAlumnos[i].dni == dni) {
+            alert("Ese DNI ya figura en nuestra BD");
+            return false;
+          }
+        }
+        return true;
+      }
+      let option = 0;
+      let arrayAlumnos = [];
+      do {
+        option = +prompt(
+          "Elige una opcion \n1.Introducir alumno \n2.Consultar datos \n3.Borrar alumno \n4.Modifica los datos de un alumno \n5.Salir"
+        );
+        switch (option) {
+          case 1:
+            let name = prompt("Escriba el nombre del alumno");
+            let ape1 = prompt("Escriba el 1º apellido del alumno");
+            let ape2 = prompt("Escriba el 2º apellido del alumno");
+            let dni = prompt("Escriba el dni del alumno");
+            while (!validDNI(dni)) {
+              alert(Error("Introduzca un DNI válido"));
+              dni = prompt("Escriba el dni del alumno");
+            }
+            let birth = prompt("Escriba la fecha de nacimiento del alumno");
+            let sex = prompt("Escriba el sexo del alumno");
+            let tel = prompt("Escriba el telefono del alumno");
+            let alumn = {
+              name: name,
+              ape1: ape1,
+              ape2: ape2,
+              dni: dni,
+              birth: birth,
+              sex: sex,
+              tel: tel,
+            };
+
+            if (validDNI(dni)) {
+              arrayAlumnos.push(alumn);
+            }
+
+            break;
+          case 2:
+            let cadena = "";
+            for (let i = 0; i < arrayAlumnos.length; i++) {
+              cadena += arrayAlumnos[i].name + "\n";
+            }
+            alert("Alumnos dados de alta : " + cadena);
+            let nameshown = prompt(
+              "Escriba el nombre del alumno que quieres mostrar"
+            );
+            for (let i = 0; i < arrayAlumnos.length; i++) {
+              if (arrayAlumnos[i].name == nameshown) {
+                alert(Object.entries(arrayAlumnos[i]));
+              }
+            }
+
+            break;
+          case 3:
+            let namedeleted = prompt(
+              "Escriba el nombre del alumno que quieres borrar"
+            );
+            for (let i = 0; i < arrayAlumnos.length; i++) {
+              if (arrayAlumnos[i].name == namedeleted) {
+                arrayAlumnos.splice(i, 1);
+              }
+            }
+            break;
+          case 4:
+            let namemodified = prompt(
+              "Escriba el nombre del alumno que quieres borrar"
+            );
+            let property = prompt(
+              "Escriba la propiedad del alumno que desea modificar"
+            );
+            for (let i = 0; i < arrayAlumnos.length; i++) {
+              if (arrayAlumnos[i].name == namemodified) {
+                arrayAlumnos[i][property] = prompt(
+                  "Escriba la nueva " + property + " del alumno:"
+                );
+              }
+            }
+            break;
+        }
+      } while (option != 5 && option != null);
     </script>
   </body>
 </html>
