@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1</title>
+    <style>
+      /* Estilos del ejercicio 1 */
+      @font-face {
+        font-family: "Gloria Hallelujah";
+        src: url(./fuentes/Gloria\ Hallelujah.ttf);
+      }
+      body {
+        font-family: Verdana, sans-serif;
+      }
+      header {
+        font-family: "Gloria Hallelujah";
+        text-align: center;
+        background-color: hsl(30, 40%, 60%);
+      }
+      footer {
+        background-color: hsl(30, 40%, 60%);
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      article h2 {
+        border-bottom: dashed black 3px;
+        padding-bottom: 1px;
+      }
+      section {
+        border: solid white 1px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: beige;
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+        padding: 15px;
+      }
+      img {
+        display: block;
+        margin: auto;
+        width: 200px;
+      }
+      footer p {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>&#128570; Gran enciclopedia de la fauna</h1>
+      <p>El sitio web más completo sobre el mundo animal.</p>
+    </header>
+    <article>
+      <h2>Tipos de gatos</h2>
+      <section>
+        <h3>Maine Coon</h3>
+        <p>
+          El Maine Coon es conocida por ser la raza de gato doméstico más grande
+          del mundo. Tiene una apariencia física distintiva y valiosas
+          habilidades de caza. Es una de las razas naturales más antiguas de
+          América del Norte, específicamente nativa del estado de Maine como su
+          nombre lo sugiere, donde es considerado su gato oficial.
+        </p>
+        <img
+          class="gatos"
+          src="pictures/mainecoon.jpg"
+          alt="Foto de gato Maine Coon."
+        />
+      </section>
+      <section>
+        <h3>Siamés</h3>
+        <p>
+          Los orígenes del gato siamés son imprecisos, aunque hay antecedentes
+          que en Siam (ahora Tailandia), estos animales convivieron con el rey y
+          su familia, siendo ejemplares exclusivos de la realeza. Este
+          privilegio se debe a que le concedían un carácter puro, ya que al
+          nacer esta especie es de color blanco color sagrado en Siam que lo
+          llevó a tener su gran popularidad en esos tiempos.
+        </p>
+        <img
+          class="gatos"
+          src="pictures/siames.jpg"
+          alt="Foto de gato siamés."
+        />
+      </section>
+    </article>
+    <footer>
+      <ul>
+        <li>Contacto</li>
+        <li>Declaración de cookies</li>
+        <li>Estadísticas</li>
+      </ul>
+      <p>&copy; 2020 - Texto obtenido de Wikipedia.</p>
+    </footer>
+  </body>
+</html>

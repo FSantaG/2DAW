@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3</title>
+    <style>
+      /* Estilos del ejercicio 3 */
+      input[type="submit"] {
+        margin-top: 1em;
+      }
+      li {
+        margin-top: 1em;
+      }
+      label {
+        width: 6em;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Donaciones</h1>
+    <form method="get" action="">
+      <fieldset>
+        <legend>Datos personales</legend>
+        <ul>
+          <li>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" required />
+          </li>
+          <li>
+            <label for="telefono">Teléfono: </label
+            ><input type="tel" name="telefono" required />
+          </li>
+          <li>
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Ej: juan@ejemplo.com"
+            />
+          </li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>Pago</legend>
+        <ul>
+          <li>
+            <label for="causa">Causa: </label
+            ><input type="text" name="causa" list="causas" />
+            <datalist id="causas">
+              <option>Arreglo del tejado</option>
+              <option>Banco de alimentos</option>
+              <option>Albergue nocturno</option>
+            </datalist>
+          </li>
+          <li>
+            <label for="tarjeta"> Tipo:</label>
+            <select name="tarjeta">
+              <option value="visa">Visa</option>
+              <option value="mastercard">Mastercard</option>
+            </select>
+          </li>
+          <li>
+            <label for="fechapago">Fecha: </label
+            ><input type="date" value="2021-12-24" name="fechapago" />
+          </li>
+          <li>
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" step="10" max="100" min="20" name="cantidad" />
+          </li>
+        </ul>
+      </fieldset>
+      <input type="submit" name="enviar" value="¡Únete al reto!" />
+    </form>
+  </body>
+</html>
