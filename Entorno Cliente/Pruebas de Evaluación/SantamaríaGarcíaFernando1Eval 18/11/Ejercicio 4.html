@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4</title>
+  </head>
+  <body>
+    <script>
+      class Libro {
+        constructor(isbn, titulo, autor, añoPubli) {
+          let fechaHoy = new Date();
+          this.isbn = isbn;
+          this.titulo = titulo;
+          this.autor = autor;
+          this.añoPubli = añoPubli;
+          if (añoPubli == fechaHoy.getFullYear()) {
+            this.actual = "Sí";
+          } else {
+            this.actual = "No";
+          }
+        }
+        toString() {
+          let datos = `ISBN: ${this.isbn} \nTítulo: ${this.titulo} \nAutor: ${this.autor} \nAño: ${this.añoPubli}\nActual: ${this.actual}`;
+          return alert(datos);
+        }
+      }
+
+      let libro1 = new Libro(8974546, "Castellano", "Lorenzo Silva", 2021);
+      let libro2 = new Libro(
+        8974546,
+        "La marca del meridiano",
+        "Lorenzo Silva",
+        2019
+      );
+      libro1.toString();
+      libro2.toString();
+    </script>
+  </body>
+</html>

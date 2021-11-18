@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 6</title>
+  </head>
+  <body>
+    <script>
+      class Libro {
+        constructor(isbn, titulo, autor, añoPubli) {
+          let fechaHoy = new Date();
+          this.isbn = isbn;
+          this.titulo = titulo;
+          this.autor = autor;
+          this.añoPubli = añoPubli;
+          if (añoPubli == fechaHoy.getFullYear()) {
+            this.actual = "Sí";
+          } else {
+            this.actual = "No";
+          }
+        }
+        toString() {
+          let datos = `ISBN: ${this.isbn} \nTítulo: ${this.titulo} \nAutor: ${this.autor} \nAño: ${this.añoPubli}\nActual: ${this.actual}`;
+          return alert(datos);
+        }
+      }
+      let librosDisponibles = [];
+      let librosPrestados = [];
+      let salida = false;
+      do {
+        let menu = prompt(
+          "Elija una opción: \n1) Añadir un libro\n2) Ver datos\n3) Prestar un libro\n4) Devolver un libro\nE) Terminar"
+        );
+        switch (menu) {
+          case "1":
+            let nuevoLibro = new Libro(
+              prompt("¿ISBN?"),
+              prompt("¿Título?"),
+              prompt("¿Autor?"),
+              prompt("¿Año de publicación?")
+            );
+            librosDisponibles.push(nuevoLibro);
+            break;
+          case "2":
+            let isbnBuscar = prompt("Introduzca el ISBN que desee buscar");
+            for (let i = 0; i < librosDisponibles.length; i++) {
+              if (librosDisponibles[i].isbn == isbnBuscar) {
+                alert(Object.entries(librosDisponibles[i]));
+              } else if (librosPrestados[i].isbn == isbnBuscar) {
+                alert(Object.entries(librosPrestados[i]));
+              }
+            }
+            break;
+          case "3":
+            let isbnPrestar = prompt("Introduzca un ISBN válido");
+            let confirmacionPrestado = prompt("¿Deseas continuar? s/n");
+            let encontradoDisponible = false;
+            if (confirmacionPrestado == "s" || confirmacionPrestado == "S") {
+              for (let i = 0; i < librosDisponibles.length; i++) {
+                if (librosDisponibles[i].isbn == isbnPrestar) {
+                  librosPrestados.push(librosDisponibles[i]);
+                  librosDisponibles.splice(i, 1);
+                  encontradoDisponible = true;
+                }
+              }
+              if (encontradoDisponible == false) {
+                alert(Error("No se ha encotnrado el ISBN"));
+              }
+            }
+            break;
+          case "4":
+            let isbnDevolver = prompt("Introduzca un ISBN válido");
+            let confirmacionDevuelto = prompt("¿Deseas continuar? s/n");
+            let encontradoPrestado = false;
+            if (confirmacionDevuelto == "s" || confirmacionDevuelto == "S") {
+              for (let i = 0; i < librosPrestados.length; i++) {
+                if (librosPrestados[i].isbn == isbnDevolver) {
+                  librosDisponibles.push(librosPrestados[i]);
+                  librosPrestados.splice(i, 1);
+                  encontradoPrestado = true;
+                }
+              }
+              if (encontradoPrestado == false) {
+                alert(Error("No se ha encotnrado el ISBN"));
+              }
+            }
+            break;
+          case "E":
+          case "e":
+            salida = true;
+            break;
+          default:
+            alert("Inserte un valor válido, por favor");
+            break;
+        }
+      } while (salida != true);
+    </script>
+  </body>
+</html>
