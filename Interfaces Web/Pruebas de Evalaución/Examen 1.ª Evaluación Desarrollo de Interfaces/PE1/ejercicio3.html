@@ -26,16 +26,17 @@
         <ul>
           <li>
             <label for="nombre">Nombre:</label>
-            <input type="text" name="nombre" required />
+            <input type="text" id="nombre" name="nombre" required />
           </li>
           <li>
             <label for="telefono">Teléfono: </label
-            ><input type="tel" name="telefono" required />
+            ><input type="tel" id="telefono" name="telefono" required />
           </li>
           <li>
             <label for="email">Email:</label>
             <input
               type="email"
+              id="email"
               name="email"
               placeholder="Ej: juan@ejemplo.com"
             />
@@ -47,7 +48,7 @@
         <ul>
           <li>
             <label for="causa">Causa: </label
-            ><input type="text" name="causa" list="causas" />
+            ><input type="text" id="causa" name="causa" list="causas" />
             <datalist id="causas">
               <option>Arreglo del tejado</option>
               <option>Banco de alimentos</option>
@@ -56,18 +57,30 @@
           </li>
           <li>
             <label for="tarjeta"> Tipo:</label>
-            <select name="tarjeta">
+            <select id="tarjeta" name="tarjeta">
               <option value="visa">Visa</option>
               <option value="mastercard">Mastercard</option>
             </select>
           </li>
           <li>
             <label for="fechapago">Fecha: </label
-            ><input type="date" value="2021-12-24" name="fechapago" />
+            ><input
+              type="date"
+              value="2021-12-24"
+              id="fechapago"
+              name="fechapago"
+            />
           </li>
           <li>
             <label for="cantidad">Cantidad:</label>
-            <input type="number" step="10" max="100" min="20" name="cantidad" />
+            <input
+              type="number"
+              step="10"
+              max="100"
+              min="20"
+              id="cantidad"
+              name="cantidad"
+            />
           </li>
         </ul>
       </fieldset>
