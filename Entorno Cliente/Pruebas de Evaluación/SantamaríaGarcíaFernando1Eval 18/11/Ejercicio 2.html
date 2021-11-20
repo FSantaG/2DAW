@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+  </head>
+  <body>
+    <script>
+      function primerDia(año) {
+        let fechaHoy = new Date();
+        if (año == null) {
+          año = fechaHoy.getFullYear() + 1;
+        }
+        for (let mes = 0; mes <= 11; mes++) {
+          let primerDia = new Date(año, mes, 1);
+          let mensaje = `El ${primerDia.getDate()} del mes ${
+            primerDia.getMonth() + 1
+          } del año ${año} cae en `;
+          switch (primerDia.getDay()) {
+            case 0:
+              mensaje += "domingo";
+              console.log(mensaje);
+              break;
+            case 1:
+              mensaje += "lunes";
+              console.log(mensaje);
+              break;
+            case 2:
+              mensaje += "martes";
+              console.log(mensaje);
+              break;
+            case 3:
+              mensaje += "miercoles";
+              console.log(mensaje);
+              break;
+            case 4:
+              mensaje += "jueves";
+              console.log(mensaje);
+              break;
+            case 5:
+              mensaje += "viernes";
+              console.log(mensaje);
+              break;
+            case 6:
+              mensaje += "sábado";
+              console.log(mensaje);
+              break;
+          }
+        }
+      }
+      primerDia();
+      primerDia(2020);
+    </script>
+  </body>
+</html>

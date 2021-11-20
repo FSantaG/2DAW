@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5</title>
+  </head>
+  <body>
+    <script>
+      class Libro {
+        constructor(isbn, titulo, autor, añoPubli) {
+          let fechaHoy = new Date();
+          this.isbn = isbn;
+          this.titulo = titulo;
+          this.autor = autor;
+          this.añoPubli = añoPubli;
+          if (añoPubli == fechaHoy.getFullYear()) {
+            this.actual = "Sí";
+          } else {
+            this.actual = "No";
+          }
+        }
+        toString() {
+          let datos = `ISBN: ${this.isbn} \nTítulo: ${this.titulo} \nAutor: ${this.autor} \nAño: ${this.añoPubli}\nActual: ${this.actual}`;
+          return alert(datos);
+        }
+      }
+
+      class LibroTexto extends Libro {
+        constructor(isbn, titulo, autor, añoPubli, estudios) {
+          super(isbn, titulo, autor, añoPubli);
+          this.estudios = estudios;
+        }
+        toString() {
+          let datos = `ISBN: ${this.isbn} \nTítulo: ${this.titulo} \nAutor: ${this.autor} \nAño: ${this.añoPubli}\nActual: ${this.actual}\nEstudios: ${this.estudios}`;
+          return alert(datos);
+        }
+      }
+
+      let libroTexto = new LibroTexto(
+        1111,
+        "Formación y Orientación Laboral",
+        "José Carlos Acedo",
+        2021,
+        "Ciclos"
+      );
+      libroTexto.toString();
+    </script>
+  </body>
+</html>

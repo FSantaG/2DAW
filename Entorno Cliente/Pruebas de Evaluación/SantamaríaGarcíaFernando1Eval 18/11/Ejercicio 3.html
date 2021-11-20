@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3</title>
+  </head>
+  <body>
+    <script>
+      function Libro(isbn, titulo, autor, añoPubli) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.añoPubli = añoPubli;
+
+        this.toString = function () {
+          let datos = `ISBN: ${this.isbn} \nTítulo: ${this.titulo} \nAutor: ${this.autor} \nAño: ${this.añoPubli}`;
+          return alert(datos);
+        };
+      }
+
+      let libro1 = new Libro(8974546, "Castellano", "Lorenzo Silva", 2021);
+      let libro2 = new Libro(
+        8974546,
+        "La marca del meridiano",
+        "Lorenzo Silva",
+        2019
+      );
+      libro1.toString();
+      libro2.toString();
+    </script>
+  </body>
+</html>
