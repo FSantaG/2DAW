@@ -48,10 +48,13 @@
             for (let i = 0; i < librosDisponibles.length; i++) {
               if (librosDisponibles[i].isbn == isbnBuscar) {
                 alert(Object.entries(librosDisponibles[i]));
+                break;
               } else if (librosPrestados[i].isbn == isbnBuscar) {
                 alert(Object.entries(librosPrestados[i]));
+                break;
               }
             }
+            alert(Error("ISBN no encontrado"));
             break;
           case "3":
             let isbnPrestar = prompt("Introduzca un ISBN válido");
