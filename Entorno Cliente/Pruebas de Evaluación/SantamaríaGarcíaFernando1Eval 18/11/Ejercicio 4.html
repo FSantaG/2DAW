@@ -16,10 +16,13 @@
           this.autor = autor;
           this.añoPubli = añoPubli;
           /*TODO: Introducir el if en un get actual*/
-          if (añoPubli == fechaHoy.getFullYear()) {
-            this.actual = "Sí";
+        }
+        get actual() {
+          let fechaHoy = new Date();
+          if (this.añoPubli == fechaHoy.getFullYear()) {
+            return "Sí";
           } else {
-            this.actual = "No";
+            return "No";
           }
         }
         toString() {

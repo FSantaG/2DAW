@@ -8,13 +8,8 @@
   </head>
   <body>
     <script>
-      /*TODO: Buen uso del Filter(item, index, element)*/
-      function posicionPar(array) {
-        return array.filter((element) => {
-          if (array.indexOf(element) % 2 == 0) {
-            return element;
-          }
-        });
+      function posicionPar(arr) {
+        return arr.filter((item, index, arr) => index % 2 == 0);
       }
 
       let prueba1 = posicionPar(["a", "b", 1, "d", 2, "f", 3]);

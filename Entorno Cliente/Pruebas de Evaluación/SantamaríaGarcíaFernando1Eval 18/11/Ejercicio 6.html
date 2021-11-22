@@ -41,21 +41,38 @@
               prompt("¿Autor?"),
               prompt("¿Año de publicación?")
             );
-            librosDisponibles.push(nuevoLibro);
+            if (librosDisponibles <= MAX_LENGTH) {
+              librosDisponibles.push(nuevoLibro);
+            } else {
+              alert(Error("Máximo de libros permitidos"));
+            }
             break;
           case "2":
             let isbnBuscar = prompt("Introduzca el ISBN que desee buscar");
-            for (let i = 0; i < librosDisponibles.length; i++) {
+            let isbnEncontrado = false;
+            let tamañoArray = librosDisponibles.length; //valor modificable localmente.
+            for (let i = 0; i < tamañoArray; i++) {
               if (librosDisponibles[i].isbn == isbnBuscar) {
                 alert(Object.entries(librosDisponibles[i]));
-                break;
-              } else if (librosPrestados[i].isbn == isbnBuscar) {
-                alert(Object.entries(librosPrestados[i]));
+                isbnEncontrado = true;
                 break;
               }
             }
-            /*TODO: Gestión de errores*/
-            break;
+            /* for(let i = 0;){}
+              if (librosPrestados[i].isbn == isbnBuscar) {
+                alert(Object.entries(librosPrestados[i]));
+                isbnEncontrado = true;
+                break;
+              } else {
+                continue;
+              }
+            } */
+            if ((isbnEncontrado = true)) {
+              break;
+            } else {
+              alert(Error("ISBN no encontrado"));
+              break;
+            }
           case "3":
             let isbnPrestar = prompt("Introduzca un ISBN válido");
             let confirmacionPrestado = prompt("¿Deseas continuar? s/n");
