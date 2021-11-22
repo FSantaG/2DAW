@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u5e01_vector</title>
+  </head>
+  <body>
+    <script>
+      class Vector {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+          let longitud = Math.sqrt(x ** 2 + y ** 2);
+          this.longitud = longitud;
+        }
+
+        /* get x() {
+          return this.x;
+        }
+        set x(x) {
+          this.x = x;
+        }
+        get y() {
+          return this.y;
+        }
+        set y(y) {
+          this.y = y;
+        } */
+        sumar(nuevaX, nuevaY) {
+          let sumaX = this.x + nuevaX;
+          let sumaY = this.y + nuevaY;
+          return "x: " + sumaX + ", y: " + sumaY;
+        }
+        restar(nuevaX, nuevaY) {
+          let restaX = this.x - nuevaX;
+          let restaY = this.y - nuevaY;
+          return "x: " + restaX + ", y: " + restaY;
+        }
+      }
+      //Ejemplos
+      let vector1 = new Vector(1, 2);
+      let vector2 = new Vector(3, 4);
+      alert(vector1.sumar(2, 3));
+      alert(vector1.restar(2, 3));
+      alert(vector2.longitud);
+      alert(vector2.x);
+      alert(vector2.y);
+    </script>
+  </body>
+</html>
