@@ -10,15 +10,17 @@
     <script>
       class Libro {
         constructor(isbn, titulo, autor, añoPubli) {
-          let fechaHoy = new Date();
           this.isbn = isbn;
           this.titulo = titulo;
           this.autor = autor;
           this.añoPubli = añoPubli;
-          if (añoPubli == fechaHoy.getFullYear()) {
-            this.actual = "Sí";
+        }
+        get actual() {
+          let fechaHoy = new Date();
+          if (this.añoPubli == fechaHoy.getFullYear()) {
+            return "Sí";
           } else {
-            this.actual = "No";
+            return "No";
           }
         }
         toString() {
@@ -41,38 +43,27 @@
               prompt("¿Autor?"),
               prompt("¿Año de publicación?")
             );
-            if (librosDisponibles <= MAX_LENGTH) {
-              librosDisponibles.push(nuevoLibro);
-            } else {
-              alert(Error("Máximo de libros permitidos"));
-            }
+            librosDisponibles.push(nuevoLibro);
             break;
           case "2":
-            let isbnBuscar = prompt("Introduzca el ISBN que desee buscar");
-            let isbnEncontrado = false;
-            let tamañoArray = librosDisponibles.length; //valor modificable localmente.
-            for (let i = 0; i < tamañoArray; i++) {
-              if (librosDisponibles[i].isbn == isbnBuscar) {
-                alert(Object.entries(librosDisponibles[i]));
-                isbnEncontrado = true;
-                break;
-              }
+            let id = prompt("ISBN del libro a prestar");
+            if (
+              librosDisponibles.findIndex(function chekea(item, index, array) {
+                if (item.isbn == id) {
+                  librosDisponibles[index].toString();
+                  alert("El libro está disponible");
+                }
+              }) == 0 &&
+              librosPrestados.findIndex(function chekea(item, index, array) {
+                if (item.isbn == id) {
+                  librosPrestados[index].toString();
+                  alert("El libro está prestado");
+                }
+              }) == 0
+            ) {
+              alert(`El libro con ISBN ${id} no existe en la base de datos`);
             }
-            /* for(let i = 0;){}
-              if (librosPrestados[i].isbn == isbnBuscar) {
-                alert(Object.entries(librosPrestados[i]));
-                isbnEncontrado = true;
-                break;
-              } else {
-                continue;
-              }
-            } */
-            if ((isbnEncontrado = true)) {
-              break;
-            } else {
-              alert(Error("ISBN no encontrado"));
-              break;
-            }
+            break;
           case "3":
             let isbnPrestar = prompt("Introduzca un ISBN válido");
             let confirmacionPrestado = prompt("¿Deseas continuar? s/n");
