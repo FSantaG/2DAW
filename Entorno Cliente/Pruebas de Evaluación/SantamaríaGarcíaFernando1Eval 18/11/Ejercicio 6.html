@@ -47,20 +47,27 @@
             break;
           case "2":
             let id = prompt("ISBN del libro a prestar");
+            let presente = true;
             if (
               librosDisponibles.findIndex(function chekea(item, index, array) {
                 if (item.isbn == id) {
                   librosDisponibles[index].toString();
                   alert("El libro está disponible");
                 }
-              }) == 0 &&
+              }) == -1
+            ) {
+              presente = false;
+            } else if (
               librosPrestados.findIndex(function chekea(item, index, array) {
                 if (item.isbn == id) {
                   librosPrestados[index].toString();
                   alert("El libro está prestado");
                 }
-              }) == 0
+              }) == -1
             ) {
+              presente = false;
+            }
+            if (presente != true) {
               alert(`El libro con ISBN ${id} no existe en la base de datos`);
             }
             break;
