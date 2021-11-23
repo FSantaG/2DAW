@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cabeceras Flexbox</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        font-size: 16px;
+      }
+      header {
+        margin: 1em;
+      }
+      section {
+        background-color: beige;
+        border-radius: 1em;
+        padding: 1em;
+        margin: 1em;
+      }
+      nav {
+        background-color: darkslategrey;
+        min-height: 4em;
+      }
+      nav a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.5);
+
+        min-width: 100px;
+      }
+      nav > a {
+        background-color: slategray;
+        font-size: 1.5em;
+      }
+      nav a:hover,
+      nav a:focus {
+        /* color:rgba(255,255,255,0.9); */
+        color: darkslategray;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      nav > a:hover,
+      nav > a:focus {
+        /* color:rgba(255,255,255,0.9); */
+        color: slategray;
+      }
+      nav ul {
+        list-style-type: none;
+
+        margin: 0;
+        padding: 0;
+      }
+      /*Ejercicio*/
+      nav a {
+        min-width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      nav {
+        min-height: 4em;
+        display: flex;
+        text-align: center;
+      }
+      ul {
+        display: flex;
+        flex-grow: 1; /*Esta línea es G O D*/
+      }
+      li {
+        display: flex;
+        align-items: stretch;
+      }
+      /* Alineaciones del ul flexible*/
+      .left {
+        justify-content: left;
+      }
+      .center {
+        justify-content: center;
+      }
+      .right {
+        justify-content: right;
+      }
+      .between {
+        justify-content: space-between;
+      }
+      .around {
+        justify-content: space-around;
+      }
+      .evenly {
+        justify-content: space-evenly;
+      }
+      .cien li,
+      .cien a {
+      }
+      .columna,
+      .columna ul {
+      }
+      .columna {
+        /* height:auto; */
+      }
+      .columna a {
+        height: 2em;
+      }
+      .columnai a {
+        padding-left: 16px;
+      }
+      footer {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Barras de navegación con Flexbox</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Alineación izquierda</h2>
+        <nav>
+          <a href="#">Sitio</a>
+          <ul class="left">
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#">Enlace 4</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section>
+        <h2>Centrado</h2>
+        <nav>
+          <a href="#">Sitio</a>
+          <ul class="center">
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#">Enlace 4</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section>
+        <h2>Alineación derecha</h2>
+        <nav>
+          <a href="#">Sitio</a>
+          <ul class="right">
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#">Enlace 4</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section>
+        <h2>Espacio entre ítems</h2>
+        <nav>
+          <a href="#">Sitio</a>
+          <ul class="between">
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#">Enlace 4</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section>
+        <h2>Espacio alrededor de ítems</h2>
+        <nav>
+          <a href="#">Sitio</a>
+          <ul class="around">
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#">Enlace 4</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section>
+        <h2>Ítems espaciados de manera uniforme</h2>
+        <nav>
+          <a href="#">Sitio</a>
+          <ul class="evenly">
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#">Enlace 4</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section>
+        <h2>Ítems ocupan el 100% del contenedor</h2>
+        <nav>
+          <a href="#">Sitio</a>
+          <ul class="cien">
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#">Enlace 4</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section>
+        <h2>Ítems en columna (centrados)</h2>
+        <nav class="columna columnac">
+          <a href="#">Sitio</a>
+          <ul>
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#">Enlace 4</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section>
+        <h2>Ítems en columna (alineación izquierda)</h2>
+        <nav class="columna columnai">
+          <a href="#">Sitio</a>
+          <ul>
+            <li><a href="#">Enlace 1</a></li>
+            <li><a href="#">Enlace 2</a></li>
+            <li><a href="#">Enlace 3</a></li>
+            <li><a href="#">Enlace 4</a></li>
+          </ul>
+        </nav>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; Juan de Colonia 2021</p>
+    </footer>
+  </body>
+</html>
