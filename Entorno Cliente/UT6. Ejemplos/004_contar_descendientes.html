@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <titulo>Contar los descendientes</titulo>
+  <body>
+    <ul>
+      <li>
+        Animales
+        <ul>
+          <li>
+            Mamíferos
+            <ul>
+              <li>Vacas</li>
+              <li>Burros</li>
+              <li>Perros</li>
+              <li>Tigres</li>
+            </ul>
+          </li>
+          <li>
+            Otros
+            <ul>
+              <li>Serpientes</li>
+              <li>Aves</li>
+              <li>Lagartos</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Peces
+        <ul>
+          <li>
+            Acuario
+            <ul>
+              <li>Guppy</li>
+              <li>Angelote</li>
+            </ul>
+          </li>
+          <li>
+            Mar
+            <ul>
+              <li>Trucha de mar</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <script>
+      for (let li of document.querySelectorAll("li")) {
+        let titulo = li.firstChild.data;
+
+        titulo = titulo.trim();
+        let contador = li.getElementsByTagName("li").length;
+
+        alert(titulo + ": " + contador);
+      }
+    </script>
+  </body>
+</html>
