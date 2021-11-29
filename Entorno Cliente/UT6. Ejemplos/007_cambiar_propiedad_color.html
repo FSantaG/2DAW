@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cambiar de color a enlaces externos</title>
+  </head>
+  <body>
+    <a name="list">La Lista</a>
+    <ul>
+      <li><a href="http://google.com">http://google.com</a></li>
+      <li><a href="/tutorial">/tutorial.html</a></li>
+      <li><a href="local/path">local/path</a></li>
+      <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+      <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+      <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+    </ul>
+
+    <script>
+      let link = document.querySelectorAll("a");
+      for (let anchor of link) {
+        /*
+        Declaración de una variable que contenga
+        el valor de href
+        */
+        let href = anchor.getAttribute("href");
+        /*
+        Si no se ha declarado la variable, termina
+        la ejecución actual y pasa al siguiente elemento 
+        del bucle
+        */
+        if (!href) {
+          continue;
+        }
+        /*
+        Si no incluye el protocolo, termina
+        la ejecución actual y pasa al siguiente elemento 
+        del bucle
+        */
+        if (!href.includes("://")) {
+          continue;
+        }
+        /*
+        Si el valor de href es interno, termina
+        la ejecución actual y pasa al siguiente elemento 
+        del bucle
+        */
+        if (href.startsWith("http://internal.com")) {
+          continue;
+        }
+        anchor.style.color = "orange";
+      }
+    </script>
+  </body>
+</html>
