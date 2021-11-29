@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prueba de comportamiento del innerHTML</title>
+  </head>
+  <body>
+    <div>
+      <!--Creado por Fernando-->
+      <h1>Esto está escrito</h1>
+      <p>De serie en el documento</p>
+      <p>UWU</p>
+    </div>
+    <script>
+      texto = document.querySelector("div");
+      parrafo1 = document.querySelector("p");
+      /*Pruebas con innerHTML
+      (Está como comentario por interferencias con
+      otro código)
+      */
+
+      /* alert(texto.innerHTML);
+      texto.innerHTML =
+        "<h1>Esto es nuevo</h1><p>Vendo Opel Corsa. Semi nuevo</p>";
+      alert(texto.innerHTML); */
+
+      /*Prueba con textContent*/
+      parrafo1.textContent = "Con un comando";
+      /*Prueba con outerHTML*/
+      texto.outerHTML = "<h1>U   W   U</h1>";
+      alert(texto.innerHTML);
+    </script>
+  </body>
+</html>
