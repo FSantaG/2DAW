@@ -51,6 +51,16 @@
         }
         anchor.style.color = "orange";
       }
+
+      //Otra forma
+      for (let anchor of link) {
+        if (anchor.hasAttribute("href")) {
+          href = anchor.getAttribute("href");
+          if (href.includes("://") && !href.startsWith("http://internal.com")) {
+            anchor.style.color = "red";
+          }
+        }
+      }
     </script>
   </body>
 </html>
