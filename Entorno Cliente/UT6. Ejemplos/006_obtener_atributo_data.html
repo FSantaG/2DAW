@@ -10,8 +10,10 @@
     <div data-widget-name="menu">Elige el genero</div>
 
     <script>
-      let div = document.body.querySelector("div");
-      alert(div.getAttribute("data-widget-name"));
+      let elem = document.body.querySelector("[data-widget-name]");
+      alert(elem.getAttribute("data-widget-name"));
+      //Segunda forma
+      alert(elem.dataset.widgetName);
     </script>
   </body>
 </html>
