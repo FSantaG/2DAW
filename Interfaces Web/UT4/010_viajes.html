@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viajes</title>
+    <style>
+      /*Añadir ancho máximo y mínimo al cuerpo de la página*/
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: black;
+        color: white;
+        margin: 0px;
+        max-width: 1500px;
+        min-width: 1000px;
+        margin: auto;
+      }
+      h1 {
+        font-size: 35px;
+        text-align: right;
+        padding-right: 10px;
+      }
+      h2 {
+        font-size: 1em;
+        text-align: center;
+      }
+      article {
+        display: flex;
+        flex-wrap: wrap;
+        height: 800px;
+        background-color: white;
+        justify-content: space-evenly;
+        align-content: space-evenly;
+      }
+      section {
+        box-sizing: border-box;
+        color: black;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        height: 45%;
+      }
+      #primera {
+        background-color: #b0c4dd;
+      }
+      #segunda {
+        background-color: #7effd4;
+      }
+      #tercera {
+        background-color: #aed8e6;
+      }
+      #cuarta {
+        background-color: #f9fad2;
+      }
+      a {
+        display: flex;
+        justify-content: center;
+      }
+      img {
+        height: 200px;
+        max-width: 100%;
+        padding-bottom: 5px;
+      }
+      footer {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Viajes</h1>
+    <article>
+      <section id="primera">
+        <a href="#">
+          <img alt="Calles de Tokyo" src="./img/tokyo_streets.jpg" />
+        </a>
+        <h2>Tokyo, una gran ciudad</h2>
+        <p>
+          Cillum nisi qui nostrud sit ex mollit laboris esse nostrud. Lorem anim
+          dolor nisi ex. Aute velit anim anim officia eu. Irure veniam Lorem
+          tempor eiusmod sint velit velit dolor ipsum.
+        </p>
+      </section>
+      <section id="segunda">
+        <a href="#">
+          <img alt="Hokkaido" src="./img/hokaido.jpg" />
+        </a>
+        <h2>Hokkaido, el paraiso del norte</h2>
+        <p>
+          Occaecat elit amet ad ex occaecat duis culpa id irure sunt qui. Est
+          consectetur ex est non anim. Elit aliqua commodo enim dolore duis sunt
+          ea voluptate fugiat amet incididunt est. Nisi fugiat est fugiat minim
+          id cupidatat id culpa officia est sit.
+        </p>
+      </section>
+      <section id="tercera">
+        <a href="#">
+          <img alt="Koobe" src="./img/Kobe.jpg" />
+        </a>
+        <h2>Koobe, la capital del oeste</h2>
+        <p>
+          Nisi sit veniam mollit sit laboris sit. Amet dolore esse officia est
+          ex. Amet voluptate commodo in nisi nisi sint et irure incididunt aute
+          aliqua mollit.
+        </p>
+      </section>
+      <section id="cuarta">
+        <a href="#">
+          <img alt="Monte Fuji" src="./img/MonteFuji.jpg" />
+        </a>
+        <h2>Monte Fuji, el volcán rodeado por cerezos</h2>
+        <p>
+          Et dolore non do velit commodo occaecat. Excepteur Lorem eu
+          consectetur reprehenderit ad ea in culpa occaecat. Ullamco dolor velit
+          aliqua dolore. Eu aliquip amet ipsum voluptate amet esse aliqua irure.
+          Consectetur aliquip ullamco tempor magna nulla. Occaecat duis occaecat
+          elit excepteur. Eiusmod ex laborum eiusmod sint.
+        </p>
+      </section>
+    </article>
+    <footer>
+      <p>&copy; Juan de Colonia 2021</p>
+    </footer>
+  </body>
+</html>
