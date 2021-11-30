@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crea una lista personalizada por el usuario</title>
+  </head>
+  <body>
+    <h1>Lista del usuario</h1>
+    <ul></ul>
+    <script>
+      let salida = false;
+      let ul = document.querySelector("ul");
+      while (!salida) {
+        let mensaje = prompt("Introduzca cualquier cosa");
+        if (mensaje == null) {
+          salida = true;
+          break;
+        }
+        let elemLista = document.createElement("li");
+        elemLista.textContent = mensaje;
+        ul.append(elemLista);
+      }
+    </script>
+  </body>
+</html>
