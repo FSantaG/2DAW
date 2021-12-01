@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mostrar descendientes en un árbol</title>
+</head>
+
+<body>
+  <ul>
+    <li>
+      Animals
+      <ul>
+        <li>
+          Mammals
+          <ul>
+            <li>Cows</li>
+            <li>Donkeys</li>
+            <li>Dogs</li>
+            <li>Tigers</li>
+          </ul>
+        </li>
+        <li>
+          Other
+          <ul>
+            <li>Snakes</li>
+            <li>Birds</li>
+            <li>Lizards</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      Fishes
+      <ul>
+        <li>
+          Aquarium
+          <ul>
+            <li>Guppy</li>
+            <li>Angelfish</li>
+          </ul>
+        </li>
+        <li>
+          Sea
+          <ul>
+            <li>Sea trout</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    let lista = document.getElementsByTagName("li");
+    //console.log(lista);
+    for (let li of lista) {
+      //console.log(li);
+      let descendientes = li.getElementsByTagName("li").length;
+      //console.log(descendientes);
+      if (descendientes != 0) {
+        li.firstChild.data += "[" + descendientes + "]";
+      }
+    }
+  </script>
+</body>
+
+</html>
