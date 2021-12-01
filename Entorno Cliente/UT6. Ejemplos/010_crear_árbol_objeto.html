@@ -6,31 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear un árbol desde el objeto</title>
   </head>
+
   <body>
+    <!--Solución de los apuntes-->
     <div id="contenedor"></div>
 
     <script>
+      function createTree(contenedor, obj) {
+        contenedor.append(createTreeDOM(obj));
+      }
+      function createTreeDOM(obj) {
+        // si no tiene hijos, el llamado devuelve undefined
+        // y el <ul> no será creado
+        if (!Object.keys(obj).length) return;
+
+        let ul = document.createElement("ul");
+
+        for (let key in obj) {
+          let li = document.createElement("li");
+          li.innerHTML = key;
+
+          let childrenUl = createTreeDOM(obj[key]);
+          if (childrenUl) {
+            li.append(childrenUl);
+          }
+
+          ul.append(li);
+        }
+
+        return ul;
+      }
       let data = {
-        "Fish": {
-          "trout": {},
-          "salmon": {},
+        Fish: {
+          trout: {},
+          salmon: {},
         },
 
-        "Tree": {
-          "Huge": {
-            "sequoia": {},
-            "oak": {},
+        Tree: {
+          Huge: {
+            sequoia: {},
+            oak: {},
           },
-          "Flowering": {
+          Flowering: {
             "apple tree": {},
-            "magnolia": {},
+            magnolia: {},
           },
         },
       };
 
-      function createTree(contenedor, obj) {
-        
-      }
       let contenedor = document.getElementById("contenedor");
       createTree(contenedor, data);
     </script>
