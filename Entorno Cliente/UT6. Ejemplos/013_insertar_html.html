@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insertar HTML en mitad de una lista</title>
+  </head>
+  <body>
+    <ul id="ul">
+      <li id="one">1</li>
+      <li id="two">4</li>
+    </ul>
+    <script>
+      //Esto ta pocho xdxdxdddxd
+      let primerElemento = document.querySelector("#one");
+      let últimoElemento = document.querySelector("#two");
+      let dos = document.createElement("li");
+      dos.innerHTML = 2;
+      let tres = document.createElement("li");
+      tres.innerHTML = 3;
+      primerElemento.after(dos);
+      últimoElemento.before(tres);
+    </script>
+  </body>
+</html>
