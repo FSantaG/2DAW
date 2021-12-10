@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid 1</title>
+    <style>
+      body {
+        margin: 0;
+        color: white;
+        font-size: 15px;
+        display: grid;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: 20vh 60vh 20vh;
+        grid-template-areas: "header header" "menu content" "footer footer";
+      }
+      header,
+      .menu,
+      .content,
+      footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      header {
+        background-color: lightcoral;
+        /* grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: -1; */
+        grid-area: header;
+      }
+      .menu {
+        background-color: lightgreen;
+        grid-area: menu;
+      }
+      .content {
+        background-color: lightseagreen;
+        grid-area: content;
+      }
+      footer {
+        background-color: mediumpurple;
+        /* grid-row-start: 3;
+        grid-row-end: -1;
+        grid-column-start: 1;
+        grid-column-end: -1; */
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>HEADER</header>
+    <div class="menu">MENU</div>
+    <div class="content">CONTENT</div>
+    <footer>FOOTER</footer>
+  </body>
+</html>
