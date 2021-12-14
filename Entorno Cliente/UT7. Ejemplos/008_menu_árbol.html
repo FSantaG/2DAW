@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      .esconder {
+        display: none;
+      }
+      li {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="tree" id="tree">
+      <li>
+        Animals
+        <ul>
+          <li>
+            Mammals
+            <ul>
+              <li>Cows</li>
+              <li>Donkeys</li>
+              <li>Dogs</li>
+              <li>Tigers</li>
+            </ul>
+          </li>
+          <li>
+            Other
+            <ul>
+              <li>Snakes</li>
+              <li>Birds</li>
+              <li>Lizards</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Fishes
+        <ul>
+          <li>
+            Aquarium
+            <ul>
+              <li>Guppy</li>
+              <li>Angelfish</li>
+            </ul>
+          </li>
+          <li>
+            Sea
+            <ul>
+              <li>Sea trout</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <script>
+      /********************************
+        Crea un árbol que muestre y oculte nodos hijos con clics:
+        Requerimientos:
+            * Solamente un manejador de eventos (usa delegación)
+            * Un clic fuera de los nodos de títulos (en un espacio vacío) no debe hacer nada.
+            * No es necesario que ponga los elementos en negrita y que cambie el cursor
+        Pistas: 
+            * elemento.tagName contiene el tipo de elemento en mayúsculas (ej. DIV)
+        ********************************/
+      tree.onclick = function (evento) {
+        let elemento = evento.target;
+        if (elemento.tagName != "LI") {
+          return;
+        }
+        for (let hijo of elemento.children) {
+          hijo.classList.toggle("esconder");
+        }
+      };
+    </script>
+  </body>
+</html>
