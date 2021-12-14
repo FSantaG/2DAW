@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        height: 2000px;
+        /* make body scrollable, the tooltip should work after the scroll */
+      }
+
+      .tooltip {
+        /* some styles for the tooltip, you can use your own instead */
+        position: fixed;
+        padding: 10px 20px;
+        border: 1px solid #b3c9ce;
+        border-radius: 4px;
+        text-align: center;
+        font: italic 14px/1.3 sans-serif;
+        color: #333;
+        background: #fff;
+        box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa</p>
+    <p>LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa LaLaLa</p>
+
+    <button data-tooltip="the tooltip is longer than the element">
+      Short button
+    </button>
+    <button data-tooltip="HTML<br>tooltip">One more button</button>
+
+    <p>
+      Scroll the page to make buttons appear on the top, check if the tooltips
+      show up correctly.
+    </p>
+
+    <script>
+      /**************************************
+       * Cuando un mouse pasa sobre un elemento con data-tooltip, el tooltip debe aparecer sobre él, y ocultarse cuando se va.
+       * En esta tarea suponemos que todos los elementos con data-tooltip solo tienen texto dentro. Sin tags anidados (todavía).
+       * Detalles:
+       *       La distancia entre el elemento y el tooltip debe ser 5px.
+       *       El tooltip debe ser centrado relativo al elemento si es posible.
+       *       El tooltip no debe cruzar los bordes de la ventana. Normalmente debería estar sobre el elemento, pero si el elemento está en la parte superior de la página y no hay espacio para el tooltip, entonces debajo de él.
+       *       El contenido del tooltip está dado en el atributo data-tooltip. Este puede ser HTML arbitrario.
+       *
+       * Necesitarás dos eventos aquí:
+       *       mouseover se dispara cuando el puntero pasa sobre el elemento.
+       *       mouseout se dispara cuando el puntero deja el elemento.
+       * Usa delegación de eventos: prepare dos manejadores en el document para rastrear todos los “overs” y “outs” de los elementos con data-tooltip y administra los tooltips desde allí.
+       *
+       * Después de implementar el comportamiento, incluso gente no familiarizada con JavaScript puede agregar elementos anotados.
+       * P.D. Solamente un tooltip puede mostrarse a la vez.
+       *
+       * ***************************************/
+      /**** Algoritmo
+         * Asocia el manejador de eventos al documento (mouseover: el ratón entra)
+         * Qué hace el manejador:
+            * Selecciona el elemento sobre el que se ha disparado el evento (target)
+            * Sólo se debe tener en cuenta si el target.dataset.tooltip existe
+            * Crea un elemento tooltipElemen: es un div, con className="tooltip", innerHTML=target.dataset.tooltip
+            * Añade ese elemento al body del documento
+            * Para calcular la posición del div (tooltipElem):
+            *       let coords = target.getBoundingClientRect();
+                    let left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+                    if (left < 0) left = 0; // don't cross the left window edge
+                    let top = coords.top - tooltipElem.offsetHeight - 5;
+                    if (top < 0) { // if crossing the top window edge, show below instead
+                        top = coords.top + target.offsetHeight + 5;
+                    }
+                    tooltipElem.style.left = left + 'px';
+                    tooltipElem.style.top = top + 'px';
+
+         * Asocia el manejador de eventos al documento (mouseout: el ratón sale)
+         * Qué hace el manejador:
+            * Si existe tooltipElemen
+            * Lo eliminamos (elem.remove())
+            * Y se cambia su valor a null: tooltipElem = null
+         * ****/
+      // ...your code...
+    </script>
+  </body>
+</html>
