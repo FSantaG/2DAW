@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 5 - Ejercicio 8</title>
+    <style>
+        .borderoja {
+            border: solid 5px red;
+        }
+
+        .bordeverde {
+            border: solid 5px green;
+        }
+
+        .bordeazul {
+            border: solid 5px blue;
+        }
+
+        img {
+            width: 250px;
+        }
+    </style>
+    <script src="u5e08_berlin.js"></script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><img src="berlin/alexanderplatz.jpeg" alt="Alexanderplatz" class="roja"></td>
+            <td><img src="berlin/hermannplatz.jpeg" alt="HermannPlatz" class="roja azul"></td>
+            <td><img src="berlin/jungfernheide.jpeg" alt="Jungfernheide" class="azul verde"></td>
+            <td><img src="berlin/konstanzer.jpeg" alt="Konstanzer" class="roja"></td>
+        </tr>
+        <tr>
+            <td><img src="berlin/kurfurstenstrabe.jpeg" alt="Kurfurstenstrabe" class="verde azul"></td>
+            <td><img src="berlin/paulsternstrasse.jpeg" alt="Paulsternstrasse" class="roja verde azul"></td>
+            <td><img src="berlin/unterdenlinden.jpeg" alt="Unterdenlinden" class="azul roja"></td>
+            <td><img src="berlin/westhafen.jpeg" alt="Westhafen" class="verde"></td>
+        </tr>
+    </table>
+    <div id="info">
+        <h4>Información de la parada:</h4>
+        <p></p>
+    </div>
+    <div id="botones">
+        <button id="roja">Línea roja</button>
+        <button id="verde">Línea verde</button>
+        <button id="azul">Línea azul</button>
+        <button id="borrar">Borrar seleccion</button>
+    </div>
+</body>
+
+</html>

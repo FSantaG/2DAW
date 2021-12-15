@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unidad 5 - Ejercicio 2</title>
+  </head>
+
+  <body>
+    <h1>Modificar estilos del texto</h1>
+    <div>
+      <span>Seleccionar tamaño texto: </span>
+      <select id="tam">
+        <option value="0.8em">Pequeño</option>
+        <option value="1.2em">Mediano</option>
+        <option value="2em">Grande</option>
+      </select>
+      <span>Seleccionar color texto: </span>
+      <select id="color">
+        <option value="red">Rojo</option>
+        <option value="green">Verde</option>
+        <option value="blue">Azul</option>
+      </select>
+      <button id="actualizar">Cambiar</button>
+    </div>
+    <div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+        doloremque voluptates atque ad minima blanditiis illum dolor qui
+        nesciunt? Vero cum quo eos reiciendis earum ex, voluptatem, possimus in
+        obcaecati perspiciatis nisi qui accusamus iste ipsum pariatur,
+        laboriosam harum assumenda nostrum rem ut quos voluptates et! Atque aut
+        blanditiis aliquam!
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+        tempora dignissimos quisquam architecto nobis mollitia fugiat
+        exercitationem vitae officia aspernatur.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+        tempora dignissimos quisquam architecto nobis mollitia fugiat
+      </p>
+    </div>
+    <script>
+      let button = document.querySelector("button");
+      button.onclick = function (event) {
+        target = event.target;
+        if (target.nodeName != "BUTTON") {
+          return;
+        }
+        let tamaño = document.querySelector("tam option");
+        let color = document.querySelector("color option");
+        let texto = document.querySelector("div:nth-child(2)");
+        alert(texto);
+        texto.style.fontSize = tamaño.value;
+        texto.style.color = color.value;
+      };
+    </script>
+  </body>
+</html>
