@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unidad 5 - Ejercicio 2</title>
+    <style></style>
   </head>
 
   <body>
@@ -43,19 +44,25 @@
       </p>
     </div>
     <script>
-      let button = document.querySelector("button");
-      button.onclick = function (event) {
-        target = event.target;
-        if (target.nodeName != "BUTTON") {
-          return;
+      window.onload = inicio;
+
+      function inicio() {
+        let preferencias = document.getElementsByTagName("select");
+
+        for (var i = 0; i < preferencias.length; i++) {
+          preferencias[i].addEventListener("change", actualizar);
         }
-        let tamaño = document.querySelector("tam option");
-        let color = document.querySelector("color option");
-        let texto = document.querySelector("div:nth-child(2)");
-        alert(texto);
-        texto.style.fontSize = tamaño.value;
-        texto.style.color = color.value;
-      };
+      }
+
+      function actualizar() {
+        let color = document.getElementById("color").value;
+        let tam = document.getElementById("tam").value;
+        let textos = document.getElementsByTagName("p");
+        for (var i = 0; i < textos.length; i++) {
+          textos[i].style.color = color;
+          textos[i].style.fontSize = tam;
+        }
+      }
     </script>
   </body>
 </html>
