@@ -48,14 +48,27 @@
         if (target.nodeName != "BUTTON") {
           return;
         }
-        let color = document.getElementById("color").value;
-        let tam = document.getElementById("tam").value;
-        let textos = document.getElementsByTagName("p");
-        for (var i = 0; i < textos.length; i++) {
-          textos[i].style.color = color;
-          textos[i].style.fontSize = tam;
-        }
+
+        let texto = document.getElementsByTagName("div")[1];
+
+        let selectTamaño = document.getElementById("tam");
+        let indiceTamaño = selectTamaño.selectedIndex;
+        let valorTamaño = selectTamaño.options[indiceTamaño].value;
+        texto.style.fontSize = valorTamaño;
+
+        let selectColor = document.getElementById("color");
+        let indiceColor = selectColor.selectedIndex;
+        let valorColor = selectColor.options[indiceColor].value;
+        texto.style.color = valorColor;
       };
+      /*Código propio. Primera versión 
+      
+      let color = document.getElementById("color").value;
+        let tam = document.getElementById("tam").value;
+        let texto = document.getElementsByTagName("div")[1];
+        texto.style.color = color;
+        texto.style.fontSize = tam; */
+
       /* Código de Ekeno 
       window.onload = inicio;
 
