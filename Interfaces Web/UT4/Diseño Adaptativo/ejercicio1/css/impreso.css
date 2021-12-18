@@ -1,0 +1,9 @@
+body {
+  font-family: sans-serif;
+}
+#buscador {
+  display: none;
+}
+#secundario h3 {
+  display: none;
+}

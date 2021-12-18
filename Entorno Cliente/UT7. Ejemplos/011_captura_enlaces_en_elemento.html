@@ -41,7 +41,8 @@
           `¿Desea realmente salir a ${target.closest("a").href}?`
         );
         if (salida == false) {
-          return false;
+          //return false;
+          event.preventDefault();
         }
       };
     </script>

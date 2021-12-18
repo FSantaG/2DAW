@@ -44,7 +44,19 @@
       </li>
     </ul>
     <script>
-      // Tu código aquí
+      let contenedor = document.getElementById("thumbs");
+      contenedor.addEventListener("click", actualizar);
+
+      function actualizar(event) {
+        let enlace = event.target.closest("a");
+        if (!enlace) {
+          return;
+        }
+        event.preventDefault();
+        let hrefImagen = enlace.href;
+        let imagenGrande = document.querySelector("img");
+        imagenGrande.src = hrefImagen;
+      }
     </script>
   </body>
 </html>

@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unidad 5 - Ejercicio 3</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <form action="#" id="origen">
-        <p>
-            Seleccione un producto:<br>
-            <select id="productos" size="1">
-                <option value="">Productos</option>
-                <option value="Patatas">Patatas</option>
-                <option value="Judías">Judias</option>
-                <option value="Acelgas">Acelgas</option>
-                <option value="Tomates">Tomates</option>
-                <option value="Melocotones">Melocotones</option>
-                <option value="Manzanas">Manzanas</option>
-            </select>
-            <input type="button" id="mueve" value="Añadir">
-        </p>
+      <p>
+        Seleccione un producto:<br />
+        <select id="productos" size="1">
+          <option value="">Productos</option>
+          <option value="Patatas">Patatas</option>
+          <option value="Judías">Judias</option>
+          <option value="Acelgas">Acelgas</option>
+          <option value="Tomates">Tomates</option>
+          <option value="Melocotones">Melocotones</option>
+          <option value="Manzanas">Manzanas</option>
+        </select>
+        <input type="button" id="mueve" value="Añadir" />
+      </p>
     </form>
     <form action="#" id="destino">
-        <p>
-            Elementos añadidos:<br>
-            <textarea cols="20" rows="8" name="cajaItems"></textarea>
-        </p>
+      <p>
+        Elementos añadidos:<br />
+        <textarea cols="20" rows="8" name="cajaItems"></textarea>
+      </p>
     </form>
-</body>
+    <script>
+      let formulario = document.getElementById("origen");
+      formulario.addEventListener("click", añadirElemento);
 
+      function añadirElemento(event) {
+        let botonAñadir = event.target;
+        if (botonAñadir.nodeName != "INPUT") return;
+
+        let areaTexto = document.querySelector("textarea");
+        let listaProductos = document.getElementById("productos");
+        let indiceProducto = listaProductos.selectedIndex;
+        if (indiceProducto != 0) {
+          let producto = listaProductos.options[indiceProducto].value;
+          areaTexto.innerHTML += producto + " ";
+        }
+      }
+    </script>
+  </body>
 </html>
