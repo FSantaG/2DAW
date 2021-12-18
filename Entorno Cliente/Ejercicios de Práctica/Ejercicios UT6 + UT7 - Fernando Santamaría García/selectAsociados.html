@@ -1,25 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unidad 5 - Ejercicio 4</title>
-</head>
+    <style></style>
+  </head>
 
-<body>
+  <body>
     <form id="formu" action="#">
-        <select id="ccaa">
-            <option value="0" selected="selected">Seleccione...</option>
-            <option value="1">Castilla y León</option>
-            <option value="2">Comunidad Madrid</option>
-            <option value="3">Galicia</option>
-            <option value="4">País Vasco</option>
-        </select>
-        <select id="provincia">
-            <option value="-">-</option>
-        </select>
+      <select id="ccaa">
+        <option value="0" selected="selected">Seleccione...</option>
+        <option value="1">Castilla y León</option>
+        <option value="2">Comunidad Madrid</option>
+        <option value="3">Galicia</option>
+        <option value="4">País Vasco</option>
+      </select>
+      <select id="provincia">
+        <option value="-">-</option>
+      </select>
     </form>
-</body>
-
+    <script>
+      /*Declaración de la variable que contiene el elemento sobre el que se realizará el evento, y creación del evento*/
+      let comunidad = document.getElementById("ccaa");
+      comunidad.onchange = function (evento) {
+        let provincias = document.getElementById("provincia");
+        let índice = comunidad.selectedIndex;
+        /***Borrado delos elementos creados con anterioridad, para evitar overflow***/
+        let borrado = document.querySelectorAll(
+          "#provincia option:not(:first-child)"
+        );
+        for (let elemento of borrado) {
+          elemento.remove();
+        }
+        /****************************/
+        switch (índice) {
+          case 1:
+            let arrayCYL = [
+              "Ávila",
+              "Burgos",
+              "León",
+              "Palencia",
+              "Salamanca",
+              "Segovia",
+              "Soria",
+              "Valladolid",
+              "Zamora",
+            ];
+            for (let i = 0; i < arrayCYL.length; i++) {
+              let provincia = document.createElement("option");
+              provincia.value = arrayCYL[i].toLowerCase;
+              provincia.innerHTML = arrayCYL[i];
+              provincias.append(provincia);
+            }
+            break;
+          case 2:
+            let madrid = "Madrid";
+            let provincia = document.createElement("option");
+            provincia.value = madrid.toLowerCase;
+            provincia.innerHTML = madrid;
+            provincias.append(provincia);
+            break;
+          case 3:
+            let arrayGalicia = ["Pontevedra", "A Coruña", "Lugo", "Ourense"];
+            for (let i = 0; i < arrayGalicia.length; i++) {
+              let provincia = document.createElement("option");
+              provincia.value = arrayGalicia[i].toLowerCase;
+              provincia.innerHTML = arrayGalicia[i];
+              provincias.append(provincia);
+            }
+            break;
+          case 4:
+            let arrayPaisVasco = ["Vizcaya", "Guipúzcoa", "Álava"];
+            for (let i = 0; i < arrayPaisVasco.length; i++) {
+              let provincia = document.createElement("option");
+              provincia.value = arrayPaisVasco[i].toLowerCase;
+              provincia.innerHTML = arrayPaisVasco[i];
+              provincias.append(provincia);
+            }
+            break;
+        }
+      };
+    </script>
+  </body>
 </html>
