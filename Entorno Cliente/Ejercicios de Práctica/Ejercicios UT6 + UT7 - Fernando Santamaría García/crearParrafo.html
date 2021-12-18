@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 5 - Ejercicio 5</title>
+</head>
+<body>
+    <form id="formulario" action="post">
+        <textarea name="parrafos"  id="texto" placeholder="Escriba algo aquí"></textarea></br>
+        <input type="button" id="creador" name="creador" value="Crear párrafo"/>
+    </form>
+    <script>
+        let botonCreador = document.getElementById("creador");
+        botonCreador.onclick = function(evento){
+            let areaTexto = document.getElementById("texto");
+            let parrafo = document.createElement("p");
+            if(areaTexto.value == ""){
+                alert("Introduzca algo en la zona de texto, por favor");
+                return;
+            }
+            parrafo.innerHTML = areaTexto.value;
+            document.body.append(parrafo);
+            areaTexto.value = "";
+        }
+    </script>
+</body>
+</html>
