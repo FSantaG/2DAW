@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unidad 5 - Ejercicio 2</title>
-    <style></style>
   </head>
   <body>
     <h1>Modificar estilos del texto</h1>
@@ -43,18 +42,20 @@
       </p>
     </div>
     <script>
-      let texto = document.getElementsByTagName("div")[1];
+      let botonActualizar = document.getElementById("actualizar");
+      botonActualizar.onclick = function (event) {
+        let texto = document.getElementsByTagName("div")[1];
 
-      let selectTamaño = document.getElementById("tam");
-      let indiceTamaño = selectTamaño.selectedIndex;
-      let valorTamaño = selectTamaño.options[indiceTamaño].value;
-      texto.style.fontSize = valorTamaño;
+        let selectTamaño = document.getElementById("tam");
+        let indiceTamaño = selectTamaño.selectedIndex;
+        let valorTamaño = selectTamaño.options[indiceTamaño].value;
+        texto.style.fontSize = valorTamaño;
 
-      let selectColor = document.getElementById("color");
-      let indiceColor = selectColor.selectedIndex;
-      let valorColor = selectColor.options[indiceColor].value;
-      texto.style.color = valorColor;
-
+        let selectColor = document.getElementById("color");
+        let indiceColor = selectColor.selectedIndex;
+        let valorColor = selectColor.options[indiceColor].value;
+        texto.style.color = valorColor;
+      };
       /*Código propio. Primera versión 
       
       let color = document.getElementById("color").value;
