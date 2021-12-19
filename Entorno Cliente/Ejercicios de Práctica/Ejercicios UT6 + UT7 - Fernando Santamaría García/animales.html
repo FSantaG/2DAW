@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unidad 5 - Ejercicio 7</title>
+  </head>
+  <body>
+    <button id="generar">Generar personaje</button>
+    <button id="borrar">Borrar personaje</button>
+    <button id="contarPerros">N.º Perros</button>
+    <button id="contarGatos">N.º Gatos</button>
+    <button id="contarHurones">N.ª Hurones</button>
+    <div id="galeria"></div>
+    <script>
+      let galeria = document.getElementById("galeria");
+
+      let botonGenerar = document.getElementById("generar");
+      let botonBorrar = document.getElementById("borrar");
+      let botonContarPerros = document.getElementById("contarPerros");
+      let botonContarGatos = document.getElementById("contarGatos");
+      let botonContarHurones = document.getElementById("contarHurones");
+
+      botonGenerar.addEventListener("click", generar);
+      botonBorrar.addEventListener("click", borrar);
+      botonContarPerros.addEventListener("click", contarPerros);
+      botonContarGatos.addEventListener("click", contarGatos);
+      botonContarHurones.addEventListener("click", contarHurones);
+
+      function generar() {
+        let respuesta = Number(
+          prompt("Elige animal: \n1. Perro \n2. Gato \n3. Hurón")
+        );
+        switch (respuesta) {
+          case 1:
+            let fotoPerro = document.createElement("img");
+            fotoPerro.src = "imgAnimales/perro.jpg";
+            fotoPerro.className = "perro";
+            galeria.append(fotoPerro);
+            break;
+          case 2:
+            let fotoGato = document.createElement("img");
+            fotoGato.src = "imgAnimales/gato.jpg";
+            fotoGato.className = "gato";
+            galeria.append(fotoGato);
+            break;
+          case 3:
+            let fotoHuron = document.createElement("img");
+            fotoHuron.src = "imgAnimales/huron.jpg";
+            fotoHuron.className = "hurón";
+            galeria.append(fotoHuron);
+            break;
+          default:
+            alert("Introduzca un valor válido la próxima vez");
+        }
+      }
+      function borrar() {
+        let ultimoElemento = galeria.querySelector("img:last-child");
+        ultimoElemento.remove();
+      }
+
+      function contarPerros() {
+        let perros = document.querySelectorAll(".perro");
+        alert(`Perros: ${perros.length}`);
+      }
+      function contarGatos() {
+        let gatos = document.querySelectorAll(".gato");
+        alert(`Gatos: ${gatos.length}`);
+      }
+      function contarHurones() {
+        let hurones = document.querySelectorAll(".hurón");
+        alert(`Hurones: ${hurones.length}`);
+      }
+    </script>
+  </body>
+</html>
