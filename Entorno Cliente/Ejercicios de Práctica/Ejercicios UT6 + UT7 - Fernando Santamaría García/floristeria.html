@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unidad 5 - Ejercicio 6</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 2px black solid;
+      }
+      td {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="tablaFlores">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Ubicación</th>
+          <th>Ejemplares</th>
+          <th>Flor</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button id="generar">Generar Planta</button>
+    <button id="borrar">Borrar fila</button>
+    <button id="contarFilas">Mostrar número de filas</button>
+    <script>
+      let tbody = document.querySelector("tbody");
+      /*Botón de añadir nueva fila*/
+      let generarPlanta = document.getElementById("generar");
+      generarPlanta.onclick = function (evento) {
+        let info = [
+          prompt("Nombre de la planta"),
+          prompt("¿Dónde se encuentra?"),
+          prompt("¿Cuántos ejemplares hay?"),
+          prompt("¿Flor?"),
+        ];
+        let nuevaFila = document.createElement("tr");
+        for (let i = 0; i < info.length; i++) {
+          nuevaFila.innerHTML += "<td>" + info[i] + "</td>";
+        }
+        tbody.append(nuevaFila);
+      };
+      /*Botón de borrado de fila*/
+      let borrarFila = document.getElementById("borrar");
+      borrarFila.onclick = function (evento) {
+        let ultima = tbody.querySelector("tr:last-child");
+        if (!ultima) {
+          alert("No hay filas disponibles para borrar");
+          return;
+        }
+        ultima.remove();
+      };
+      /*Botón de contar filas presentes*/
+      let contarFilas = document.getElementById("contarFilas");
+      contarFilas.onclick = function (evento) {
+        let numFilas = tbody.querySelectorAll("tr");
+        let contador = 0;
+        for (let fila of numFilas) {
+          contador++;
+        }
+        if (contador == 1) {
+          alert("En la tabla sólo hay 1 fila");
+          return;
+        }
+        alert(`En la tabla hay presentes ${contador} filas`);
+      };
+    </script>
+  </body>
+</html>
