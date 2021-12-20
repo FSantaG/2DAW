@@ -21,7 +21,6 @@
         width: 250px;
       }
     </style>
-    <script src="u5e08_berlin.js"></script>
   </head>
 
   <body>
@@ -90,7 +89,70 @@
       <button id="borrar">Borrar seleccion</button>
     </div>
     <script>
-      /*TODO: Terminar este ejercicio*/
+      /*Primera parte: Tooltips*/
+      let tooltipElem;
+
+      document.onmouseover = function (event) {
+        let target = event.target;
+        //Si el target es una imagen, le asigna el atributo data-tooltip
+        if (target.nodeName == "IMG") {
+          target.dataset.tooltip = `Esta es la estación de ${target.alt}`;
+        }
+        // Si existe el tooltip, termina la ejecución
+        let tooltipHtml = target.dataset.tooltip;
+        if (!tooltipHtml) return;
+
+        //Crea el tooltip persé
+
+        tooltipElem = document.createElement("div");
+        tooltipElem.className = "tooltip";
+        tooltipElem.innerHTML = tooltipHtml;
+        document.body.append(tooltipElem);
+
+        document.onmouseout = function (e) {
+          if (tooltipElem) {
+            tooltipElem.remove();
+            tooltipElem = null;
+          }
+        };
+      };
+      /*Segunda parte: Botones de líneas*/
+      let botonRojo = document.getElementById("roja");
+      let botonAzul = document.getElementById("azul");
+      let botonVerde = document.getElementById("verde");
+
+      botonRojo.onclick = function () {
+        let lineaRoja = document.querySelectorAll(".roja");
+        for (let estacionRoja of lineaRoja) {
+          estacionRoja.classList.add("borderoja");
+        }
+      };
+      botonAzul.onclick = function () {
+        let lineaAzul = document.querySelectorAll(".azul");
+        for (let estacionAzul of lineaAzul) {
+          estacionAzul.classList.add("bordeazul");
+        }
+      };
+      botonVerde.onclick = function () {
+        let lineaVerde = document.querySelectorAll(".verde");
+        for (let estacionVerde of lineaVerde) {
+          estacionVerde.classList.add("bordeverde");
+        }
+      };
+      /*Parte 3: funcionalidad del botón "Borrar selección"*/
+      let borrarSeleccion = document.getElementById("borrar");
+      borrarSeleccion.addEventListener("click", borrar);
+
+      function borrar() {
+        let colores = ["roja", "verde", "azul"];
+        for (let color of colores) {
+          let imgs = document.querySelectorAll("img");
+          for (let img of imgs) {
+            if (img.classList.contains(`borde${color}`))
+              img.classList.remove(`borde${color}`);
+          }
+        }
+      }
     </script>
   </body>
 </html>
