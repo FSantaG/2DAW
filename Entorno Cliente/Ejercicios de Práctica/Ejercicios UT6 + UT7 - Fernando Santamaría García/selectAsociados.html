@@ -26,7 +26,8 @@
       comunidad.onchange = function (evento) {
         let provincias = document.getElementById("provincia");
         let índice = comunidad.selectedIndex;
-        /***Borrado delos elementos creados con anterioridad, para evitar overflow***/
+        let arrayProvincias = [];
+        /***Borrado de los elementos creados con anterioridad, para evitar overflow***/
         let borrado = document.querySelectorAll(
           "#provincia option:not(:first-child)"
         );
@@ -36,7 +37,7 @@
         /****************************/
         switch (índice) {
           case 1:
-            let arrayCYL = [
+            arrayProvincias = [
               "Ávila",
               "Burgos",
               "León",
@@ -47,38 +48,22 @@
               "Valladolid",
               "Zamora",
             ];
-            for (let i = 0; i < arrayCYL.length; i++) {
-              let provincia = document.createElement("option");
-              provincia.value = arrayCYL[i].toLowerCase;
-              provincia.innerHTML = arrayCYL[i];
-              provincias.append(provincia);
-            }
             break;
           case 2:
-            let madrid = "Madrid";
-            let provincia = document.createElement("option");
-            provincia.value = madrid.toLowerCase;
-            provincia.innerHTML = madrid;
-            provincias.append(provincia);
+            arrayProvincias = ["Madrid"];
             break;
           case 3:
-            let arrayGalicia = ["Pontevedra", "A Coruña", "Lugo", "Ourense"];
-            for (let i = 0; i < arrayGalicia.length; i++) {
-              let provincia = document.createElement("option");
-              provincia.value = arrayGalicia[i].toLowerCase;
-              provincia.innerHTML = arrayGalicia[i];
-              provincias.append(provincia);
-            }
+            arrayProvincias = ["Pontevedra", "A Coruña", "Lugo", "Ourense"];
             break;
           case 4:
-            let arrayPaisVasco = ["Vizcaya", "Guipúzcoa", "Álava"];
-            for (let i = 0; i < arrayPaisVasco.length; i++) {
-              let provincia = document.createElement("option");
-              provincia.value = arrayPaisVasco[i].toLowerCase;
-              provincia.innerHTML = arrayPaisVasco[i];
-              provincias.append(provincia);
-            }
+            arrayProvincias = ["Vizcaya", "Guipúzcoa", "Álava"];
             break;
+        }
+        for (let i = 0; i < arrayProvincias.length; i++) {
+          let provincia = document.createElement("option");
+          provincia.value = arrayProvincias[i].toLowerCase;
+          provincia.innerHTML = arrayProvincias[i];
+          provincias.append(provincia);
         }
       };
     </script>
