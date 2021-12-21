@@ -4,11 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>u07Ev-e02_calculadora</title>
   </head>
   <body>
+    <h3 id="info"></h3>
     Número:
     <input type="text" id="n1" />
     <button id="b1">x<sup>2</sup></button>
+    <button id="b2">x<sup>3</sup></button>
+    <button id="b3">1/x</button>
   </body>
+  <script>
+    document.addEventListener("click", (ev) => {
+      let info = document.getElementById("info");
+      if (ev.target.matches("#n1")) vaciar();
+      else if (ev.target.matches("#b1")) cuadrado();
+      else if (ev.target.matches("#b2")) cubo();
+      else if (ev.target.matches("#b3")) invertir();
+    });
+
+    function vaciar() {
+      info.innerHTML = "";
+      let num = document.getElementById("n1");
+      num.value = "";
+    }
+
+    function cuadrado() {
+      let num = document.getElementById("n1");
+      let resultado = num.value ** 2;
+      info.innerHTML = `Información: El resultado de la operación ${b1.innerHTML} es ${resultado}`;
+    }
+    function cubo() {
+      let num = document.getElementById("n1");
+      let resultado = num.value ** 3;
+      info.innerHTML = `Información: El resultado de la operación ${b2.innerHTML} es ${resultado}`;
+    }
+    function invertir() {
+      let num = document.getElementById("n1");
+      let resultado = "1/" + num.value;
+      info.innerHTML = `Información: El resultado de la operación ${b3.innerHTML} es ${resultado}`;
+    }
+  </script>
 </html>
