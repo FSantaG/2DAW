@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Eventos y validación de formularios</title>
+</head>
+<body>
+    <ul id="l1">
+        <li id="i1">Elemento 1</li>
+        <li id="i2">Elemento 2</li>
+        <li id="i3">Elemento 3</li>
+    </ul>
+    <script>
+        // document.getElementById("l1").addEventListener("click", l1, false);
+        // document.getElementById("i1").addEventListener("click", i1, false);
+        document.getElementById("l1").addEventListener("click", l1, true);
+        document.getElementById("i1").addEventListener("click", i1, true);
+        function l1() {
+            console.log("Estoy en el <ul>.");
+        }
+        function i1() {
+            console.log("Estoy en el <li>.");
+        }
+    </script>
+</body>
+</html>

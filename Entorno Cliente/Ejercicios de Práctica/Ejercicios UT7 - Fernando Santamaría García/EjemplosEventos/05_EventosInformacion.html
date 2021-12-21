@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos. Obtener información de un evento</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("eventos").addEventListener("mouseover", manejador);
+            document.getElementById("eventos").addEventListener("mouseout", manejador);
+            document.getElementById("parrafo1").addEventListener("click", saludo);
+            document.getElementById("parrafo2").addEventListener("click", saludo);
+        });
+
+        function manejador(e) {
+            //Valoramos la posibilidad de que se utilice un navegador de Microsoft
+            let ev = e || window.event; //sentencia equivalente: if (!e) e = window.event;
+
+            switch (ev.type) {
+                case "mouseover":
+                    this.style.color = "purple";
+                    break;
+                case "mouseout":
+                    this.style.color = "yellow";
+                    break;
+            }
+        }
+
+        function saludo(e) {
+            //Valoramos la posibilidad de que se utilice un navegador de Microsoft
+            let ev = e || window.event;
+
+            if (ev.target.id == "parrafo1") alert("Has pulsado el primer párrafo");
+            else if (ev.target.id == "parrafo2") alert("Has pulsado el segundo párrafo");
+
+            alert("Has pulsado el " + ev.target.id);
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="eventos">Obtener información de un evento</h1>
+    <h2 id="parrafo1">Párrafo 1</h2>
+    <h2 id="parrafo2">Párrafo 2</h2>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora eventos en línea</title>
+    <script type="text/javascript">
+        function vaciar() {
+            document.getElementById("n1").value = "";
+        }
+
+        function cuadrado() {
+            let num = document.getElementById("n1");
+            num.value = num.value * num.value;
+        }
+    </script>
+</head>
+
+<body>
+    Número:
+    <input type="text" id="n1" onclick="vaciar()">
+    <button onclick="cuadrado()"> x<sup>2</sup> </button>
+</body>
+
+</html>

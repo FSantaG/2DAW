@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos. Modelo de registro de eventos avanzados del W3C</title>
+    <script>
+        /* elemento.addEventListener("<evento_sin_on>",<funcion>,<false|true>); */
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("w3c").addEventListener("click", saludarUnaVez, false);
+            document.getElementById("w3c").addEventListener("click", colorearse, false);
+            document.getElementById("w3c").addEventListener("mouseover", fondo, false);
+
+            /* Funciones anónimas */
+            /* elemento.addEventListener("<evento_sin_on>",function(){<codigo_funcion}),false); */
+            document.getElementById("w3canonima").addEventListener("click", function () {
+                this.style.background = "#C0C0C0";
+            });
+
+            /* Funciones flecha */
+            /* elemento.addEventListener("<evento_sin_on>",() => {<codigo_funcion}),false); */
+            document.getElementById("w3flecha").addEventListener("click", () => alert("¡Adiós!"));
+            /* no podríamos utilizar this, ya que el contexto es diferente con funciones flecha */
+            document.getElementById("w3flecha").addEventListener("click", () => this.style.background =
+                "#C0C0C0");
+        });
+
+        function saludarUnaVez() {
+            alert("¡Hola, caracola!");
+            document.getElementById("w3c").removeEventListener("click", saludarUnaVez);
+        }
+
+        function colorearse() {
+            document.getElementById("w3c").style.color = "red";
+        }
+
+        function fondo() {
+            document.getElementById("w3c").style.background = "blue";
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Modelo de eventos avanzados del W3C</h1>
+    <h3 id="w3c">Modelo del W3C</h3>
+    <h3 id="w3canonima">Modelo del W3C con funciones anónimas</h3>
+    <h3 id="w3flecha">Modelo del W3C con funciones flecha</h3>
+</body>
+
+</html>

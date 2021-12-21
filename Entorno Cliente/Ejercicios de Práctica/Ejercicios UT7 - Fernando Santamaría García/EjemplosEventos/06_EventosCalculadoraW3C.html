@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+            let n1 = document.getElementById("n1");
+            n1.addEventListener("click", () => n1.value = "");
+            document.getElementById("b1").addEventListener(
+                "click",
+                () => n1.value = n1.value * n1.value
+            );
+        });
+    </script>
+</head>
+
+<body>
+    Número:
+    <input type="text" id="n1">
+    <button id="b1"> x<sup>2</sup> </button>
+</body>
+
+</html>

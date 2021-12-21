@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora eventos W3C y bubbling</title>
+    <script type="text/javascript">
+        //Este ejemplo muestra como capturar eventos delegados ("bubbling") en document
+        //Esta forma es mucho más concisa, más elegante y eficaz
+        //evento del manejador: ev => {.....} contiene el elemento HTML sobre el que se clicó en la propiedad target
+        //Atributos id o class se utilizan para filtrar eventos con el método matches(..) antes de invocar manejadores
+
+        document.addEventListener("click", ev => {
+            if (ev.target.matches("#n1")) vaciar();
+            else if (ev.target.matches("#b1")) cuadrado();
+        });
+
+        function vaciar() {
+            document.getElementById("n1").value = "";
+        }
+
+        function cuadrado() {
+            let num = document.getElementById("n1");
+            num.value = num.value * num.value;
+        }
+    </script>
+</head>
+
+<body>
+    Número:
+    <input type="text" id="n1">
+    <button id="b1"> x<sup>2</sup></button>
+</body>
+
+</html>
