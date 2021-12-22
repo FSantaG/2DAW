@@ -1,9 +1,14 @@
-body {
-  font-family: sans-serif;
-}
+/*Estilos Ejercicio*/
 #buscador {
   display: none;
 }
-#secundario h3 {
+#secundario > *:not(:nth-child(2)) {
   display: none;
+}
+#secundario {
+  float: none;
+  width: 100%;
+}
+#secundario a:after {
+  content: "(" attr(href) ")";
 }
