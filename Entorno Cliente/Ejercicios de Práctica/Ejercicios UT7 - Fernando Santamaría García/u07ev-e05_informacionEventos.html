@@ -1,40 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UT04 - Ejercicio 5 - Eventos teclado y ratón</title>
 
     <style>
-        body {
-            font-family: arial, helvetica;
-        }
+      .azul {
+        background-color: #cce6ff;
+      }
+      .amarillo {
+        background-color: #ffffcc;
+      }
+      body {
+        font-family: arial, helvetica;
+      }
 
-        .box {
-            width: 160px;
-            height: 160px;
-            border: thin solid silver;
-            padding: .5em;
-            float: left;
-            margin-right: 15px;
-        }
+      .box {
+        width: 160px;
+        height: 160px;
+        border: thin solid silver;
+        padding: 0.5em;
+        float: left;
+        margin-right: 15px;
+      }
 
-        .box h1 {
-            margin: 0;
-        }
+      .box h1 {
+        margin: 0;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="raton" class="box">
-        <h1>Ratón</h1>
-        <div id="datosRaton"></div>
+      <h1>Ratón</h1>
+      <div id="datosRaton"></div>
     </div>
     <div id="teclado" class="box">
-        <h1>Teclado</h1>
-        <div id="datosTeclado"></div>
+      <h1>Teclado</h1>
+      <div id="datosTeclado"></div>
     </div>
-</body>
-
+    <script>
+      window.addEventListener("keydown", mostrarDatosTeclado);
+      function mostrarDatosTeclado() {
+        let datosTeclado = document.getElementById("datosTeclado");
+        datosTeclado.parentElement.classList.add("azul");
+        let tecla = event.key;
+        let codigoTecla = event.code;
+        datosTeclado.innerHTML = `Caracter: [${tecla}]</br>Código: [${codigoTecla}]`;
+      }
+      window.addEventListener("mousemove", mostrarDatosRaton);
+      function mostrarDatosRaton() {
+        let datosRaton = document.getElementById("datosRaton");
+        datosRaton.parentElement.classList.remove("amarillo");
+        document.getElementById("teclado").classList.remove("azul");
+        let xNav = event.clientX,
+          yNav = event.clientY;
+        let xScreen = event.screenX,
+          yScreen = event.screenY;
+        datosRaton.innerHTML = `Navegador: [${xNav}, ${yNav}]</br>Pantalla: [${xScreen}, ${yScreen}]`;
+      }
+      window.addEventListener("click", ponerAmarillo);
+      function ponerAmarillo() {
+        document.getElementById("raton").classList.add("amarillo");
+      }
+    </script>
+  </body>
 </html>
