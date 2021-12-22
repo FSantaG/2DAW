@@ -41,8 +41,12 @@
     }
     function invertir() {
       let num = document.getElementById("n1");
-      let resultado = "1/" + num.value;
-      info.innerHTML = `Información: El resultado de la operación ${b3.innerHTML} es ${resultado}`;
+      if (!Number(num.value)) {
+        info.innerHTML = `Información: El resultado de la operación ${b3.innerHTML} es NaN`;
+      } else {
+        let resultado = "1/" + num.value;
+        info.innerHTML = `Información: El resultado de la operación ${b3.innerHTML} es ${resultado}`;
+      }
     }
   </script>
 </html>
