@@ -1,35 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UT04 - Ejercicio 4 - Zonas de la ventana</title>
     <style>
-        body {
-            font-family: arial, helvetica;
-        }
+      body {
+        font-family: arial, helvetica;
+      }
 
-        .box {
-            width: 160px;
-            height: 160px;
-            border: thin solid silver;
-            padding: .5em;
-            float: left;
-            margin-right: 15px;
-        }
+      .box {
+        width: 160px;
+        height: 160px;
+        border: thin solid silver;
+        padding: 0.5em;
+        float: left;
+        margin-right: 15px;
+      }
 
-        .box h1 {
-            margin: 0;
-        }
+      .box h1 {
+        margin: 0;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="box">
-        <h1>Posición</h1>
-        <span class="posicion"></span>
+      <h1>Posición</h1>
+      <span class="posicion"></span>
     </div>
-</body>
+    <script>
+      window.addEventListener("click", mostrarInfo);
 
+      function mostrarInfo() {
+        let posicion = document.querySelector(".posicion");
+        let coorX = event.clientX;
+        let coorY = event.clientY;
+        coorMediaX = document.documentElement.clientWidth / 2;
+        coorMediaY = document.documentElement.clientHeight / 2;
+        if (coorX < coorMediaX && coorY < coorMediaY) {
+          posicion.innerHTML = `Posición: Arriba izquierda`;
+        } else if (coorX > coorMediaX && coorY < coorMediaY) {
+          posicion.innerHTML = `Posición: Arriba derecha`;
+        } else if (coorX < coorMediaX && coorY > coorMediaY) {
+          posicion.innerHTML = `Posición: Abajo izquierda`;
+        } else if (coorX > coorMediaX && coorY > coorMediaY) {
+          posicion.innerHTML = `Posición: Abajo derecha`;
+        }
+      }
+    </script>
+  </body>
 </html>
