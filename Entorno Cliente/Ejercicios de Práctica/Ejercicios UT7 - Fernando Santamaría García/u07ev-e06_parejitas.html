@@ -8,7 +8,13 @@
   </head>
   <style>
     td {
-      background-color: black;
+      background-color: lightgreen;
+      width: 10vw;
+      height: 31vh;
+    }
+    img {
+      width: 10vw;
+      height: 30vh;
     }
   </style>
   <body>
@@ -33,11 +39,52 @@
       </tr>
     </table>
     <script>
-      /*TODO: 
+      /*TODO:
         -Copiar el código de visibilidad del ejemplo
         -Añadir clases CSS que se agreguen a las cartas que se vayan a voltear
         -Comprobar si están volteadas ya para que no se sumen al array
         */
+      let arrImg = [
+        '<img src="./Simpson/AbrahamSimpson.png"/>',
+        '<img src="./Simpson/BartSimpson.png"/>',
+        '<img src="./Simpson/HomerSimpson.png"/>',
+        '<img src="./Simpson/LisaSimpson.png"/>',
+        '<img src="./Simpson/MaggieSimpson.png"/>',
+        '<img src="./Simpson/MargeSimpson.png"/>',
+      ];
+      let arrID = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+      arrImg.sort(() => 0.5 - Math.random());
+      arrID.sort(() => 0.5 - Math.random());
+      let arrComprobar = [];
+      let aciertos = 0;
+
+      let tds = document.querySelectorAll("td");
+      let i = 0;
+      for (let td of tds) {
+        td.id = arrID[i];
+        i++;
+        td.addEventListener("click", girarCarta);
+      }
+
+      function girarCarta() {
+        let carta = event.target.closest("td");
+        let imagen;
+        if (carta.id == 1 || carta.id == 7) {
+          imagen = arrImg[0];
+        } else if (carta.id == 2 || carta.id == 8) {
+          imagen = arrImg[1];
+        } else if (carta.id == 3 || carta.id == 9) {
+          imagen = arrImg[2];
+        } else if (carta.id == 4 || carta.id == 10) {
+          imagen = arrImg[3];
+        } else if (carta.id == 5 || carta.id == 11) {
+          imagen = arrImg[4];
+        } else if (carta.id == 6 || carta.id == 12) {
+          imagen = arrImg[5];
+        }
+        carta.innerHTML = imagen;
+        carta.style.backgroundColor = "#FFF";
+      }
     </script>
   </body>
 </html>
