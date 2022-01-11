@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      .selected {
+        background: #0f0;
+      }
+
+      li {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    Haz click en un elemento de la lista para seleccionarlo.
+    <br />
+
+    <ul id="ul">
+      <li>Christopher Robin</li>
+      <li>Winnie-the-Pooh</li>
+      <li>Tigger</li>
+      <li>Kanga</li>
+      <li>Rabbit. Just rabbit.</li>
+    </ul>
+
+    <script>
+      /*
+      Un click sobre un elemento selecciona 
+      dicho elemento, y deselecciona el 
+      resto.
+      Si hacemos click pulsando ctrn o cmd, 
+      se mantiene el elemento seleccionado 
+      hasta que se suelte la tecla.
+      */
+      let lista = document.getElementById("ul");
+      lista.addEventListener("click", seleccionar);
+      lista.onmousedown = function (evento) {
+        evento.preventDefault();
+      };
+
+      function seleccionar(evento) {
+        elementosLista = lista.querySelectorAll("li");
+        if (evento.ctrlKey || evento.metaKey) {
+          evento.target.classList.toggle("selected");
+        } else {
+          for (let elemento of elementosLista) {
+            elemento.classList.remove("selected");
+          }
+          evento.target.classList.add("selected");
+        }
+      }
+    </script>
+  </body>
+</html>
