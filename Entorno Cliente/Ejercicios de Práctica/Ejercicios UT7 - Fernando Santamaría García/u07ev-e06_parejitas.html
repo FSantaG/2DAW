@@ -7,6 +7,9 @@
     <title>u07ev-e06_parejitas</title>
   </head>
   <style>
+    .escondido {
+      visibility: hidden;
+    }
     td {
       background-color: lightgreen;
       width: 10vw;
@@ -18,6 +21,8 @@
     }
   </style>
   <body>
+    <input type="text" readonly value="0" id="puntos" />
+    <button>Reiniciar</button>
     <table>
       <tr>
         <td></td>
@@ -39,35 +44,38 @@
       </tr>
     </table>
     <script>
-      /*TODO:
-        -Copiar el código de visibilidad del ejemplo
-        -Añadir clases CSS que se agreguen a las cartas que se vayan a voltear
-        -Comprobar si están volteadas ya para que no se sumen al array
-        */
+      /*
+      Observaciones propias:
+      **La segunda carta no se visualiza
+      **SOLUCIONADO Si se presionan cartas ya vistas, o dos veces la misma carta, el programa explota
+      */
       let arrImg = [
-        '<img src="./Simpson/AbrahamSimpson.png"/>',
-        '<img src="./Simpson/BartSimpson.png"/>',
-        '<img src="./Simpson/HomerSimpson.png"/>',
-        '<img src="./Simpson/LisaSimpson.png"/>',
-        '<img src="./Simpson/MaggieSimpson.png"/>',
-        '<img src="./Simpson/MargeSimpson.png"/>',
+        '<img class="escondido" src="./Simpson/AbrahamSimpson.png"/>',
+        '<img class="escondido" src="./Simpson/BartSimpson.png"/>',
+        '<img class="escondido" src="./Simpson/HomerSimpson.png"/>',
+        '<img class="escondido" src="./Simpson/LisaSimpson.png"/>',
+        '<img class="escondido" src="./Simpson/MaggieSimpson.png"/>',
+        '<img class="escondido" src="./Simpson/MargeSimpson.png"/>',
       ];
       let arrID = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
       arrImg.sort(() => 0.5 - Math.random());
       arrID.sort(() => 0.5 - Math.random());
       let arrComprobar = [];
-      let aciertos = 0;
+      let aciertos = 0,
+        contador = 0;
 
+      let puntos = document.getElementById("puntos");
       let tds = document.querySelectorAll("td");
       let i = 0;
       for (let td of tds) {
         td.id = arrID[i];
         i++;
+        crearCarta(td);
         td.addEventListener("click", girarCarta);
       }
 
-      function girarCarta() {
-        let carta = event.target.closest("td");
+      function crearCarta(td) {
+        let carta = td;
         let imagen;
         if (carta.id == 1 || carta.id == 7) {
           imagen = arrImg[0];
@@ -83,7 +91,35 @@
           imagen = arrImg[5];
         }
         carta.innerHTML = imagen;
-        carta.style.backgroundColor = "#FFF";
+      }
+      function girarCarta() {
+        let carta = event.target.closest("td");
+        contador++;
+        let img = carta.firstElementChild;
+        img.classList.remove("escondido");
+        img.style.backgroundColor = "#FFF";
+        arrComprobar[contador - 1] = img;
+        if (contador == 2) {
+          if (
+            !arrComprobar[0].classList.contains("correcta") ||
+            !arrComprobar[1].classList.contains("correcta")
+          ) {
+            if (arrComprobar[0].src == arrComprobar[1].src) {
+              puntos.value++;
+              arrComprobar[0].classList.add("correcta");
+              arrComprobar[1].classList.add("correcta");
+            } else {
+              arrComprobar[0].classList.add("escondido");
+              arrComprobar[1].classList.add("escondido");
+              img.style.backgroundColor = "lightgreen";
+            }
+          }
+          contador = 0;
+        }
+
+        if (puntos.value == 6) {
+          alert("¡Has ganado!");
+        }
       }
     </script>
   </body>
