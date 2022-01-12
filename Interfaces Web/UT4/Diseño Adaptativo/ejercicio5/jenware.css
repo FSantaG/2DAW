@@ -6,159 +6,201 @@ body {
   font-size: 100%;
   margin: 0;
 
-/* background gradient at top of page, from http://www.colorzilla.com/gradient-editor/ */
-  background: -moz-linear-gradient(top,  #ffa853 0%, #fdf9bd 2%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffa853),color-stop(2%,#fdf9bd));
-  background: -webkit-linear-gradient(top,  #ffa853 0%,#fdf9bd 2%);
-  background: -o-linear-gradient(top,  #ffa853 0%,#fdf9bd 2%);
-  background: -ms-linear-gradient(top,  #ffa853 0%,#fdf9bd 2%);
-  background: linear-gradient(top,  #ffa853 0%,#fdf9bd 2%);
+  /* background gradient at top of page, from http://www.colorzilla.com/gradient-editor/ */
+  background: -moz-linear-gradient(top, #ffa853 0%, #fdf9bd 2%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #ffa853),
+    color-stop(2%, #fdf9bd)
+  );
+  background: -webkit-linear-gradient(top, #ffa853 0%, #fdf9bd 2%);
+  background: -o-linear-gradient(top, #ffa853 0%, #fdf9bd 2%);
+  background: -ms-linear-gradient(top, #ffa853 0%, #fdf9bd 2%);
+  background: linear-gradient(top, #ffa853 0%, #fdf9bd 2%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa853', endColorstr='#fdf9bd',GradientType=0 );
   background-repeat: repeat-x;
   background-color: #fdf9bd; /* Old browsers */
 }
 
-
 /* link styles */
 a {
-	text-decoration: none;
-	border-bottom: 1px dotted;
-	padding-bottom: .1em;
+  text-decoration: none;
+  border-bottom: 1px dotted;
+  padding-bottom: 0.1em;
 }
 a:link {
-    color: #C00;
-  }
+  color: #c00;
+}
 a:visited {
-    color: #921A66;
-  }
+  color: #921a66;
+}
 a:focus {
-	color: #921A66;
+  color: #921a66;
 }
 a:hover {
-    color: #921A66;
-  }
+  color: #921a66;
+}
 a:active {
-	color:#F00;
+  color: #f00;
 }
 
 /* styles for the intro section */
 #intro {
-	text-align: center;
-	margin: 2em 0 1em;
+  text-align: center;
+  margin: 2em 0 1em;
 }
 #intro h1 {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 #intro h2 {
-	font-size: 1.2em;
-	text-transform: uppercase;
-	letter-spacing: .2em;
-	color: #f26521;
-	margin-top: -10px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #f26521;
+  margin-top: -10px;
 }
 #intro p {
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-style: italic;
-	margin: 1em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  margin: 1em;
 }
-
-
 
 /* styles for navigation */
 #nav {
-   background-color: #751c54; /* dark plum */
-   overflow: hidden;
-   width: 100%;
+  background-color: #751c54; /* dark plum */
+  overflow: hidden;
+  width: 100%;
 }
 #nav ul {
-   list-style:none;
-   padding: 0;
-   margin: 0 auto; 	
-   width: 19.5em; 
-} 
-#nav ul li {
-	font-weight: normal;
-    text-transform: uppercase;
-	float: left;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 19.5em;
 }
-#nav ul li a { 	
-  display: block; 	
-  padding: .5em; 	
-  border: 1px solid #ba89a8; 
-  border-radius: .5em;	
-  margin: .25em; 
-}  
+#nav ul li {
+  font-weight: normal;
+  text-transform: uppercase;
+  float: left;
+}
+#nav ul li a {
+  display: block;
+  padding: 0.5em;
+  border: 1px solid #ba89a8;
+  border-radius: 0.5em;
+  margin: 0.25em;
+}
 #nav ul a:link {
-    color: #fff;
-  }
+  color: #fff;
+}
 #nav ul a:visited {
-    color: #fff;
-  }
+  color: #fff;
+}
 #nav ul a:focus {
-	color:#fc6;
-	border-color: #fff;
+  color: #fc6;
+  border-color: #fff;
 }
 #nav ul a:hover {
-    color: #fc6;
-	border-color: #fff;
-  }
+  color: #fc6;
+  border-color: #fff;
+}
 #nav ul a:active {
-	color:#F00;
+  color: #f00;
 }
 
 /* styles for the products section */
 
 #products {
-  background-color: #FFF;
+  background-color: #fff;
   line-height: 1.5em;
-  padding: 1em .5em;
-  border: double #FFBC53;
+  padding: 1em 0.5em;
+  border: double #ffbc53;
   overflow: hidden;
-  }
+}
 
 #products h2 {
   font-size: 1.2em;
   color: #ac267b;
   text-align: center;
   text-transform: uppercase;
-  }
+}
 #products h3 {
   font-size: 1em;
   text-transform: uppercase;
-  color: #F26521;
+  color: #f26521;
   border-top: 1px solid;
   border-left: 3px solid;
   padding-left: 1em;
 }
 
-
 /* styles for the testimonials box */
 
 #testimonials {
-  background: #FFBC53 url(images/ex-circle-corner.gif) no-repeat left top;
+  background: #ffbc53 url(images/ex-circle-corner.gif) no-repeat left top;
   line-height: 1.5em;
   color: #633;
   padding: 1em;
   padding-left: 55px;
-  font-size: .875em;
-  }
-  
+  font-size: 0.875em;
+}
+
 #testimonials h2 {
   font-size: 1em;
   text-transform: uppercase;
-  color: #F26521;
+  color: #f26521;
   letter-spacing: 3px;
-  }
-
+}
 
 /* miscellaneous styles */
-  
-em { 
-  color: #F26521;
-  }
-  
+
+em {
+  color: #f26521;
+}
+
 p#copyright {
-  color:#663333; 
-  font-size: .8em;
+  color: #663333;
+  font-size: 0.8em;
   text-align: center;
+}
+
+@media (max-width: 480px) {
+  img {
+    max-width: 100%;
+    height: auto;
   }
+}
+@media (min-width: 481px) {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  #products div {
+    display: grid;
+    grid-template-columns: 20% 60%;
+  }
+}
+@media (min-width: 781px) {
+  #products {
+    max-width: 600px;
+  }
+  #content {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 10px;
+  }
+  #testimonials {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #content {
+    width: 1024px;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 10px;
+    margin: auto;
+  }
+}
