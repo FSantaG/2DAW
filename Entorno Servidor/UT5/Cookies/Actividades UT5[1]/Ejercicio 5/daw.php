@@ -1,5 +1,5 @@
 <?php
-    setcookie("daw", "daw", time()+5);
+    setcookie("ciclo", "daw", time()+20);
 ?>
 
 <!DOCTYPE html>

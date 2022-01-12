@@ -1,10 +1,17 @@
 <?php
-    if(isset($_COOKIE["daw"])){
-        header("location: ./daw.php");
-    } else if(isset($_COOKIE["dam"])){
-        header("location: ./dam.php");
-    }else if(isset($_COOKIE["asir"])){
-        header("location: ./asir.php");
+/*Es más bonito con un switch, y así te ahorras el crear 3 cookies diferentes :D*/
+    if(isset($_COOKIE["ciclo"])){
+        switch($_COOKIE["ciclo"]){
+            case "daw":
+                header("location: ./daw.php");
+                break;
+            case "dam":
+                header("location: ./dam.php");
+                break;
+            case "asir":
+                header("location: ./asir.php");
+                break;
+        }   
     }
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-setcookie("asir", "asir", time()+5);
+setcookie("ciclo", "asir", time()+20);
 ?>
 
 <!DOCTYPE html>
