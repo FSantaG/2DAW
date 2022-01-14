@@ -1,0 +1,105 @@
+<!--Archivo para Despliegue-->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horario DAW</title>
+    <style>
+      h1 {
+        text-align: center;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: black 2px solid;
+        text-align: center;
+      }
+      thead tr {
+        background-color: lightseagreen;
+      }
+      tbody tr {
+        background-color: rgb(68, 245, 236);
+      }
+      #EC {
+        background-color: lightpink;
+      }
+      #ES {
+        background-color: lightyellow;
+      }
+      #EIE {
+        background-color: lightslategray;
+      }
+      #IW {
+        background-color: lightgreen;
+      }
+      #DA {
+        background-color: lightcyan;
+      }
+      #recreo {
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DAW</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>HORAS</th>
+          <th>LUNES</th>
+          <th>MARTES</th>
+          <th>MIERCOLES</th>
+          <th>JUEVES</th>
+          <th>VIERNES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>8:30- 9:20</th>
+          <td id="EC" rowspan="2">Entorno Cliente</td>
+          <td id="EC" rowspan="2">Entorno Cliente</td>
+          <td id="EC" rowspan="2">Entorno Cliente</td>
+          <td id="EC" rowspan="2">Entorno Cliente</td>
+          <td id="IW" rowspan="2">Interfaces Web</td>
+        </tr>
+        <tr>
+          <th>9:25-10:15</th>
+        </tr>
+        <tr>
+          <th>10:20-11:10</th>
+          <td id="ES">Entorno servidor</td>
+          <td id="EIE">Empresa e Iniciativa Emprendedora</td>
+          <td id="IW">Interfaces Web</td>
+          <td id="ES">Entorno servidor</td>
+          <td id="EIE">Empresa e Iniciativa Emprendedora</td>
+        </tr>
+        <tr>
+          <th>11:10-11:40</th>
+          <td id="recreo" colspan="5" style="font-size: 2em">RECREO</td>
+        </tr>
+        <tr>
+          <th>11:40-12:30</th>
+          <td id="ES">Entorno servidor</td>
+          <td id="EIE">Empresa e Iniciativa Emprendedora</td>
+          <td id="IW">Interfaces Web</td>
+          <td id="ES">Entorno servidor</td>
+          <td id="ES" rowspan="3">Entorno servidor</td>
+        </tr>
+        <tr>
+          <th>12:35-13:25</th>
+          <td id="DA" rowspan="2">Despliegue</td>
+          <td id="IW" rowspan="2">Interfaces Web</td>
+          <td id="ES" rowspan="2">Entorno Servidor</td>
+          <td id="DA" rowspan="2">Despliegue</td>
+        </tr>
+        <tr>
+          <th>13:30-13:20</th>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
