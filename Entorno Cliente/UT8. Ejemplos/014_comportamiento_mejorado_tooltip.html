@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <style>
@@ -73,41 +73,58 @@
     </div>
 
     <script>
-      let tooltipElem;
+      let tooltip;
 
-      document.onmouseenter = function (event) {
-        let target = event.target;
+      document.onmouseover = function (event) {
+        // Importante: un movimiento rápido del mouse podría saltar directamente al descendiente en un nodo anotado,
+        //ignorando el padre
+        // por lo tanto mouseover podría ejecutarse en un descendiente.
 
-        // if we have tooltip HTML...
-        let tooltipHtml = target.dataset.tooltip;
-        if (!tooltipHtml) return;
+        let anchorElem = event.target.closest("[data-tooltip]");
 
-        // ...create the tooltip element
+        if (!anchorElem) return;
 
-        tooltipElem = document.createElement("div");
+        //  Mostrando el tooltip y recordándolo.
+        tooltip = showTooltip(anchorElem, anchorElem.dataset.tooltip);
+      };
+
+      document.onmouseout = function () {
+        // Es posible que mouseout se active, pero estaremos dentro del elemento
+        // (el target ocurrirá dentro y se aparecerá)
+        // pero en este caso tendremos un mouse over inmediato,
+        // entonces el tooltip será destruido y mostrado otra vez.
+        //
+        // Afortunadamente, el parpadeo no es visble,
+        // ya que ambos eventos ocurren casi al mismo tiempo.
+        if (tooltip) {
+          tooltip.remove();
+          tooltip = false;
+        }
+      };
+
+      function showTooltip(anchorElem, html) {
+        let tooltipElem = document.createElement("div");
         tooltipElem.className = "tooltip";
-        tooltipElem.innerHTML = tooltipHtml;
+        tooltipElem.innerHTML = html;
         document.body.append(tooltipElem);
 
-        let coords = target.getBoundingClientRect();
+        let coords = anchorElem.getBoundingClientRect(); //Esta función lo que hace es proporcionar información acerca del posicionamiento respecto al documento.
+
+        // Posicionando el tooltip sobre el centro del elemento
         let left =
-          coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
-        if (left < 0) left = 0; // don't cross the left window edge
+          coords.left + (anchorElem.offsetWidth - tooltipElem.offsetWidth) / 2;
+        if (left < 0) left = 0;
+
         let top = coords.top - tooltipElem.offsetHeight - 5;
         if (top < 0) {
-          // if crossing the top window edge, show below instead
-          top = coords.top + target.offsetHeight + 5;
+          top = coords.top + anchorElem.offsetHeight + 5;
         }
+
         tooltipElem.style.left = left + "px";
         tooltipElem.style.top = top + "px";
 
-        document.onmouseleave = function (e) {
-          if (tooltipElem) {
-            tooltipElem.remove();
-            tooltipElem = null;
-          }
-        };
-      };
+        return tooltipElem;
+      }
     </script>
   </body>
 </html>
