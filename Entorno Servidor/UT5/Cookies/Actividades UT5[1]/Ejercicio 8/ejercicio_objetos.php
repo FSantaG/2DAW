@@ -1,43 +1,69 @@
 <?php
-include ("./usuario.php");
-if (isset($_COOKIE['login']))
-	{
-	//$usu=$_COOKIE['login'];
-	$usu=unserialize($_COOKIE['login']);	
-	echo "Usuario Correcto ".$usu->nom." Ya se logeo exitóxamente en otro momento"."<br>";
+date_default_timezone_set("Europe/Madrid");
+class Usuario {
+	private $nom;
+	private $clave;
+	function __construct ($n,$c){
+		$this->nom=$n;
+		$this->clave=$c;
+	}
+	function __get($atrib){
+		return($this->$atrib);
+	}	
+	
+}
+$horas = array();
+if (isset($_COOKIE['login'])){
+	foreach($_COOKIE["login"] as $nombre => $valor){
+		if($nombre == "user"){
+		$usuario=unserialize($valor);
+		}
+		if($nombre = "time"){
+			$time = $valor;
+		}
+	}
+	echo "Usuario Correcto ".$usuario->nom." Se logueó exitosamente en las siguientes horas:"."<br>";
+	array_push($horas, $time);
+	$time = date("G:i:s");
+	array_push($horas, $time);
+	foreach($horas as $nombre =>$valor){
+		echo $valor."</br>";
+	}
 	exit;
 	}
-else	
+else{	
 	if (isset($_POST['enviar']))
 		{
-		if ($_POST['usuario']=='admin' && $_POST['clave']=='mjuan')
+		if ($_POST['user']=='admin' && $_POST['pass']=='mjuan')
 			{
 			echo "Bienvenido";
-			$usu=new Usuario ($_POST['usuario'],$_POST['clave']);
-			$usu=serialize($usu);
-			setcookie('login',$usu,time()+60);
+			$usuario=new Usuario ($_POST['user'],$_POST['pass']);
+			$usuario=serialize($usuario);
+			$time = date("G:i:s");
+			setcookie('login[user]',$usuario,time()+60);
+			setcookie('login[time]', $time, time()+60);
 			}
 		else
 			echo "Acceso denegado. Las credenciales no son correctas";
 		exit;
 		}
+	}
 ?>	
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title> SERIALIZACIÓN DE OBJETOS </title>
+<title> Serialización </title>
 </Head>
 <body>
-<h3> Ejercicio 10 UT 5. Administración de sesiones  </h3>
 <br>
 <!--FORMULARIO -->
-<p align="center">
-<h2> Credenciales del usuario </h2>
+<p>
+<h2> Login </h2>
 <form action="" method="post">
-	Usuario: <input type="text" name="usuario">
-	Contraseña:	<input type="password" name="clave">
-	<input type="submit" name="enviar" value="LOGIN">
+	Usuario: <input type="text" name="user">
+	Contraseña:	<input type="password" name="pass">
+	<input type="submit" name="enviar" value="Login">
 </form>
 </p>
 	
