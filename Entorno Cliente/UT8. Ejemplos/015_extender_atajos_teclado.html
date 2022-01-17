@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extender atajos de teclado</title>
+  </head>
+  <body>
+    <h1>Pulsa las teclas "Q" y "W" simultáneamente para una sorpresa</h1>
+    <script>
+      let pressed = new Set();
+
+      function runOnKeys(func, ...teclas) {
+        document.onkeydown = function (evento) {
+          pressed.add(evento.code);
+          for (let tecla of teclas) {
+            if (!pressed.has(tecla)) {
+              return;
+            }
+          }
+          pressed.clear();
+          func();
+        };
+
+        document.onkeyup = function (evento) {
+          pressed.delete(evento.code);
+        };
+      }
+
+      runOnKeys(() => alert("OwO"), "KeyQ", "KeyW");
+    </script>
+  </body>
+</html>
