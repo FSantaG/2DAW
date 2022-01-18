@@ -1,0 +1,31 @@
+<!--OwO? What's this?-->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Añadir un option a un select</title>
+  </head>
+  <body>
+    <select id="genres">
+      <option value="rock">Rock</option>
+      <option value="blues" selected>Blues</option>
+    </select>
+    <script>
+      //Mostrar valor y texto del option seleccionado
+      let genres = document.getElementById("genres");
+      alert(`Valor seleccionado: 
+      ${genres.value} --> ${genres.options[genres.selectedIndex].text}`);
+
+      //Crear y añadir un nuevo option
+      let classic = new Option("Classic", "classic");
+      genres.append(classic);
+
+      //Seleccionar el nuevo option
+      let blues = genres.options[1];
+      blues.selected = false;
+      classic.selected = true;
+    </script>
+  </body>
+</html>
