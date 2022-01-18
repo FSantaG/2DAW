@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Div editable</title>
+    <style>
+      .view,
+      .edit {
+        height: 150px;
+        width: 400px;
+        font-family: sans-serif;
+        font-size: 14px;
+        display: block;
+      }
+
+      .view {
+        /* padding + border = 3px */
+        padding: 2px;
+        border: 1px solid black;
+      }
+
+      .edit {
+        /* replace padding with border (still 3px not to shift the contents) */
+        border: 3px solid blue;
+        padding: 0px;
+      }
+
+      .edit:focus {
+        /* remove focus border in Safari */
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Clica el div para editar.</li>
+      <li>Enter o blur guarda el resultado.</li>
+    </ul>
+
+    Se permite HTML.
+
+    <div id="view" class="view">Text</div>
+    <script>
+      // Nota: <textarea> debe tener class="edit"
+      // my.css tiene styles que lo hacen del mismo tamaño que div
+
+      let area = null;
+      let view = document.getElementById("view");
+
+      view.addEventListener("click", editarComienzo);
+
+      function editarComienzo() {
+        area = document.createElement("textarea");
+        area.className = "edit";
+        area.value = view.innerHTML;
+
+        area.onkeydown = function (event) {
+          if (event.key == "Enter") {
+            this.blur();
+          }
+        };
+
+        area.onblur = function () {
+          editarFinal();
+        };
+
+        view.replaceWith(area);
+        area.focus();
+      }
+
+      function editarFinal() {
+        view.innerHTML = area.value;
+        area.replaceWith(view);
+      }
+    </script>
+  </body>
+</html>
