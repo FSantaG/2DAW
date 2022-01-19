@@ -26,6 +26,6 @@
 <body>
     <a href="resumen.php">Pagar</a>
     <a href="form.php">Realizar otra compra</a>
-    <a>Salir</a>
+    <a href="finApp.php">Salir</a>
 </body>
 </html>
