@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validación de formularios JS básica</title>
+    <style>
+      input {
+        border: 1px solid #333;
+      }
+      input:focus {
+        box-shadow: none;
+      }
+      input.error {
+        box-shadow: 0 0 5px 1px red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Formulario</h1>
+    <form action="procesar.php" method="post" id="miFormulario">
+      <p>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" />
+      </p>
+      <p>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" name="telefono" id="telefono" />
+      </p>
+      <p>
+        <label for="dia">Fecha de nacimiento:</label>
+        <input type="text" name="dia" size="2" id="dia" />
+        <input type="text" name="mes" size="2" id="mes" />
+        <input type="text" name="ano" id="ano" size="4" />
+      </p>
+      <p>
+        <label for="sexo">Sexo:</label>
+        <input type="radio" name="sexo" id="hombre" value="H" checked /><label
+          for="hombre"
+          >Hombre</label
+        >
+        <input type="radio" name="sexo" id="mujer" value="M" /><label
+          for="mujer"
+          >Mujer</label
+        >
+        <input type="radio" name="sexo" value="O" /><label for="otro"
+          >Otro</label
+        >
+      </p>
+      <p>
+        <label for="mayor">Mayor de 18:</label>
+        <input type="checkbox" name="mayor" id="mayor" checked />
+      </p>
+      <p>
+        <button type="submit" id="enviar">Enviar</button>
+        <button type="reset" id="borrar">Borrar</button>
+      </p>
+    </form>
+  </body>
+</html>
