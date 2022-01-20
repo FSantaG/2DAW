@@ -5,15 +5,134 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Discos</title>
+    <style>
+      .error {
+        border: 3px red solid;
+        background: rgb(250, 117, 117);
+      }
+    </style>
   </head>
   <body>
-    <form method="post" action="#">
-      <label for="nombreDisco">Nombre del disco:</label>
-      <input type="text" name="nombreDisco" />
-      <br />
-      <label for="compositor">Grupo de música o cantante</label>
-      <input type="text" name="compositor" />
-      <br />
+    <form>
+      <ul>
+        <li>
+          <label for="nombreDisco">Nombre del Disco:</label>
+          <input type="text" name="nombreDisco" />
+          <div id="nombreDisco" style="color: red"></div>
+        </li>
+        <li>
+          <label for="compositor">Grupo / Cantante</label>
+          <input type="text" name="compositor" />
+          <div id="compositor" style="color: red"></div>
+        </li>
+        <li>
+          <label for="anno">Año de Publicación:</label>
+          <input type="text" name="anno" />
+          <div id="anno" style="color: red"></div>
+        </li>
+        <li>
+          <label for="genero">Género Musical</label>
+          <input type="text" name="genero" />
+          <div id="genero" style="color: red"></div>
+        </li>
+        <li>
+          <label for="localizacion">Localización</label>
+          <input type="text" name="localizacion" />
+          <div id="localizacion" style="color: red"></div>
+        </li>
+        <li>
+          <label for="prestado">¿Prestado?</label>
+          <input type="checkbox" name="prestado" value="true" />
+        </li>
+      </ul>
+      <input type="submit" name="guardar" value="Guardar" />
     </form>
+    <script>
+      let formulario = document.forms[0];
+      let nombreDisco = formulario.elements.nombreDisco;
+      nombreDisco.onblur = function () {
+        if (!nombreDisco.value) {
+          event.preventDefault();
+          //Añadir esto a la validación con submit.
+        } else {
+          let errorND = document.getElementById("nombreDisco");
+          if (nombreDisco.value.length > 20) {
+            errorND.innerHTML =
+              "El nombre del disco es demasiado largo (+20 caracteres)";
+            nombreDisco.classList.add("error");
+            nombreDisco.focus();
+            return;
+          } else {
+            errorND.innerHTML = "";
+            nombreDisco.classList.remove("error");
+          }
+        }
+      };
+
+      let compositor = formulario.elements.compositor;
+      compositor.onblur = function () {
+        if (!compositor.value) {
+          event.preventDefault();
+          //Añadir esto a la validación con submit.
+        } else {
+          let errorComp = document.getElementById("compositor");
+          if (compositor.value.length > 20) {
+            errorComp.innerHTML =
+              "El nombre del compositor o grupo de música es demasiado largo (+20 caracteres).";
+            compositor.classList.add("error");
+            compositor.focus();
+            return;
+          } else {
+            errorComp.innerHTML = "";
+            compositor.classList.remove("error");
+          }
+        }
+      };
+
+      let annoPublicacion = formulario.elements.anno;
+      annoPublicacion.onblur = function () {
+        let errorAnno = document.getElementById("anno");
+        if (!Number(annoPublicacion.value)) {
+          errorAnno.innerHTML =
+            "Formato de año no válido. Introduzca un número de 4 caracteres por favor";
+          annoPublicacion.classList.add("error");
+          annoPublicacion.focus();
+          return;
+        } else if (
+          annoPublicacion.value.length < 4 ||
+          annoPublicacion.value.length > 4
+        ) {
+          errorAnno.innerHTML =
+            "Introduzca un año válido, por favor (4 cifras numéricas)";
+          annoPublicacion.classList.add("error");
+          annoPublicacion.focus();
+          return;
+        } else {
+          errorAnno.innerHTML = "";
+          annoPublicacion.classList.remove("error");
+        }
+      };
+
+      let genero = formulario.elements.genero;
+      genero.onblur = function () {
+        let errorGenero = document.getElementById("genero");
+        let valorGenero = genero.value.toLowerCase();
+        if (
+          valorGenero == "rock" ||
+          valorGenero == "pop" ||
+          valorGenero == "punk" ||
+          valorGenero == "indie"
+        ) {
+          errorGenero.innerHTML = "";
+          genero.classList.remove("error");
+        } else {
+          errorGenero.innerHTML =
+            "Género no válido (Valores admitidos: Pop, Rock, Punk, Indie)";
+          genero.classList.add("error");
+          genero.focus();
+          return;
+        }
+      };
+    </script>
   </body>
 </html>
