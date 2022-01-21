@@ -46,93 +46,129 @@
         </li>
       </ul>
       <input type="submit" name="guardar" value="Guardar" />
+      <div id="boton" style="color: red"></div>
     </form>
     <script>
-      let formulario = document.forms[0];
-      let nombreDisco = formulario.elements.nombreDisco;
-      nombreDisco.onblur = function () {
-        if (!nombreDisco.value) {
-          event.preventDefault();
-          //Añadir esto a la validación con submit.
-        } else {
-          let errorND = document.getElementById("nombreDisco");
-          if (nombreDisco.value.length > 20) {
-            errorND.innerHTML =
-              "El nombre del disco es demasiado largo (+20 caracteres)";
-            nombreDisco.classList.add("error");
-            nombreDisco.focus();
+      document.addEventListener("DOMContentLoaded", programa);
+
+      function programa() {
+        let formulario = document.forms[0];
+        let nombreDisco = formulario.elements.nombreDisco;
+        nombreDisco.onblur = function () {
+          if (!nombreDisco.value) {
+            event.preventDefault();
+            //Añadir esto a la validación con submit.
+          } else {
+            let errorND = document.getElementById("nombreDisco");
+            if (nombreDisco.value.length > 20) {
+              errorND.innerHTML =
+                "El nombre del disco es demasiado largo (+20 caracteres)";
+              nombreDisco.classList.add("error");
+              nombreDisco.focus();
+              return;
+            } else {
+              errorND.innerHTML = "";
+              nombreDisco.classList.remove("error");
+            }
+          }
+        };
+
+        let compositor = formulario.elements.compositor;
+        compositor.onblur = function () {
+          if (!compositor.value) {
+            event.preventDefault();
+            //Añadir esto a la validación con submit.
+          } else {
+            let errorComp = document.getElementById("compositor");
+            if (compositor.value.length > 20) {
+              errorComp.innerHTML =
+                "El nombre del compositor o grupo de música es demasiado largo (+20 caracteres).";
+              compositor.classList.add("error");
+              compositor.focus();
+              return;
+            } else {
+              errorComp.innerHTML = "";
+              compositor.classList.remove("error");
+            }
+          }
+        };
+
+        let annoPublicacion = formulario.elements.anno;
+        annoPublicacion.onblur = function () {
+          let errorAnno = document.getElementById("anno");
+          if (!Number(annoPublicacion.value)) {
+            errorAnno.innerHTML =
+              "Formato de año no válido. Introduzca un número de 4 caracteres por favor";
+            annoPublicacion.classList.add("error");
+            annoPublicacion.focus();
+            return;
+          } else if (
+            annoPublicacion.value.length < 4 ||
+            annoPublicacion.value.length > 4
+          ) {
+            errorAnno.innerHTML =
+              "Introduzca un año válido, por favor (4 cifras numéricas)";
+            annoPublicacion.classList.add("error");
+            annoPublicacion.focus();
             return;
           } else {
-            errorND.innerHTML = "";
-            nombreDisco.classList.remove("error");
+            errorAnno.innerHTML = "";
+            annoPublicacion.classList.remove("error");
           }
-        }
-      };
+        };
 
-      let compositor = formulario.elements.compositor;
-      compositor.onblur = function () {
-        if (!compositor.value) {
-          event.preventDefault();
-          //Añadir esto a la validación con submit.
-        } else {
-          let errorComp = document.getElementById("compositor");
-          if (compositor.value.length > 20) {
-            errorComp.innerHTML =
-              "El nombre del compositor o grupo de música es demasiado largo (+20 caracteres).";
-            compositor.classList.add("error");
-            compositor.focus();
+        let genero = formulario.elements.genero;
+        genero.onblur = function () {
+          let errorGenero = document.getElementById("genero");
+          let valorGenero = genero.value.toLowerCase();
+          if (
+            valorGenero == "rock" ||
+            valorGenero == "pop" ||
+            valorGenero == "punk" ||
+            valorGenero == "indie"
+          ) {
+            errorGenero.innerHTML = "";
+            genero.classList.remove("error");
+          } else {
+            errorGenero.innerHTML =
+              "Género no válido (Valores admitidos: Pop, Rock, Punk, Indie)";
+            genero.classList.add("error");
+            genero.focus();
+            return;
+          }
+        };
+
+        let localizacion = formulario.elements.localizacion;
+        localizacion.onblur = function () {
+          let errorlocalizacion = document.getElementById("localizacion");
+          if (localizacion.value == "" || localizacion.value < 0) {
+            errorlocalizacion.innerHTML =
+              "Número de estantería no válido o nulo";
+            localizacion.classList.add("error");
+            localizacion.focus();
             return;
           } else {
-            errorComp.innerHTML = "";
-            compositor.classList.remove("error");
+            errorlocalizacion.innerHTML = "";
+            localizacion.classList.remove("error");
           }
-        }
-      };
+        };
 
-      let annoPublicacion = formulario.elements.anno;
-      annoPublicacion.onblur = function () {
-        let errorAnno = document.getElementById("anno");
-        if (!Number(annoPublicacion.value)) {
-          errorAnno.innerHTML =
-            "Formato de año no válido. Introduzca un número de 4 caracteres por favor";
-          annoPublicacion.classList.add("error");
-          annoPublicacion.focus();
-          return;
-        } else if (
-          annoPublicacion.value.length < 4 ||
-          annoPublicacion.value.length > 4
-        ) {
-          errorAnno.innerHTML =
-            "Introduzca un año válido, por favor (4 cifras numéricas)";
-          annoPublicacion.classList.add("error");
-          annoPublicacion.focus();
-          return;
-        } else {
-          errorAnno.innerHTML = "";
-          annoPublicacion.classList.remove("error");
-        }
-      };
-
-      let genero = formulario.elements.genero;
-      genero.onblur = function () {
-        let errorGenero = document.getElementById("genero");
-        let valorGenero = genero.value.toLowerCase();
-        if (
-          valorGenero == "rock" ||
-          valorGenero == "pop" ||
-          valorGenero == "punk" ||
-          valorGenero == "indie"
-        ) {
-          errorGenero.innerHTML = "";
-          genero.classList.remove("error");
-        } else {
-          errorGenero.innerHTML =
-            "Género no válido (Valores admitidos: Pop, Rock, Punk, Indie)";
-          genero.classList.add("error");
-          genero.focus();
-          return;
-        }
-      };
+        let botonGuardado = formulario.elements.guardar;
+        botonGuardado.onclick = function (event) {
+          if (!nombreDisco.value || !compositor.value) {
+            event.preventDefault();
+            let errorBoton = document.getElementById("boton");
+            errorBoton.innerHTML =
+              "Los siguientes campos obligatorios están sin rellenar: <br>";
+            if (!nombreDisco.value) {
+              errorBoton.innerHTML += "•Nombre del disco<br>";
+            }
+            if (!compositor.value) {
+              errorBoton.innerHTML += "•Grupo/Cantante<br>";
+            }
+          }
+        };
+      }
     </script>
   </body>
 </html>
