@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u09e02_test</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        background-color: rgb(119, 119, 119);
+      }
+      h2 {
+        font-size: 20px;
+      }
+      h3 {
+        font-size: 15px;
+        font-weight: lighter;
+      }
+      fieldset {
+        background-color: white;
+        border: black solid 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hollow Knight Test (Fácil)</h1>
+    <h2>
+      En este corto test, podrás demostrar cuánto sabes acerca del videojuego
+      Hollow Knight, desarrollado por Team Cherry.
+    </h2>
+    <form>
+      <fieldset>
+        <h3>
+          Primera pregunta. ¿Cuántas copias ha vendido Hollow Knight)
+          <small>(Según datos de Feb.2019)</small>
+        </h3>
+        5 Millones<input type="radio" name="primera" value="5M" />
+        <br />
+        3 millones<input type="radio" name="primera" value="3M" />
+        <br />
+        1.5 millones<input type="radio" name="primera" value="1.5M" />
+      </fieldset>
+      <fieldset>
+        <h3>Segunda pregunta. ¿Dónde se encuentra <strong>Bardoon</strong>?</h3>
+        La colmena<input type="radio" name="segunda" value="colmena" />
+        <br />
+        Canales reales<input type="radio" name="segunda" value="canales" />
+        <br />
+        Límite del reino<input type="radio" name="segunda" value="limite" />
+      </fieldset>
+      <fieldset>
+        <h3>
+          Tercera pregunta. ¿Cuántas veces has de derrotar a
+          <strong>Zote, el caballero gris</strong> para que Bretta se vaya de
+          BocaSucia?
+        </h3>
+        10<input type="radio" name="tercera" value="10" />
+        <br />
+        4<input type="radio" name="tercera" value="4" />
+        <br />
+        7<input type="radio" name="tercera" value="7" />
+      </fieldset>
+      <fieldset>
+        <h3>Cuarta pregunta. ¿Qué <strong>jefe final</strong> hace más daño</h3>
+        Zote, caballero gris (10ª vez)<input
+          type="radio"
+          name="cuarta"
+          value="zote"
+        />
+        <br />
+        Absolute Radiance<input type="radio" name="cuarta" value="absolute" />
+        <br />
+        Nosk<input type="radio" name="cuarta" value="nosk" />
+      </fieldset>
+      <fieldset>
+        <h3>
+          Quinta pregunta. ¿Cuántas personas han logrado pasarse el 5.º panteón
+          sin recibir daño (<em>hitless</em>)?
+        </h3>
+        13<input type="radio" name="cuarta" value="13" />
+        <br />
+        1<input type="radio" name="cuarta" value="1" />
+        <br />
+        5<input type="radio" name="cuarta" value="5" />
+      </fieldset>
+      <input type="submit" name="comprobar" value="COMPROBAR RESPUESTAS" />
+      <input type="button" name="reset" value="RECARGAR RESPUESTAS" />
+    </form>
+    <script>
+      document.addEventListener("DOMContentLoaded", iniciar);
+
+      function iniciar() {
+        let formulario = document.forms[0];
+        let botonComprobar = formulario.elements.comprobar;
+        botonComprobar.onsubmit = function () {};
+      }
+    </script>
+  </body>
+</html>
