@@ -82,6 +82,11 @@
           let destinatario = formulario.elements.destinatario;
           if (destinatario.value) {
             let validadorDestinatario = /^[A-Z]{2,3}_[a-z]{1,}:[0-9]{4}$/;
+            if (!validadorDestinatario.test(destinatario.value)) {
+              let error = document.getElementById("destinatario");
+              error.textContent = "⚠ Formato no válido";
+              destinatario.classList.add("alerta");
+            }
           }
         };
       }
