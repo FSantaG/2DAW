@@ -30,12 +30,12 @@
         </li>
         <li>
           <label for="destinatario">Destinatario:</label>
-          <input type="text" name="destinatario" />
+          <input type="text" name="destinatario" placeholder="XX_ciudad:1234" />
           <span></span>
         </li>
         <li>
           <label for="gramos">Gramos:</label>
-          <input type="text" name="gramos" />
+          <input type="text" name="gramos" placeholder="Min: 100, Máx: 5000" />
           <span></span>
         </li>
         <li>
@@ -88,6 +88,18 @@
               destinatario.classList.add("alerta");
             }
           }
+
+          let gramos = formulario.elements.gramos;
+          if (gramos.value) {
+            let validadorGramos = /^[1-5][0-9]{3}|[0-9]{3}$/;
+            if (!validadorGramos.test(gramos.value)) {
+              let error = document.getElementById("gramos");
+              error.textContent = "⚠ Valor introducido no válido";
+              gramos.classList.add("alerta");
+            }
+          }
+
+          //Cómo puñetas se hace la cuenta Willy
         };
       }
     </script>
