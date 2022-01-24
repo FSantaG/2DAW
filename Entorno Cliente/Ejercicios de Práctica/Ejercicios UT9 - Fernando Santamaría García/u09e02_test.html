@@ -26,6 +26,14 @@
         border: 2px red solid;
         background-color: lightcoral;
       }
+      .tick::after {
+        content: "✓";
+        color: rgb(0, 196, 0);
+      }
+      .cross::after {
+        content: "✘";
+        color: red;
+      }
     </style>
   </head>
   <body>
@@ -134,43 +142,55 @@
         let formulario = document.forms[0];
         formulario.onsubmit = function (evento) {
           evento.preventDefault();
+          let primeraPregunta = formulario.elements.primera.value;
+          let segundaPregunta = formulario.elements.segunda.value;
+          let terceraPregunta = formulario.elements.tercera.value;
+          let cuartaPregunta = formulario.elements.cuarta.value;
+          let quintaPregunta = formulario.elements.quinta.value;
+
           if (
-            !formulario.elements.primera.value ||
-            !formulario.elements.segunda.value ||
-            !formulario.elements.tercera.value ||
-            !formulario.elements.cuarta.value ||
-            !formulario.elements.quinta.value
+            !primeraPregunta ||
+            !segundaPregunta ||
+            !terceraPregunta ||
+            !cuartaPregunta ||
+            !quintaPregunta
           ) {
-            if (!formulario.elements.primera.value) {
-              document.getElementById("primera").classList.add("noRespondida");
+            let preguntaNoRespondida;
+            if (!primeraPregunta) {
+              preguntaNoRespondida = document.getElementById("primera");
+              preguntaNoRespondida.classList.add("noRespondida");
             } else {
               document
                 .getElementById("primera")
                 .classList.remove("noRespondida");
             }
-            if (!formulario.elements.segunda.value) {
-              document.getElementById("segunda").classList.add("noRespondida");
+            if (!segundaPregunta) {
+              preguntaNoRespondida = document.getElementById("segunda");
+              preguntaNoRespondida.classList.add("noRespondida");
             } else {
               document
                 .getElementById("segunda")
                 .classList.remove("noRespondida");
             }
-            if (!formulario.elements.tercera.value) {
-              document.getElementById("tercera").classList.add("noRespondida");
+            if (!terceraPregunta) {
+              preguntaNoRespondida = document.getElementById("tercera");
+              preguntaNoRespondida.classList.add("noRespondida");
             } else {
               document
                 .getElementById("tercera")
                 .classList.remove("noRespondida");
             }
-            if (!formulario.elements.cuarta.value) {
-              document.getElementById("cuarta").classList.add("noRespondida");
+            if (!cuartaPregunta) {
+              preguntaNoRespondida = document.getElementById("cuarta");
+              preguntaNoRespondida.classList.add("noRespondida");
             } else {
               document
                 .getElementById("cuarta")
                 .classList.remove("noRespondida");
             }
-            if (!formulario.elements.quinta.value) {
-              document.getElementById("quinta").classList.add("noRespondida");
+            if (!quintaPregunta) {
+              preguntaNoRespondida = document.getElementById("quinta");
+              preguntaNoRespondida.classList.add("noRespondida");
             } else {
               document
                 .getElementById("quinta")
@@ -180,24 +200,38 @@
             alert("Error: Faltan preguntas por responder");
           } else {
             let contadorCorrectas = 0;
-            if (formulario.elements.primera.value == "3M") {
+            if (primeraPregunta == "3M") {
               contadorCorrectas++;
             }
-            if (formulario.elements.segunda.value == "limite") {
+            if (segundaPregunta == "limite") {
               contadorCorrectas++;
             }
-            if (formulario.elements.tercera.value == "4") {
+            if (terceraPregunta == "4") {
               contadorCorrectas++;
             }
-            if (formulario.elements.cuarta.value == "zote") {
+            if (cuartaPregunta == "zote") {
               contadorCorrectas++;
             }
-            if (formulario.elements.quinta.value == "1") {
+            if (quintaPregunta == "1") {
               contadorCorrectas++;
             }
-            alert("Ha contestado correctamente:" + contadorCorrectas + "/5");
-            //TODO
-            //Añadir los caracteres ✓ y ✘ detrás del botón, según les corresponda.
+            if (contadorCorrectas == 5) {
+              alert("¡Felicidades! ¡Acertaste todas!");
+            } else {
+              alert("Ha contestado correctamente:" + contadorCorrectas + "/5");
+            }
+            let campos = document.getElementsByTagName("fieldset");
+            for (let pregunta of campos) {
+              pregunta.classList.remove("noRespondida");
+            }
+            let correctas = document.getElementsByClassName("correcta");
+            let incorrectas = document.getElementsByClassName("incorrecta");
+            for (let respuestaCorrecta of correctas) {
+              respuestaCorrecta.classList.add("tick");
+            }
+            for (let respuestaIncorrecta of incorrectas) {
+              respuestaIncorrecta.classList.add("cross");
+            }
           }
         };
       }
