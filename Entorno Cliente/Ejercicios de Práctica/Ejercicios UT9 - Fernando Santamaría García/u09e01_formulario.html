@@ -80,43 +80,45 @@
           }
         };
 
-        function campo20(campo, nombreCampo, mensaje) {
-          let error = document.getElementById(nombreCampo);
+        function campo20(campo, campoError, mensaje) {
           if (campo.value.length > 20) {
-            error.innerHTML = mensaje;
-            campo.classList.add("error");
+            mostrarError(campo, campoError, mensaje);
             return false;
           } else {
-            error.innerHTML = "";
-            campo.classList.remove("error");
+            ocultarError(campo, campoError);
             return true;
           }
         }
 
+        function mostrarError(campo, campoError, mensaje) {
+          let error = document.getElementById(campoError);
+          error.textContent = mensaje;
+          campo.classList.add("error");
+        }
+
+        function ocultarError(campo, campoError) {
+          let error = document.getElementById(campoError);
+          error.textContent = "";
+          campo.classList.remove("error");
+        }
+
         let annoPublicacion = formulario.elements.anno;
         annoPublicacion.onchange = function () {
-          let errorAnno = document.getElementById("anno");
           if (!Number(annoPublicacion.value)) {
-            errorAnno.innerHTML =
-              "Formato de año no válido. Introduzca un número de 4 caracteres por favor";
-            annoPublicacion.classList.add("error");
-            annoPublicacion.focus();
-            return;
+            mostrarError(this, "anno", "Introduzca un número válido por favor");
           } else if (annoPublicacion.value.length != 4) {
-            errorAnno.innerHTML =
-              "Introduzca un año válido, por favor (4 cifras numéricas)";
-            annoPublicacion.classList.add("error");
-            annoPublicacion.focus();
-            return;
+            mostrarError(
+              this,
+              "anno",
+              "Introduzca un año válido, por favor (4 cifras numéricas)"
+            );
           } else {
-            errorAnno.innerHTML = "";
-            annoPublicacion.classList.remove("error");
+            ocultarError(this, "anno");
           }
         };
 
         let genero = formulario.elements.genero;
         genero.onchange = function () {
-          let errorGenero = document.getElementById("genero");
           let valorGenero = genero.value.toLowerCase();
           if (
             valorGenero == "rock" ||
@@ -124,35 +126,30 @@
             valorGenero == "punk" ||
             valorGenero == "indie"
           ) {
-            errorGenero.innerHTML = "";
-            genero.classList.remove("error");
+            ocultarError(this, "genero");
           } else {
-            errorGenero.innerHTML =
-              "Género no válido (Valores admitidos: Pop, Rock, Punk, Indie)";
-            genero.classList.add("error");
-            return;
+            mostrarError(
+              this,
+              "genero",
+              "Género no válido (Valores admitidos: Pop, Rock, Punk, Indie)"
+            );
           }
         };
 
         let localizacion = formulario.elements.localizacion;
         localizacion.onchange = function () {
-          let errorlocalizacion = document.getElementById("localizacion");
           if (localizacion.value == "" || localizacion.value < 0) {
-            errorlocalizacion.innerHTML =
-              "Número de estantería no válido o nulo";
-            localizacion.classList.add("error");
-            return;
+            mostrarError(
+              this,
+              "localizacion",
+              "Número de estantería no válido o nulo"
+            );
           } else {
-            errorlocalizacion.innerHTML = "";
-            localizacion.classList.remove("error");
+            ocultarError(this, "localizacion");
           }
         };
 
         formulario.onsubmit = function (event) {
-          //let primerCampo = null;
-          //if(!nombreDisco.value){
-          //ponerError(nombreDisco, mensaje);
-          //}
           if (!nombreDisco.value || !compositor.value) {
             event.preventDefault();
             let errorBoton = document.getElementById("boton");
