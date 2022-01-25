@@ -31,17 +31,17 @@
         <li>
           <label for="destinatario">Destinatario:</label>
           <input type="text" name="destinatario" placeholder="XX_ciudad:1234" />
-          <span></span>
+          <span id="destinatario"></span>
         </li>
         <li>
           <label for="gramos">Gramos:</label>
           <input type="text" name="gramos" placeholder="Min: 100, Máx: 5000" />
-          <span></span>
+          <span id="gramos"></span>
         </li>
         <li>
           <label for="numCuenta">Número de cuenta</label>
           <input type="text" name="numCuenta" />
-          <span></span>
+          <span id="numCuenta"></span>
         </li>
       </ul>
       <input type="submit" name="guardar" value="Guardar Registro" />
@@ -55,51 +55,61 @@
           evento.preventDefault();
 
           let fechaCreacion = formulario.elements.fechaCreacion;
+          let errorFC = document.getElementById("fechaCreacion");
           if (fechaCreacion.value) {
             let validadorFecha =
               /^([0-2][0-9]|3[0-1])\/(0[0-9]|1[0-2])\/[0-9]{4}$/;
             if (!validadorFecha.test(fechaCreacion.value)) {
-              let error = document.getElementById("fechaCreacion");
-              error.textContent = "⚠ Introduzca una fecha válida, por favor";
+              errorFC.textContent = "⚠ Introduzca una fecha válida, por favor";
               fechaCreacion.classList.add("alerta");
+            } else {
+              error.textContent = "";
+              fechaCreacion.classList.remove("alerta");
             }
           } else {
-            let error = document.getElementById("fechaCreacion");
-            error.textContent = "⚠ Campo obligatorio";
+            errorFC.textContent = "⚠ Campo obligatorio";
             fechaCreacion.classList.add("alerta");
           }
 
           let cocinero = formulario.elements.cocinero;
           if (cocinero.value) {
             let validadorCocinero = /^[A-Z]{2}\W[0-9]{4}$/;
+            let error = document.getElementById("cocinero");
             if (!validadorCocinero.test(cocinero.value)) {
               let error = document.getElementById("cocinero");
               error.textContent = "⚠ Formato no válido";
               cocinero.classList.add("alerta");
+            } else {
+              error.textContent = "";
+              cocinero.classList.remove("alerta");
             }
           }
 
           let destinatario = formulario.elements.destinatario;
           if (destinatario.value) {
+            let error = document.getElementById("destinatario");
             let validadorDestinatario = /^[A-Z]{2,3}_[a-z]{1,}:[0-9]{4}$/;
             if (!validadorDestinatario.test(destinatario.value)) {
-              let error = document.getElementById("destinatario");
               error.textContent = "⚠ Formato no válido";
               destinatario.classList.add("alerta");
+            } else {
+              error.textContent = "";
+              destinatario.classList.remove("alerta");
             }
           }
 
           let gramos = formulario.elements.gramos;
           if (gramos.value) {
+            let error = document.getElementById("gramos");
             let validadorGramos = /^[1-5][0-9]{3}|[0-9]{3}$/;
             if (!validadorGramos.test(gramos.value)) {
-              let error = document.getElementById("gramos");
               error.textContent = "⚠ Valor introducido no válido";
               gramos.classList.add("alerta");
+            } else {
+              error.textContent = "";
+              gramos.classList.remove("alerta");
             }
           }
-
-          //Cómo puñetas se hace la cuenta Willy
         };
       }
     </script>
