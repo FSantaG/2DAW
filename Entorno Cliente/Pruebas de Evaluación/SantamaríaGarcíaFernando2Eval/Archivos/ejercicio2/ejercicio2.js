@@ -50,6 +50,7 @@ for (let libro of libros) {
   nuevoLibro.append(titulo);
   nuevoLibro.append(autor);
   nuevoLibro.append(ISBN);
+  nuevoLibro.dataset.img = libro.IMG;
   cuerpoTabla.append(nuevoLibro);
 }
 
@@ -65,6 +66,7 @@ function resaltar(evento) {
     fila.classList.remove("seleccionar");
   }
   evento.target.closest("tr").classList.add("seleccionar");
+  portada.src = "img/" + evento.target.closest("tr").dataset.img;
 }
 
 //Parte 3. Eliminado de la fila seleccionada si el usuario lo desea
@@ -74,12 +76,14 @@ let botonEliminar = document.getElementById("eliminarLibro");
 botonEliminar.addEventListener("click", eliminarLibro);
 
 function eliminarLibro() {
+  let portada = document.getElementById("portada");
   let filas = document.querySelectorAll("tr");
   for (let fila of filas) {
     if (fila.className == "seleccionar") {
+      portada.src = "";
       fila.remove();
       return true;
     }
   }
-  return alert("No hay ninguna fila seleccionada");
+  alert("No hay ninguna fila seleccionada");
 }

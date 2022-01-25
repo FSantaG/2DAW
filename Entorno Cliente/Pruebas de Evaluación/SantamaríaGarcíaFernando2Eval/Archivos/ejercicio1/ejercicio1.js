@@ -20,7 +20,8 @@ function borrarHojas() {
     let hojaMinus = hoja.innerHTML.toLowerCase();
     if (hojaMinus == nombreHoja) {
       hoja.remove();
-      return alert("Hoja borrada con éxito");
+      alert("Hoja borrada con éxito");
+      return;
     }
   }
   return alert("No existe la hoja, o no se ha especificado una hoja válida.");
@@ -57,8 +58,9 @@ function insertarHojas() {
         default:
           break;
       }
-      return alert("Hoja creada con éxito");
+      alert("Hoja creada con éxito");
+      return;
     }
   }
-  return alert(Error("Formato no válido o rama no existente"));
+  alert(Error("Formato no válido o rama no existente"));
 }
