@@ -42,6 +42,7 @@
           <label for="numCuenta">Número de cuenta</label>
           <input type="text" name="numCuenta" />
           <span id="numCuenta"></span>
+          <input type="text" name="cuentaCorrecta" readonly />
         </li>
       </ul>
       <input type="submit" name="guardar" value="Guardar Registro" />
@@ -52,63 +53,164 @@
       function iniciar() {
         let formulario = document.forms[0];
         formulario.onsubmit = function (evento) {
-          evento.preventDefault();
+          //Creación del mensaje de error
+          function mostrarError(campo, campoError, mensaje) {
+            let error = document.getElementById(campoError);
+            error.textContent = "⚠" + mensaje;
+            campo.classList.add("alerta");
+          }
+          //Ocultación del error
+          function quitarError(campo, campoError) {
+            let error = document.getElementById(campoError);
+            error.textContent = "";
+            campo.classList.remove("alerta");
+          }
 
           let fechaCreacion = formulario.elements.fechaCreacion;
-          let errorFC = document.getElementById("fechaCreacion");
           if (fechaCreacion.value) {
             let validadorFecha =
               /^([0-2][0-9]|3[0-1])\/(0[0-9]|1[0-2])\/[0-9]{4}$/;
             if (!validadorFecha.test(fechaCreacion.value)) {
-              errorFC.textContent = "⚠ Introduzca una fecha válida, por favor";
-              fechaCreacion.classList.add("alerta");
+              evento.preventDefault();
+              mostrarError(
+                fechaCreacion,
+                "fechaCreacion",
+                "Introduzca una fecha válida, por favor"
+              );
             } else {
-              error.textContent = "";
-              fechaCreacion.classList.remove("alerta");
+              quitarError(fechaCreacion, "fechaCreacion");
             }
           } else {
-            errorFC.textContent = "⚠ Campo obligatorio";
-            fechaCreacion.classList.add("alerta");
+            mostrarError(fechaCreacion, "fechaCreacion", "Campo obligatorio");
+            evento.preventDefault();
           }
 
           let cocinero = formulario.elements.cocinero;
           if (cocinero.value) {
             let validadorCocinero = /^[A-Z]{2}\W[0-9]{4}$/;
-            let error = document.getElementById("cocinero");
             if (!validadorCocinero.test(cocinero.value)) {
-              let error = document.getElementById("cocinero");
-              error.textContent = "⚠ Formato no válido";
-              cocinero.classList.add("alerta");
+              evento.preventDefault();
+              mostrarError(
+                cocinero,
+                "cocinero",
+                "Formato de cocinero no válido"
+              );
             } else {
-              error.textContent = "";
-              cocinero.classList.remove("alerta");
+              quitarError(cocinero, "cocinero");
             }
           }
 
           let destinatario = formulario.elements.destinatario;
           if (destinatario.value) {
-            let error = document.getElementById("destinatario");
             let validadorDestinatario = /^[A-Z]{2,3}_[a-z]{1,}:[0-9]{4}$/;
             if (!validadorDestinatario.test(destinatario.value)) {
-              error.textContent = "⚠ Formato no válido";
-              destinatario.classList.add("alerta");
+              evento.preventDefault();
+              mostrarError(
+                destinatario,
+                "destinatario",
+                "Formato de destinatario no válido"
+              );
             } else {
-              error.textContent = "";
-              destinatario.classList.remove("alerta");
+              quitarError(destinatario, "destinatario");
             }
           }
 
           let gramos = formulario.elements.gramos;
           if (gramos.value) {
-            let error = document.getElementById("gramos");
             let validadorGramos = /^[1-5][0-9]{3}|[0-9]{3}$/;
             if (!validadorGramos.test(gramos.value)) {
-              error.textContent = "⚠ Valor introducido no válido";
-              gramos.classList.add("alerta");
+              evento.preventDefault();
+              mostrarError(
+                gramos,
+                "gramos",
+                "Gramos introducidos fuera del rango"
+              );
             } else {
-              error.textContent = "";
-              gramos.classList.remove("alerta");
+              quitarError(gramos, "gramos");
             }
+          }
+
+          let numCuenta = formulario.elements.numCuenta;
+          if (numCuenta.value) {
+            let ok = validarCuenta(numCuenta.value);
+            if (!ok) {
+              evento.preventDefault();
+              mostrarError(
+                numCuenta,
+                "numCuenta",
+                "Número de cuenta no válido"
+              );
+            } else {
+              quitarError(numCuenta, "numCuenta");
+              let campoCuenta = document.getElementsByName("cuentaCorrecta")[0];
+              campoCuenta.value = ok;
+            }
+          }
+
+          function validarCuenta(valorNumCuenta) {
+            //Valida que los 2 primeros caracteres sean letras sin ñ.
+            let regExp = /^[A-Z]{2}/i;
+            if (!regExp.test(valorNumCuenta)) {
+              return false;
+            }
+            //Valida que los 2 siguientes dígitos formen el número resultado de la suma de los valores
+            //de las 2 letras anteriores
+            let digitosIniciales = valorNumCuenta.substring(2, 4);
+            let primeraLetra = valorNumCuenta.substring(0, 1).toUpperCase();
+            let segundaLetra = valorNumCuenta.substring(1, 2).toUpperCase();
+
+            primeraLetra = primeraLetra.codePointAt(0) - "A".codePointAt(0) + 1;
+            segundaLetra = segundaLetra.codePointAt(0) - "A".codePointAt(0) + 1;
+            let suma = primeraLetra + segundaLetra;
+            if (Number(digitosIniciales) != Number(suma)) {
+              return false;
+            }
+            //Comprueba si existe un guion tras los 4 primeros caracteres.
+            let guion = /-/;
+            let posibleGuion = valorNumCuenta.substring(4, 5);
+            if (!guion.test(posibleGuion)) {
+              return false;
+            }
+            //Valida que los 12 dígitos de cuenta sean valores numéricos.
+            let digitosCuenta = valorNumCuenta.substring(5, 17);
+            if (!Number(digitosCuenta)) {
+              return false;
+            }
+            //Comprueba si existe un guion tras los digitos de cuenta.
+            posibleGuion = valorNumCuenta.substring(17, 18);
+            if (!guion.test(posibleGuion)) {
+              return false;
+            }
+            //Validación de los dígitos de control
+            let dosDigControl = valorNumCuenta.substring(18, 20);
+            let seisDigCuenta = digitosCuenta.substring(0, 6);
+
+            let arrayDigitosCuenta = Array.from(seisDigCuenta);
+            suma = 0;
+            for (let i = 0; i <= 5; i++) {
+              suma += Number(arrayDigitosCuenta[i]);
+            }
+            if (dosDigControl == suma) {
+              suma = 0;
+              dosDigControl = valorNumCuenta.substring(20, 22);
+              seisDigCuenta = digitosCuenta.substring(6, 12);
+            } else {
+              return false;
+            }
+            for (let i = 0; i <= 5; i++) {
+              suma += Number(arrayDigitosCuenta[i]);
+            }
+            if (!(dosDigControl == suma)) {
+              return false;
+            }
+            //Devuelve el número de cuenta sin los guiones.
+            return (
+              valorNumCuenta.substring(0, 1).toUpperCase() +
+              valorNumCuenta.substring(1, 2).toUpperCase() +
+              String(digitosIniciales) +
+              digitosCuenta +
+              valorNumCuenta.substring(18, 22)
+            );
           }
         };
       }
