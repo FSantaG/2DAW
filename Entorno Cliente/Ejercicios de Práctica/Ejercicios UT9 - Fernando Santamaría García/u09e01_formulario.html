@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Discos</title>
     <style>
+      span {
+        color: red;
+      }
       .error {
         border: 3px red solid;
         background: rgb(250, 117, 117);
@@ -18,27 +21,27 @@
         <li>
           <label for="nombreDisco">Nombre del Disco:</label>
           <input type="text" name="nombreDisco" />
-          <div id="nombreDisco" style="color: red"></div>
+          <span id="nombreDisco"></span>
         </li>
         <li>
           <label for="compositor">Grupo / Cantante</label>
           <input type="text" name="compositor" />
-          <div id="compositor" style="color: red"></div>
+          <span id="compositor"></span>
         </li>
         <li>
           <label for="anno">Año de Publicación:</label>
           <input type="text" name="anno" />
-          <div id="anno" style="color: red"></div>
+          <span id="anno"></span>
         </li>
         <li>
           <label for="genero">Género Musical</label>
           <input type="text" name="genero" />
-          <div id="genero" style="color: red"></div>
+          <span id="genero"></span>
         </li>
         <li>
           <label for="localizacion">Localización</label>
           <input type="text" name="localizacion" />
-          <div id="localizacion" style="color: red"></div>
+          <span id="localizacion"></span>
         </li>
         <li>
           <label for="prestado">¿Prestado?</label>
@@ -46,7 +49,7 @@
         </li>
       </ul>
       <input type="submit" name="guardar" value="Guardar" />
-      <div id="boton" style="color: red"></div>
+      <span id="boton"></span>
     </form>
     <script>
       //Mejoras de calidad:
