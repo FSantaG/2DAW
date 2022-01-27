@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u09e04_cookiesExpresionesRegulares</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        background-color: rgb(119, 119, 119);
+      }
+      h2 {
+        font-size: 20px;
+      }
+      h3 {
+        font-size: 15px;
+        font-weight: lighter;
+      }
+      fieldset {
+        background-color: white;
+        border: black solid 2px;
+      }
+      .noRespondida {
+        border: 2px red solid;
+        background-color: lightcoral;
+      }
+      .tick::after {
+        content: "✓";
+        color: rgb(0, 196, 0);
+      }
+      .cross::after {
+        content: "✘";
+        color: red;
+      }
+      #errores {
+        color: orange;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hollow Knight Test (Fácil)</h1>
+    <h2>
+      En este corto test, podrás demostrar cuánto sabes acerca del videojuego
+      Hollow Knight, desarrollado por Team Cherry.
+    </h2>
+    <form>
+      <fieldset id="primera">
+        <h3>
+          Primera pregunta. ¿Cuántas copias ha vendido Hollow Knight)
+          <small>(Según datos de Feb.2019)</small>
+        </h3>
+        5 Millones<input
+          type="radio"
+          name="primera"
+          value="5M"
+          class="incorrecta"
+        />
+        <br />
+        3 millones<input
+          type="radio"
+          name="primera"
+          value="3M"
+          class="correcta"
+        />
+        <br />
+        1.5 millones<input
+          type="radio"
+          name="primera"
+          value="1.5M"
+          class="incorrecta"
+        />
+      </fieldset>
+      <fieldset id="segunda">
+        <h3>Segunda pregunta. ¿Dónde se encuentra <strong>Bardoon</strong>?</h3>
+        La colmena<input
+          type="radio"
+          name="segunda"
+          value="colmena"
+          class="incorrecta"
+        />
+        <br />
+        Canales reales<input
+          type="radio"
+          name="segunda"
+          value="canales"
+          class="incorrecta"
+        />
+        <br />
+        Límite del reino<input
+          type="radio"
+          name="segunda"
+          value="limite"
+          class="correcta"
+        />
+      </fieldset>
+      <fieldset id="tercera">
+        <h3>
+          Tercera pregunta. ¿Cuántas veces has de derrotar a
+          <strong>Zote, el caballero gris</strong> para que Bretta se vaya de
+          BocaSucia?
+        </h3>
+        10<input type="radio" name="tercera" value="10" class="incorrecta" />
+        <br />
+        4<input type="radio" name="tercera" value="4" class="correcta" />
+        <br />
+        7<input type="radio" name="tercera" value="7" class="incorrecta" />
+      </fieldset>
+      <fieldset id="cuarta">
+        <h3>Cuarta pregunta. ¿Qué <strong>jefe final</strong> hace más daño</h3>
+        Zote, caballero gris (10ª vez)<input
+          type="radio"
+          name="cuarta"
+          value="zote"
+          class="correcta"
+        />
+        <br />
+        Absolute Radiance<input
+          type="radio"
+          name="cuarta"
+          value="absolute"
+          class="incorrecta"
+        />
+        <br />
+        Nosk<input type="radio" name="cuarta" value="nosk" class="incorrecta" />
+      </fieldset>
+      <fieldset id="quinta">
+        <h3>
+          Quinta pregunta. ¿Cuántas personas han logrado pasarse el 5.º panteón
+          sin recibir daño (<em>hitless</em>)?
+        </h3>
+        13<input type="radio" name="quinta" value="13" class="incorrecta" />
+        <br />
+        1<input type="radio" name="quinta" value="1" class="correcta" />
+        <br />
+        5<input type="radio" name="quinta" value="5" class="incorrecta" />
+      </fieldset>
+      <input type="submit" name="comprobar" value="COMPROBAR RESPUESTAS" />
+      <span id="errores"></span>
+      <input type="button" name="borrarErrores" value="BORRAR ERRORES" />
+    </form>
+    <script>
+      document.addEventListener("DOMContentLoaded", iniciar);
+
+      function iniciar() {
+        //Comprueba si existe la cookie de los errores. Si es así, asigna a
+        //un cotnador el valor de la cookie para que siga contando desde donde se quedó.
+        //En caso contrario, inicializa el contador a cero, y cuandos e produzca un error empezará
+        //a contarlos.
+        let contadorErrores;
+        let errores = document.getElementById("errores");
+        if (
+          document.cookie
+            .split(";")
+            .some((item) => item.trim().startsWith("Errores="))
+        ) {
+          const valorCookie = document.cookie
+            .split("; ")
+            .find((row) => row.startsWith("Errores="))
+            .split("=")[1];
+          contadorErrores = valorCookie;
+        } else {
+          contadorErrores = 0;
+        }
+        errores.textContent = document.cookie;
+
+        //Crea el evento de envío de formulario
+        let formulario = document.forms[0];
+        formulario.addEventListener("submit", corregirTest);
+
+        function corregirTest(evento) {
+          evento.preventDefault();
+          let primeraPregunta = formulario.elements.primera.value;
+          let segundaPregunta = formulario.elements.segunda.value;
+          let terceraPregunta = formulario.elements.tercera.value;
+          let cuartaPregunta = formulario.elements.cuarta.value;
+          let quintaPregunta = formulario.elements.quinta.value;
+
+          if (
+            !primeraPregunta ||
+            !segundaPregunta ||
+            !terceraPregunta ||
+            !cuartaPregunta ||
+            !quintaPregunta
+          ) {
+            let preguntaNoRespondida;
+            if (!primeraPregunta) {
+              preguntaNoRespondida = document.getElementById("primera");
+              preguntaNoRespondida.classList.add("noRespondida");
+            } else {
+              document
+                .getElementById("primera")
+                .classList.remove("noRespondida");
+            }
+            if (!segundaPregunta) {
+              preguntaNoRespondida = document.getElementById("segunda");
+              preguntaNoRespondida.classList.add("noRespondida");
+            } else {
+              document
+                .getElementById("segunda")
+                .classList.remove("noRespondida");
+            }
+            if (!terceraPregunta) {
+              preguntaNoRespondida = document.getElementById("tercera");
+              preguntaNoRespondida.classList.add("noRespondida");
+            } else {
+              document
+                .getElementById("tercera")
+                .classList.remove("noRespondida");
+            }
+            if (!cuartaPregunta) {
+              preguntaNoRespondida = document.getElementById("cuarta");
+              preguntaNoRespondida.classList.add("noRespondida");
+            } else {
+              document
+                .getElementById("cuarta")
+                .classList.remove("noRespondida");
+            }
+            if (!quintaPregunta) {
+              preguntaNoRespondida = document.getElementById("quinta");
+              preguntaNoRespondida.classList.add("noRespondida");
+            } else {
+              document
+                .getElementById("quinta")
+                .classList.remove("noRespondida");
+            }
+
+            alert("Error: Faltan preguntas por responder");
+            //Asigna a la cookie el valor del contador de errores.
+            contadorErrores++;
+            document.cookie = `Errores = ${contadorErrores}; max-age=60`;
+            let errores = document.getElementById("errores");
+            errores.textContent = document.cookie;
+          } else {
+            let contadorCorrectas = 0;
+            if (primeraPregunta == "3M") {
+              contadorCorrectas++;
+            }
+            if (segundaPregunta == "limite") {
+              contadorCorrectas++;
+            }
+            if (terceraPregunta == "4") {
+              contadorCorrectas++;
+            }
+            if (cuartaPregunta == "zote") {
+              contadorCorrectas++;
+            }
+            if (quintaPregunta == "1") {
+              contadorCorrectas++;
+            }
+            if (contadorCorrectas == 5) {
+              alert("¡Felicidades! ¡Acertaste todas!");
+            } else {
+              alert("Ha contestado correctamente:" + contadorCorrectas + "/5");
+            }
+            let campos = document.getElementsByTagName("fieldset");
+            for (let pregunta of campos) {
+              pregunta.classList.remove("noRespondida");
+            }
+            let correctas = document.getElementsByClassName("correcta");
+            let incorrectas = document.getElementsByClassName("incorrecta");
+            for (let respuestaCorrecta of correctas) {
+              respuestaCorrecta.classList.add("tick");
+            }
+            for (let respuestaIncorrecta of incorrectas) {
+              respuestaIncorrecta.classList.add("cross");
+            }
+          }
+        }
+        //Crea el botón de reestablecimiento de valor por defecto de la cookie.
+        let botonErrores = formulario.elements.borrarErrores;
+        botonErrores.addEventListener("click", borrarErrores);
+
+        function borrarErrores(evento) {
+          document.cookie = "Errores = 0; max-age=60";
+          errores.textContent = document.cookie;
+          contadorErrores = 0;
+        }
+      }
+    </script>
+  </body>
+</html>
