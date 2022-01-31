@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convertir un objeto en JSON y viceversa</title>
+  </head>
+  <body>
+    <script>
+      let user = {
+        name: "John Smith",
+        age: 35,
+      };
+
+      let userJSON = JSON.stringify(user);
+      alert(userJSON);
+
+      let userNormal = JSON.parse(userJSON);
+      alert(typeof userNormal);
+    </script>
+  </body>
+</html>
