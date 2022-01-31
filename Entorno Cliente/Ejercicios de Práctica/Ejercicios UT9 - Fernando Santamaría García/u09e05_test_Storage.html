@@ -34,6 +34,10 @@
         content: "✘";
         color: red;
       }
+      #errores {
+        color: orange;
+        background-color: black;
+      }
     </style>
   </head>
   <body>
@@ -134,13 +138,29 @@
         5<input type="radio" name="quinta" value="5" class="incorrecta" />
       </fieldset>
       <input type="submit" name="comprobar" value="COMPROBAR RESPUESTAS" />
+      <span id="errores"></span>
+      <input type="button" name="borrarErrores" value="BORRAR ERRORES" />
     </form>
     <script>
       document.addEventListener("DOMContentLoaded", iniciar);
 
       function iniciar() {
+        //Comprueba si existe localStorage.
+        let contadorErrores;
+        let errores = document.getElementById("errores");
+        if (localStorage.getItem("errores")) {
+          const valorLS = localStorage.getItem("errores");
+          contadorErrores = valorLS;
+        } else {
+          contadorErrores = 0;
+        }
+        errores.textContent = "Errores = " + localStorage.getItem("errores");
+
+        //Crea el evento de envío de formulario
         let formulario = document.forms[0];
-        formulario.onsubmit = function (evento) {
+        formulario.addEventListener("submit", corregirTest);
+
+        function corregirTest(evento) {
           evento.preventDefault();
           let primeraPregunta = formulario.elements.primera.value;
           let segundaPregunta = formulario.elements.segunda.value;
@@ -198,6 +218,12 @@
             }
 
             alert("Error: Faltan preguntas por responder");
+            //Asigna al localStorage el valor del contador de errores.
+            contadorErrores++;
+            localStorage.setItem("errores", contadorErrores);
+            let errores = document.getElementById("errores");
+            errores.textContent =
+              "Errores = " + localStorage.getItem("errores");
           } else {
             let contadorCorrectas = 0;
             if (primeraPregunta == "3M") {
@@ -233,7 +259,18 @@
               respuestaIncorrecta.classList.add("cross");
             }
           }
-        };
+        }
+        //Crea el evento de click en el botón,
+        //el cual elimina el localStorage para evitar
+        //que sea permanente
+        let botonErrores = formulario.elements.borrarErrores;
+        botonErrores.addEventListener("click", borrarErrores);
+
+        function borrarErrores(evento) {
+          localStorage.removeItem("errores");
+          errores.textContent = "";
+          contadorErrores = 0;
+        }
       }
     </script>
   </body>
