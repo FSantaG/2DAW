@@ -43,6 +43,11 @@
           <span id="gramos"></span>
         </li>
         <li>
+          <label for="composicion">Composición:</label>
+          <input type="text" name="composicion" placeholder="100gH20" />
+          <span id="composicion"></span>
+        </li>
+        <li>
           <label for="numCuenta">Número de cuenta</label>
           <input type="text" name="numCuenta" />
           <span id="numCuenta"></span>
@@ -131,6 +136,22 @@
               );
             } else {
               quitarError(gramos, "gramos");
+            }
+          }
+
+          let composicion = formulario.elements.composicion;
+          if (composicion.value) {
+            let validadorComp =
+              /(^[1-5][0-9]{3}|^[1-9][0-9]{2})g([A-Z]{1,2}[1-9]{0,1}){2}$/i;
+            if (!validadorComp.test(composicion.value)) {
+              evento.preventDefault();
+              mostrarError(
+                composicion,
+                "composicion",
+                "Formato de composición no válida"
+              );
+            } else {
+              quitarError(composicion, "composicion");
             }
           }
 
