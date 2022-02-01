@@ -5,11 +5,126 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>u09e06_repaso</title>
+    <style>
+      .error{
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <!--Crear una web con HTML-->
+    <form>
+      <ul>
+        <li>
+          <label for="nombreCompleto">Nombre y Apellidos</label>
+          <input type="text" name="nombreCompleto" />
+          <span id="nombreCompleto"></span>
+        </li>
+        <li>
+          <label for="dni">DNI</label>
+          <input type="text" name="dni" placeholder="12345678A"/>
+          <span id="dni"></span>
+        </li>
+        <li>
+          <label for="numPersonas">Número de Personas</label>
+          <input type="text" name="numPersonas" placeholder="Máx: 25"/>
+          <span id="numPersonas"></span>
+        </li>
+        <li>
+          <label for="cocina">¿Con cocina?</label>
+          <input type="checkbox" name="cocina" />
+          <span id="cocina"></span>
+        </li>
+        <li>
+          <label for="numSocio">Número de socio</label>
+          <input type="text" name="numSocio" placeholder="XX123" />
+          <span id="numSocio"></span>
+        </li>
+      </ul>
+      <input type="button" name="reservar" value="Reservar"/>
+      <input type="button" name="anular" value="Anular"/>
+      <input type="button" name="mostrar" value="Mostrar"/>
+      <input type="button" name="salir" value="Salir"/> 
+    
     <script>
-      //Código JS
+      let formulario = document.forms[0];
+      let arrayCampos = ["nombreCompleto", "dni", "numPersonas", "cocina", "numSocio"];
+      
+      let botónReserva = formulario.elements.reservar;
+      botónReserva.addEventListener("click", reservar);
+
+      function reservar(){
+        validarDatos();
+      }
+
+      function validarDatos(){
+        for(let campo of arrayCampos){
+        let input = document.getElementsByName(campo)[0];
+        switch (campo){
+          case "nombreCompleto":
+            if(!input.value){
+              mostrarError(campo, "Campo obligatorio no introducido");     
+            }else{
+              ocultarError(campo);
+            }
+            break;
+          case "dni":
+            if(input.value){
+              let regExp = /^[0-9]{8}[A-Z]$/;
+              if(regExp.test(input.value)){
+                ocultarError(campo);
+                let dni = input;
+              }else{
+                mostrarError(campo, "Formato de DNI no válido");
+              }
+            }else{
+              mostrarError(campo, "Campo obligatorio no introducido");
+            }
+            break;
+          case "numPersonas":
+            if(input.value){
+              if(input.value > 25){
+                mostrarError(campo, "Capacidad máxima de la sala sobrepasada");
+              }else{
+                ocultarError(campo);
+              }
+            }else{
+              mostrarError(campo, "Campo obligatorio no introducido");
+            }
+            break;
+          case "cocina":
+            if(input.checked){
+              let salaCocina = true;
+              contadorSalasCocina++;
+            }else{
+              let salaCocina = false;
+              contadorSalasSinCocina++;
+            }
+            break;
+          case "numSocio":
+            let regExp = /^[A-Z]{2}[0-9]{3}$/i;
+            if(input.value || regExp.test(input.value)){
+              ocultarError(campo);
+              let descuento = 10;
+            }else if(!regExp.test(input.value)){
+              mostrarError(campo, "El número de socio introducido no cumple el formato establecido");
+            }
+            break;
+        }
+      }
+      }
+
+      function mostrarError(campo, mensaje){
+        let campoError = document.getElementById(campo);
+        campoError.classList.add("error");
+        campoError.textContent = "⚠ "+mensaje;
+      }
+
+      function ocultarError(campo){
+        let campoError = document.getElementById(campo);
+        campoError.classList.remove("error");
+        campoError.textContent="";
+      }
     </script>
   </body>
 </html>
