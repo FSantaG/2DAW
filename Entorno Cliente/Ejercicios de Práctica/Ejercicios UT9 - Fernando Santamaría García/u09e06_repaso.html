@@ -47,25 +47,32 @@
       <input type="button" name="salir" value="Salir"/> 
     
     <script>
+      //TODO
+      //Quitar el puto array, y hacerlo de forma manual
+      //Colgarme de un ventilador (opcional)
       let formulario = document.forms[0];
       let arrayCampos = ["nombreCompleto", "dni", "numPersonas", "cocina", "numSocio"];
-      
+      let arrayDatos = [];
+
       let botónReserva = formulario.elements.reservar;
       botónReserva.addEventListener("click", reservar);
 
       function reservar(){
         validarDatos();
+        let datosForm = [nombreCompleto, dni, numPersonas, salaCocina, numSocio];
+        arrayDatos[0] = datosForm;
       }
 
       function validarDatos(){
         for(let campo of arrayCampos){
-        let input = document.getElementsByName(campo)[0];
+        let input = document.getElementsByName(campo);
         switch (campo){
           case "nombreCompleto":
             if(!input.value){
               mostrarError(campo, "Campo obligatorio no introducido");     
             }else{
               ocultarError(campo);
+              let nombreCompleto = input.value;
             }
             break;
           case "dni":
@@ -73,7 +80,7 @@
               let regExp = /^[0-9]{8}[A-Z]$/;
               if(regExp.test(input.value)){
                 ocultarError(campo);
-                let dni = input;
+                let dni = input.value;
               }else{
                 mostrarError(campo, "Formato de DNI no válido");
               }
@@ -87,31 +94,37 @@
                 mostrarError(campo, "Capacidad máxima de la sala sobrepasada");
               }else{
                 ocultarError(campo);
+                let numPersonas = input.value;
               }
             }else{
               mostrarError(campo, "Campo obligatorio no introducido");
             }
             break;
           case "cocina":
+            let salaCocina;
             if(input.checked){
-              let salaCocina = true;
-              contadorSalasCocina++;
+              salaCocina = true;
             }else{
-              let salaCocina = false;
-              contadorSalasSinCocina++;
+              salaCocina = false;
             }
             break;
           case "numSocio":
             let regExp = /^[A-Z]{2}[0-9]{3}$/i;
-            if(input.value || regExp.test(input.value)){
+            if(!input.value || regExp.test(input.value)){
               ocultarError(campo);
-              let descuento = 10;
+              if(input.value){
+                let numSocio = input.value
+              }else{
+                let numSocio = "";
+              }
             }else if(!regExp.test(input.value)){
               mostrarError(campo, "El número de socio introducido no cumple el formato establecido");
             }
             break;
         }
       }
+      alert(nombreCompleto);
+      //return nombreCompleto, dni, numPersonas, salaCocina, numSocio;
       }
 
       function mostrarError(campo, mensaje){
