@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      fetch("./user.json")
+        // .a continuación, se ejecuta cuando el servidor remoto responde
+        .then(function (response) {
+          // response.text() devuelve una nueva promesa que se resuelve con el texto de respuesta completo
+          // cuando se carga
+          /*return response.text();*/
+          //Versión 2:
+          return response.json();
+        })
+        .then(function (/*text*/ json) {
+          // ...y aquí está el contenido del archivo remoto
+          //Comentado, la antigua versión. Sin comentar, la nueva.
+          alert(/*text*/ "Nombre: " + json.name + "\nAdmin: " + json.isAdmin); // {"name": "iliakan", isAdmin: true}
+        });
+    </script>
+  </body>
+</html>

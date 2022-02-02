@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentorl</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" name="url" />
+      <input type="button" name="mostrar" value="Mostrar contenido" />
+    </form>
+    <textarea id="visualizado"></textarea>
+    <script>
+      document.addEventListener("DOMContentLoaded", iniciar);
+
+      function iniciar() {
+        let formulario = document.forms[0];
+        let url = formulario.elements.url;
+        url.value = "C:/wamp64/www/Entorno Cliente/Ej1ConFetch/Ejercicios UT10";
+
+        let botónMostrar = formulario.elements.mostrar;
+        botónMostrar.addEventListener("click", mostrarContenido);
+
+        //Nota:
+        //Para acceder a los datos, usar la siguiente ruta:
+        //"/Entorno Cliente/loquesea"
+
+        function mostrarContenido() {
+          let areaTexto = document.getElementById("visualizado");
+          fetch(url.value)
+            .then(function (response) {
+              return response.text();
+            })
+            .then(function (text) {
+              areaTexto.value = text;
+            });
+        }
+      }
+    </script>
+  </body>
+</html>
