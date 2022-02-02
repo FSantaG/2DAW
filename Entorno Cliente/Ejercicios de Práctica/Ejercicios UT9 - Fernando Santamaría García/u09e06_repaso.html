@@ -12,7 +12,7 @@
     </style>
   </head>
   <body>
-    <!--Crear una web con HTML-->
+    <span id="reservas"></span>
     <form>
       <ul>
         <li>
@@ -47,6 +47,7 @@
       <input type="button" name="mostrar" value="Mostrar" />
       <input type="button" name="salir" value="Salir" />
     </form>
+    <span id="precio"></span>
     <script>
       class Reserva {
         constructor(nombre, dni, numPersonas, cocina, numSocio) {
@@ -62,18 +63,21 @@
       let conCocina = 0,
         sinCocina = 0;
 
+      let campoNombre = formulario.elements.nombreCompleto;
+      let campoDNI = formulario.elements.dni;
+      let campoPersonas = formulario.elements.numPersonas;
+      let campoCocina = formulario.elements.cocina;
+      let campoNumSocio = formulario.elements.numSocio;
+
       const MAXIMO_SALAS_CON_COCINA = 4,
         MAXIMO_SALAS_SIN_COCINA = 3;
+
+      let campoPrecio = document.getElementById("precio");
 
       let botónReserva = formulario.elements.reservar;
       botónReserva.addEventListener("click", reservar);
 
       function reservar() {
-        let campoNombre = formulario.elements.nombreCompleto;
-        let campoDNI = formulario.elements.dni;
-        let campoPersonas = formulario.elements.numPersonas;
-        let campoCocina = formulario.elements.cocina;
-        let campoNumSocio = formulario.elements.numSocio;
         let ok = validarDatos();
         if (ok) {
           let nuevaReserva = new Reserva(
@@ -89,10 +93,26 @@
             sinCocina = 0;
             ocultarError("errorGeneral");
             arrayDatos.push(nuevaReserva);
+            campoPrecio.textContent =
+              "Precio a pagar: " + calcularPrecio(nuevaReserva);
           }
         }
       }
-
+      function calcularPrecio(nuevaReserva) {
+        let precio = 0;
+        let precioFinal = 0;
+        if (nuevaReserva.cocina == true) {
+          precio = 150;
+        } else {
+          precio = 100;
+        }
+        if (nuevaReserva.numSocio != "") {
+          precioFinal = precio - (precio * 10) / 100;
+        } else {
+          precioFinal = precio;
+        }
+        return precioFinal;
+      }
       function comprobarReserva(nuevaReserva) {
         if (arrayDatos.length != 0) {
           for (let reserva of arrayDatos) {
@@ -123,11 +143,51 @@
         return true;
       }
 
+      let botónAnular = formulario.elements.anular;
+      botónAnular.addEventListener("click", anularReserva);
+
+      function anularReserva() {
+        for (let reserva of arrayDatos) {
+          if (reserva.dni == campoDNI.value) {
+            let pos = arrayDatos.indexOf(reserva);
+            arrayDatos.splice(pos, 1);
+            alert("Reserva borrada con éxito");
+            ocultarError("errorGeneral");
+            return;
+          }
+        }
+        mostrarError(
+          "errorGeneral",
+          "El DNI introducido no corresponde al de ninguna de nuestras reservas"
+        );
+      }
+
+      let botónMostrar = formulario.elements.mostrar;
+      botónMostrar.addEventListener("click", mostrarReservas);
+
+      function mostrarReservas() {
+        let span = document.getElementById("reservas");
+        span.textContent = "";
+        for (let reserva of arrayDatos) {
+          span.textContent +=
+            reserva.nombre +
+            " " +
+            reserva.dni +
+            " " +
+            reserva.numPersonas +
+            " " +
+            reserva.cocina +
+            " " +
+            reserva.numSocio +
+            "|";
+        }
+      }
+
       let botónSalir = formulario.elements.salir;
       botónSalir.addEventListener("click", salir);
 
       function salir() {
-        window.close();
+        close();
       }
 
       function validarDatos() {
