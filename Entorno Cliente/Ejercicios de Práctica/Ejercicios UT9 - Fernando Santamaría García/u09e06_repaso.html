@@ -41,6 +41,7 @@
           <span id="numSocio"></span>
         </li>
       </ul>
+      <span id="errorGeneral"></span><br />
       <input type="button" name="reservar" value="Reservar" />
       <input type="button" name="anular" value="Anular" />
       <input type="button" name="mostrar" value="Mostrar" />
@@ -57,7 +58,13 @@
         }
       }
       let formulario = document.forms[0];
-      let arrayDatos;
+      let arrayDatos = [];
+      let conCocina = 0,
+        sinCocina = 0;
+
+      const MAXIMO_SALAS_CON_COCINA = 4,
+        MAXIMO_SALAS_SIN_COCINA = 3;
+
       let botónReserva = formulario.elements.reservar;
       botónReserva.addEventListener("click", reservar);
 
@@ -76,8 +83,44 @@
             campoCocina.checked, //Devuelve true si está checked, false si no lo está
             campoNumSocio.value
           );
-          arrayDatos += [nuevaReserva];
+          let reservaCorrecta = comprobarReserva(nuevaReserva);
+          if (reservaCorrecta) {
+            conCocina = 0;
+            sinCocina = 0;
+            ocultarError("errorGeneral");
+            arrayDatos.push(nuevaReserva);
+          }
         }
+      }
+
+      function comprobarReserva(nuevaReserva) {
+        if (arrayDatos.length != 0) {
+          for (let reserva of arrayDatos) {
+            if (reserva.dni == campoDNI.value) {
+              mostrarError(
+                "errorGeneral",
+                "El DNI introducido no puede reservar más"
+              );
+              return false;
+            }
+            if (reserva.cocina == true) {
+              conCocina++;
+            } else {
+              sinCocina++;
+            }
+            if (
+              conCocina == MAXIMO_SALAS_CON_COCINA ||
+              sinCocina == MAXIMO_SALAS_SIN_COCINA
+            ) {
+              mostrarError(
+                "errorGeneral",
+                "No hay salas disponibles para reserva"
+              );
+              return false;
+            }
+          }
+        }
+        return true;
       }
 
       let botónSalir = formulario.elements.salir;
@@ -130,18 +173,11 @@
           return false;
         }
 
-        /* let salaCocina;
-        if (campoCocina.checked) {
-          salaCocina = true;
-        } else {
-          salaCocina = false;
-        } */
-
         let regExp = /^[A-Z]{2}[0-9]{3}$/i;
-        if (!campoNumSocio.value || regExp.test(input.value)) {
+        if (!campoNumSocio.value || regExp.test(campoNumSocio.value)) {
           ocultarError("numSocio");
           if (campoNumSocio.value) {
-            let numSocio = input.value;
+            let numSocio = campoNumSocio.value;
           } else {
             let numSocio = "";
           }
