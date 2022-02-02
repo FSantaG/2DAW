@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sprites</title>
+    <style>
+      #enlace1,
+      #enlace2,
+      #enlace3 {
+        display: inline-block;
+        width: 43px;
+        height: 44px;
+        background-image: url("./img_navsprites_hover.gif");
+        background-repeat: no-repeat;
+        border: 2px solid green;
+        background-color: lightgreen;
+      }
+      #enlace1 {
+        background-position: 0 0;
+      }
+      #enlace2 {
+        background-position: -47px 0;
+      }
+      #enlace3 {
+        background-position: -91px 0;
+      }
+      #enlace1:hover {
+        background-position: 0 -45px;
+      }
+      #enlace2:hover {
+        background-position: -47px -45px;
+      }
+      #enlace3:hover {
+        background-position: -91px -45px;
+      }
+    </style>
+  </head>
+  <body>
+    <a id="enlace1" href="#"></a>
+    <a id="enlace2" href="#"></a>
+    <a id="enlace3" href="#"></a>
+  </body>
+</html>
