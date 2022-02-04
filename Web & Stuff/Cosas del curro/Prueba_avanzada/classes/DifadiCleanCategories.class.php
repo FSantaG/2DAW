@@ -28,4 +28,11 @@ class DifadiCleanCategories implements DifadiScript
      * 
      * Cualquier duda, consultar a <lsantos@difadi.com> o <soporte@difadi.com>
      */
+    //public $consulta = 
+    public function run(){
+
+    }
+    public function getResult(){
+        
+    }
 }
