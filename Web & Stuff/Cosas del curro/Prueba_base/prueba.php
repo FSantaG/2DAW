@@ -2,7 +2,9 @@
 /**
  * Test que simula una actualización de stock de un producto en una base de datos.
  *
- * @author <nombre>
+ * @author Fernando Santamaría García fsantagestiones@gmail.com
+ * @date 04/02/2022
+ * 
  */
 
 /**
@@ -23,7 +25,7 @@ class StockUpdate {
      */
     public static function updateProduct( $id_product, $stock )
     {
-        return DB::Execute( /* <COMPLETAR SQL> */ );
+        return DB::Execute("UPDATE df_stock_available SET stock=$stock WHERE id_product=$id_product");
     }
 }
 
@@ -53,7 +55,19 @@ class UpdateIterator {
      * correctas. No tendrá ningún parámetro, usará la propiedad "products" de
      * la clase.
      */
-    // <CREAR FUNCIÓN run()>
+    public function run(){
+        $query = new StockUpdate();
+        $count_checked = "0";
+        foreach($this->products as $id_product=>$stock){
+            $check = $query::updateProduct($id_product, $stock);
+            if($check){
+                $count_checked++;
+            }
+        }
+        if($count_checked==count($this->products)){
+            return true;
+        }
+    }
 
 }
 
