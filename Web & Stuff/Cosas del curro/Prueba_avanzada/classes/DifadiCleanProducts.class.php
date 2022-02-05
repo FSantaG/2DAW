@@ -23,3 +23,22 @@
  * 
  * Cualquier duda, consultar a <lsantos@difadi.com> o <soporte@difadi.com>
  */
+class DifadiCleanProducts implements DifadiScript
+{
+    public $consulta;
+    public function run(){
+        $this->consulta = DifadiTools::getAllProducts();
+        $counter = 0;
+        foreach($this->consulta as $product){
+            if($product["active"] == 0){
+                array_splice($this->consulta, $counter, 1);
+            }
+            else{
+                $counter++;
+            }
+        }
+    }
+    public function getResult(){
+        var_dump($this->consulta);
+    }
+}

@@ -28,11 +28,20 @@ class DifadiCleanCategories implements DifadiScript
      * 
      * Cualquier duda, consultar a <lsantos@difadi.com> o <soporte@difadi.com>
      */
-    //public $consulta = 
+    public $consulta;
     public function run(){
-
+        $this->consulta = DifadiTools::getAllCategories();
+        $counter = 0;
+        foreach($this->consulta as $category){
+            if($category["active"] == 0){
+                array_splice($this->consulta, $counter, 1);
+            }
+            else{
+                $counter++;
+            }
+        }
     }
     public function getResult(){
-        
+        var_dump($this->consulta);
     }
 }
