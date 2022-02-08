@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u10e04_localidadPOSTPromesas</title>
+    <style>
+      .disponible {
+        color: rgb(30, 255, 0);
+      }
+      .noDisponible {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      Introduzca una localidad: <input type="text" name="localidad" />
+      <div id="resultado"></div>
+      <input type="button" name="buscar" value="Buscar" />
+    </form>
+    <script>
+      let localidad = document.getElementsByName("localidad")[0].value;
+      let boton = document.getElementsByName("buscar")[0];
+      boton.onclick = function () {
+        async function f() {
+          let respuesta = await fetch("arraylocalidades.php", {
+            method: "POST",
+            header: {
+              "Content-Type": "application/json;charset='UTF8'",
+            },
+            body: JSON.stringify(localidad),
+          });
+          let result = await respuesta.text();
+          alert(result);
+        }
+        f();
+      };
+    </script>
+  </body>
+</html>
