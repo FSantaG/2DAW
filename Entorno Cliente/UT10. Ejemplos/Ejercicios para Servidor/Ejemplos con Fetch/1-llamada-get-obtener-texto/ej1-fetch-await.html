@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo</title>
+  </head>
+
+  <body>
+    <script>
+      async function llamarFichero() {
+        let fichero = "./hola.txt";
+        let respuesta = await fetch(fichero);
+        let texto;
+        if (respuesta.ok) {
+          texto = await respuesta.text();
+        } else {
+          texto =
+            "Error " +
+            respuesta.status +
+            " al intentar acceder al fichero " +
+            fichero;
+        }
+        alert(texto); // Hola
+      }
+      llamarFichero();
+    </script>
+  </body>
+</html>

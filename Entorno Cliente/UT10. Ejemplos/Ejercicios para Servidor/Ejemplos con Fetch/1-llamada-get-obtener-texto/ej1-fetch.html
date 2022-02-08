@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let fichero = "./hodla.txt";
+      fetch(fichero)
+        .then(function (response) {
+          if (response.ok) {
+            return response.text();
+          } else {
+            return (
+              "Error " +
+              response.status +
+              " al intentar acceder al fichero " +
+              fichero
+            );
+          }
+        })
+        .then(function (text) {
+          alert(text);
+        });
+    </script>
+  </body>
+</html>

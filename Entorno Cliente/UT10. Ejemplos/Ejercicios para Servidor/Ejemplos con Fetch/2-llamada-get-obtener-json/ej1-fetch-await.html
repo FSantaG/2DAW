@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo</title>
+  </head>
+
+  <body>
+    <script>
+      async function llamarFichero() {
+        let fichero = "user.json";
+        let respuesta = await fetch(fichero);
+        if (respuesta.ok) {
+          try {
+            json = await respuesta.json();
+            alert(json.nombre + " " + json.apellido);
+          } catch (error) {
+            alert(error.message);
+          }
+        } else {
+          alert(
+            "Error " +
+              respuesta.status +
+              " al intentar acceder al fichero " +
+              fichero
+          );
+        }
+      }
+      llamarFichero();
+    </script>
+  </body>
+</html>

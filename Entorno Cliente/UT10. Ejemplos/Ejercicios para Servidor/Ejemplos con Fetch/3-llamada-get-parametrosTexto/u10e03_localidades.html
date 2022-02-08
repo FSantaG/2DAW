@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>
+      <input type="text" name="localidad" id="localidad" />
+      <button id="mostrar">Mostrar contenido</button>
+    </div>
+    <textarea name="contenido" id="contenido" cols="30" rows="10"></textarea>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", inicio);
+      function inicio() {
+        // EVENTO PARA EL BUTTON
+        let botonMostrar = document.getElementById("mostrar");
+        botonMostrar.addEventListener("click", mostrarArchivo);
+      }
+
+      function mostrarArchivo(evento) {
+        let campolocalidad = document.getElementById("localidad");
+        //let url = "arrayLocalidades.php?localidad=" + campolocalidad.value;
+        let base = "http://localhost/UT10-Servicios%20Red/ej3-php%20-%20url";
+        let url = new URL(base + "/arrayLocalidades.php");
+        url.searchParams.set("localidad", campolocalidad.value);
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              return response.text();
+            } else {
+              return "Error " + response.status + " al acceder al servidor";
+            }
+          })
+          .then(function (text) {
+            document.getElementById("contenido").value = text;
+          });
+      }
+    </script>
+  </body>
+</html>

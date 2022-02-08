@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function f() {
+        let formData = new FormData();
+        formData.append("name", prompt("Dime el nombre"));
+        formData.append("surname", prompt("Dime el apellido"));
+
+        let response = await fetch("usuario.php", {
+          method: "POST",
+          body: formData,
+        });
+
+        let result = await response.text();
+
+        alert(result);
+      }
+      f();
+    </script>
+  </body>
+</html>
