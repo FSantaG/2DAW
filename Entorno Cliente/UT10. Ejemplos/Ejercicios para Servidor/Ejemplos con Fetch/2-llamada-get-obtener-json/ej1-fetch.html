@@ -15,11 +15,11 @@
           if (response.ok) {
             return response.json();
           } else {
-            return (
+            throw new Error(
               "Error " +
-              response.status +
-              " al intentar acceder al fichero " +
-              fichero
+                response.status +
+                " al intentar acceder al fichero " +
+                fichero
             );
           }
         })
