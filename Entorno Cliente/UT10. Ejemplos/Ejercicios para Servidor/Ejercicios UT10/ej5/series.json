@@ -1,0 +1,39 @@
+{
+  "series": [
+    {
+      "titulo": "Arcane",
+      "plataforma": "Netflix",
+      "director": "Christian Linke",
+      "año": 2021,
+      "terminada": "si"
+    },
+    {
+      "titulo": "Attack on Titan, The Final Season Part 2 ",
+      "plataforma": "Crunchyroll",
+      "director": "MAPPA",
+      "año": 2022,
+      "terminada": "no"
+    },
+    {
+      "titulo": "Juego de Tronos",
+      "plataforma": "HBO",
+      "director": "David Benioff",
+      "año": 2011,
+      "terminada": "si"
+    },
+    {
+      "titulo": "One Piece",
+      "plataforma": "Crunchyroll",
+      "director": "Koonosuke Uda",
+      "año": 1999,
+      "terminada": "no"
+    },
+    {
+      "titulo": "The Big Bang Theory",
+      "plataforma": "Prime Video",
+      "director": "Chuck Lorre",
+      "año": 2007,
+      "terminada": "si"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+table {
+  border: 3px solid salmon;
+  background-color: lightsalmon;
+  border-collapse: collapse;
+}
+tr,
+td {
+  border: 3px solid salmon;
+}
+
+.rojo {
+  color: red;
+}
+.amarillo {
+  color: rgb(209, 209, 1);
+}
+.verde {
+  color: green;
+}
+
+.titulo {
+  font-weight: bold;
+}
+.director {
+  font-style: italic;
+}

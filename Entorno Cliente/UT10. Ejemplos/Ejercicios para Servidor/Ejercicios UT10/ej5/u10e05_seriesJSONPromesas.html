@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u10e05_seriesJSONPromesas</title>
+    <link rel="stylesheet" href="./series.css" />
+  </head>
+  <body>
+    <table id="series"></table>
+    <script>
+      document.addEventListener("DOMContentLoaded", cargarTabla);
+
+      function cargarTabla() {
+        let tabla = document.getElementById("series");
+        fetch("./series.json")
+          .then(function (response) {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error("Se ha producido un fallo al acceder al fichero");
+            }
+          })
+          .then(function (json) {
+            let arraySeries = json.series;
+            for (let serie of arraySeries) {
+              let filaSerie = document.createElement("tr");
+
+              let titulo = document.createElement("td");
+              titulo.classList.add("titulo");
+              titulo.textContent = serie.titulo;
+
+              let plataforma = document.createElement("td");
+              plataforma.textcontent = serie.plataforma;
+
+              let director = document.createElement("td");
+              director.classList.add("director");
+              director.textContent = serie.director;
+
+              let año = document.createElement("td");
+              if (serie.año <= 2000) {
+                año.classList.add("rojo");
+              } else if (serie.año >= 2011) {
+                año.classList.add("verde");
+              } else {
+                año.classList.add("amarillo");
+              }
+              año.textContent = serie.año;
+
+              let terminada = document.createElement("td");
+              if (serie.terminada == "si") {
+                terminada.textContent = "✔";
+              } else {
+                terminada.textContent = "✘";
+              }
+
+              filaSerie.append(titulo, plataforma, director, año, terminada);
+              tabla.append(filaSerie);
+            }
+          })
+          .catch(function (error) {
+            alert("Se ha producido un error: " + error.message);
+          });
+      }
+    </script>
+  </body>
+</html>
