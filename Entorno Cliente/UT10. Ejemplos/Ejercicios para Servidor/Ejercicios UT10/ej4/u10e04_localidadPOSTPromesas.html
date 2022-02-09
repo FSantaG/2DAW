@@ -18,24 +18,35 @@
     <form>
       Introduzca una localidad: <input type="text" name="localidad" />
       <div id="resultado"></div>
-      <input type="button" name="buscar" value="Buscar" />
+      <input type="submit" name="buscar" value="Buscar" />
     </form>
     <script>
-      let localidad = document.getElementsByName("localidad")[0].value;
-      let boton = document.getElementsByName("buscar")[0];
-      boton.onclick = function () {
-        async function f() {
-          let respuesta = await fetch("arraylocalidades.php", {
-            method: "POST",
-            header: {
-              "Content-Type": "application/json;charset='UTF8'",
-            },
-            body: JSON.stringify(localidad),
-          });
-          let result = await respuesta.text();
-          alert(result);
+      let formulario = document.forms[0];
+      let localidad = formulario.elements.localidad;
+      let resultado = document.getElementById("resultado");
+      formulario.onsubmit = async (evento) => {
+        resultado.classList.remove("disponible", "noDisponible");
+        resultado.textContent = "";
+        evento.preventDefault();
+
+        let respuesta = await fetch("arraylocalidades.php", {
+          method: "POST",
+          body: new FormData(formulario),
+        });
+        let text = await respuesta.text();
+        if (text == "S") {
+          resultado.classList.add("disponible");
+          resultado.textContent =
+            "La ciudad " +
+            localidad.value +
+            " está dentro de los registros disponibles";
+        } else {
+          resultado.classList.add("noDisponible");
+          resultado.textContent =
+            "La ciudad " +
+            localidad.value +
+            " no está dentro de los registros disponibles";
         }
-        f();
       };
     </script>
   </body>
