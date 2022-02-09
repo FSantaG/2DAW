@@ -19,21 +19,25 @@
         position: absolute;
       }
       .snowflake.f1 {
+        animation: caidaCopo 10s linear infinite;
         left: 40px;
       }
       .snowflake.f2 {
+        animation: caidaCopo 6s linear infinite;
         font-size: 1.8em;
         left: 120px;
       }
       .snowflake.f3 {
+        animation: caidaCopo 14s linear infinite;
         left: 200px;
       }
       .snowflake.f4 {
+        animation: caidaCopo 9s linear infinite;
         font-size: 1.5em;
         left: 280px;
       }
 
-      @keyframes caidaCopos {
+      @keyframes caidaCopo {
         from {
           top: 0px;
           opacity: 1;
@@ -42,9 +46,6 @@
           top: 450px;
           opacity: 0;
         }
-      }
-      .snowflake {
-        animation: caidaCopos 10s linear infinite;
       }
     </style>
   </head>
