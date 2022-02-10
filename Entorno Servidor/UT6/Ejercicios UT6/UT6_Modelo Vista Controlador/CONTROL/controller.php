@@ -11,5 +11,12 @@
             $datos = explode(";", $result);
             require_once("../views/peliculasdrama.php");
             break;
+        case "2":
+            require_once("../model/model_class_actores.php");
+            $actor = new Actor();
+            $result = $actor->queryNombreActrices($conexion);
+            $datos = explode(";", $result);
+            require_once("../views/nombreactrices.php");
+            break;
     }
 ?>
