@@ -1,0 +1,5 @@
+{
+  "Madrid": ["Barcelona", "Valencia", "Sevilla"],
+  "Barcelona": ["Madrid", "Zaragoza"],
+  "Valencia": ["Madrid"]
+}
