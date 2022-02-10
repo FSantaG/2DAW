@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u10e01_lectorFicherosXHR</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" name="url" />
+      <input type="button" name="mostrar" value="Mostrar contenido" />
+    </form>
+    <textarea id="visualizado"></textarea>
+    <script>
+      document.addEventListener("DOMContentLoaded", iniciar);
+
+      function iniciar() {
+        let formulario = document.forms[0];
+        let url = formulario.elements.url;
+        url.value = "./u10e01_lectorFicherosXHR.html";
+
+        let botónMostrar = formulario.elements.mostrar;
+        botónMostrar.addEventListener("click", mostrarContenido);
+
+        //Nota:
+        //Para acceder a los datos, usar la siguiente ruta:
+        //"/Entorno Cliente/loquesea"
+
+        function mostrarContenido() {
+          let areaTexto = document.getElementById("visualizado");
+          let xhr = new XMLHttpRequest();
+          xhr.open("GET", url.value);
+          xhr.send();
+
+          xhr.onload = function () {
+            if (xhr.status != 200) {
+              alert("Error " + xhr.status + ": " + xhr.statusText);
+            } else {
+              let texto = xhr.response;
+              areaTexto.value = texto;
+            }
+          };
+        }
+      }
+    </script>
+  </body>
+</html>

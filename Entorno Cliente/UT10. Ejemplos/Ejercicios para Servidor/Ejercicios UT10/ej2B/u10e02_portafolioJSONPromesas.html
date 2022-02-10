@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u10e02_portafolioJSONPromesas</title>
+    <style>
+      table {
+        border: solid 2px skyblue;
+        border-collapse: collapse;
+        color: magenta;
+        background-color: black;
+      }
+      tr,
+      td {
+        border: solid 2px skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="tabla"></table>
+    <script>
+      let v;
+      let tabla = document.getElementById("tabla");
+
+      let xhr = new XMLHttpRequest();
+      xhr.open("get", "./portafolio.json");
+      xhr.responseType = "json";
+      xhr.send();
+
+      xhr.onload = function () {
+        if (xhr.status != 200) {
+          alert("Error " + xhr.status + ": " + xhr.statusText);
+        } else {
+          v = xhr.response;
+          for (let i = 0; i < v.fechas.length; i++) {
+            let nuevaFila = document.createElement("tr");
+            let tituloTD = document.createElement("td");
+            let fechaTD = document.createElement("td");
+            let textoTD = document.createElement("td");
+
+            tituloTD.innerHTML = v.fechas[i].titulo;
+            fechaTD.innerHTML = v.fechas[i].fecha;
+            textoTD.innerHTML = v.fechas[i].texto;
+
+            nuevaFila.append(tituloTD);
+            nuevaFila.append(fechaTD);
+            nuevaFila.append(textoTD);
+
+            tabla.append(nuevaFila);
+          }
+        }
+      };
+    </script>
+  </body>
+</html>
