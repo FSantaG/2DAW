@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="formElem">
+      <input type="text" name="name" value="John" />
+      <input type="text" name="surname" value="Smith" />
+      <input type="submit" id="enviar" />
+    </form>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", inicio);
+      function inicio() {
+        document.getElementById("formElem").addEventListener("submit", enviar);
+      }
+      function enviar(evento) {
+        evento.preventDefault();
+        let user = {
+          nombre: document.getElementsByName("name")[0].value,
+          apellido: document.getElementsByName("surname")[0].value,
+        };
+
+        let url = "usuario.php";
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.open("POST", url);
+
+        xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+
+        xhr.send(JSON.stringify(user));
+
+        xhr.onload = function () {
+          if (xhr.status != 200) {
+            alert(`Error ${xhr.status}: ${xhr.statusText}`);
+          } else {
+            texto = xhr.response;
+            alert(texto);
+          }
+        };
+      }
+    </script>
+  </body>
+</html>

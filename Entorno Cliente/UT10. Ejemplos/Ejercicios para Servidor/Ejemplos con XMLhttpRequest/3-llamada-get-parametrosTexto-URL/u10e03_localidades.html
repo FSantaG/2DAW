@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>
+      <input type="text" name="localidad" id="localidad" />
+      <button id="mostrar">Mostrar contenido</button>
+    </div>
+    <textarea name="contenido" id="contenido" cols="30" rows="10"></textarea>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", inicio);
+      function inicio() {
+        // EVENTO PARA EL BUTTON
+        let botonMostrar = document.getElementById("mostrar");
+        botonMostrar.addEventListener("click", mostrarArchivo);
+      }
+
+      function mostrarArchivo(evento) {
+        let campolocalidad = document.getElementById("localidad");
+        let url =
+          "./arrayLocalidades.php" + "?localidad=" + campolocalidad.value;
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.open("GET", url);
+
+        xhr.send();
+
+        xhr.onload = function () {
+          if (xhr.status != 200) {
+            alert(`Error ${xhr.status}: ${xhr.statusText}`);
+          } else {
+            texto = xhr.response;
+            document.getElementById("contenido").value = texto;
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
