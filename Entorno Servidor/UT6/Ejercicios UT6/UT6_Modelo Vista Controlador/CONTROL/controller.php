@@ -18,5 +18,12 @@
             $datos = explode(";", $result);
             require_once("../views/nombreactrices.php");
             break;
+        case "3":
+            require_once("../model/model_class_actores.php");
+            $actor = new Actor();
+            $result = $actor->queryNacionalidades($conexion);
+            $datos = explode(";", $result);
+            require_once("../views/formulario_nacionalidades.php");
+            break;
     }
 ?>
