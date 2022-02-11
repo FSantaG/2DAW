@@ -1,22 +1,37 @@
 .start {
-    text-align: center;
-    font-size: 2em;
-    font-weight: bold;
-    margin: 5em;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 5em;
 }
 
 #clock {
-    position: relative;
-    width: 378px;
-    height: 378px;
-    background-image: url('../img/clockFace.png');
-    left: 50%;
-    margin: 5em 0 0 -189px;
+  position: relative;
+  width: 378px;
+  height: 378px;
+  background-image: url("../img/clockFace.png");
+  left: 50%;
+  margin: 5em 0 0 -189px;
 }
 
 #clock div {
-    position: absolute;
+  position: absolute;
 }
 
-
 /* ANIMACIONES Y TRANSFORMACIONES */
+
+@keyframes reloj {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#second {
+  animation: reloj 60s linear infinite;
+}
+#minute {
+  animation: reloj 3600s linear infinite;
+}
+#hour {
+  animation: reloj 43200s linear infinite;
+}

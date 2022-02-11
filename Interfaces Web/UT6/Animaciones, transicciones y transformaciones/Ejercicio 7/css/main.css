@@ -1,74 +1,140 @@
 body {
-    background: #f9f9f9 url(../img/white_texture.jpg) repeat top left;
-    color: #333;
-    font-family: 'Oswald', Arial, sans-serif;
-    font-size: 13px;
+  background: #f9f9f9 url(../img/white_texture.jpg) repeat top left;
+  color: #333;
+  font-family: "Oswald", Arial, sans-serif;
+  font-size: 13px;
 }
 
 .main {
-    width: 690px;
-    margin: 0 auto;
-    overflow: hidden;
+  width: 690px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .view {
-   width: 300px;
-   height: 200px;
-   margin: 10px;
-   float: left;
-   border: 10px solid #fff;
-   overflow: hidden;
-   position: relative;
-   text-align: center;
-   box-shadow: 1px 1px 2px #e6e6e6;
-   cursor: pointer;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  float: left;
+  border: 10px solid #fff;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  box-shadow: 1px 1px 2px #e6e6e6;
+  cursor: pointer;
 }
-.view .mask, .view .content {
-   width: 300px;
-   height: 200px;
-   position: absolute;
-   overflow: hidden;
-   top: 0;
-   left: 0;
+.view .mask,
+.view .content {
+  width: 300px;
+  height: 200px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
 }
 .view .mask {
-   background-color: rgba(219,127,8, 0.7);
+  background-color: rgba(219, 127, 8, 0.7);
 }
 .view img {
-   display: block;
-   position: relative;
-   width: 300px;
+  transform-origin: top left;
+  display: block;
+  position: relative;
+  width: 300px;
 }
 .view h2 {
-   text-transform: uppercase;
-   color: #fff;
-   text-align: center;
-   position: relative;
-   font-size: 17px;
-   padding: 10px;
-   background: rgba(0, 0, 0, 0.8);
-   margin: 20px 0 0 0;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  margin: 20px 0 0 0;
 }
 .view p {
-   font-family: Georgia, serif;
-   font-style: italic;
-   font-size: 12px;
-   position: relative;
-   color: #fff;
-   padding: 10px;
-   text-align: center;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  position: relative;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
 }
 .view a.info {
-   display: inline-block;
-   text-decoration: none;
-   padding: 7px 14px;
-   background: #000;
-   color: #fff;
-   text-transform: uppercase;
-   box-shadow: 0 0 1px #000;
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px #000;
 }
-.view a.info: hover {
-   box-shadow: 0 0 5px #000;
+.view a.info:hover {
+  box-shadow: 0 0 5px #000;
 }
 
 /* ANIMACIONES Y TRANSICIONES */
+@keyframes agrandarImagen {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes fundirANaranja {
+  from {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  to {
+    background-color: rgba(219, 127, 8, 0.7);
+  }
+}
+
+@keyframes textoAparecerArriba {
+  from {
+    top: -20px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes textoAparecerAbajo {
+  from {
+    bottom: -15px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes readMoreFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.view img {
+  animation: agrandarImagen 3s ease-out;
+}
+.view .mask {
+  animation: fundirANaranja 3s ease-out;
+}
+.view h2 {
+  animation: textoAparecerArriba 3s ease-out;
+}
+.view .mask p {
+  animation: textoAparecerAbajo 3s ease-out;
+}
+.view a {
+  animation: readMoreFadeIn 3s ease-out;
+}
