@@ -1,7 +1,7 @@
 CREATE DATABASE Ciclos;
 USE Ciclos;
 
-CREATE TABLE ciclos (
+CREATE TABLE curso (
     id_curso INT, 
     deno VARCHAR(15), 
     CONSTRAINT pk_curso PRIMARY KEY (id_curso))
