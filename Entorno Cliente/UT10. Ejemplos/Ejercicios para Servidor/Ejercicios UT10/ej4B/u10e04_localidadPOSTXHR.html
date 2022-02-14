@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>u10e03_localidadGETPromesas</title>
+    <title>u10e04_localidadPOSTXHR</title>
     <style>
       .disponible {
         color: rgb(30, 255, 0);
@@ -15,26 +15,23 @@
     </style>
   </head>
   <body>
-    <form>
+    <form name="localidad">
       Introduzca una localidad: <input type="text" name="localidad" />
       <div id="resultado"></div>
-      <input type="button" name="buscar" value="Buscar" />
+      <input type="submit" name="buscar" value="Buscar" />
     </form>
     <script>
       let formulario = document.forms[0];
       let localidad = formulario.elements.localidad;
       let resultado = document.getElementById("resultado");
-      let busqueda = formulario.elements.buscar;
-      busqueda.addEventListener("click", buscar);
-      function buscar() {
-        resultado.classList.remove("disponible", "noDisponible");
-        resultado.textContent = "";
-        let url = "./arraylocalidades.php?localidad=" + localidad.value;
+      formulario.addEventListener("submit", buscar);
 
+      function buscar(evento) {
+        evento.preventDefault();
         let xhr = new XMLHttpRequest();
-        xhr.open("get", url);
-        xhr.responseType = ""; //Comillas indica que devuelve una cadena de texto
-        xhr.send();
+        let datosLocalidad = new FormData(document.forms.localidad);
+        xhr.open("POST", "./arraylocalidades.php");
+        xhr.send(datosLocalidad);
 
         xhr.onload = function () {
           if (xhr.status != 200) {
