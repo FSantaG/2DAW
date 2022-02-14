@@ -1,5 +1,9 @@
 {
-  "Madrid": ["Barcelona", "Valencia", "Sevilla"],
-  "Barcelona": ["Madrid", "Zaragoza"],
-  "Valencia": ["Madrid"]
+  "viajes": [
+    {
+      "Madrid": ["Barcelona", "Valencia", "Sevilla"],
+      "Barcelona": ["Madrid", "Zaragoza"],
+      "Valencia": ["Madrid"]
+    }
+  ]
 }

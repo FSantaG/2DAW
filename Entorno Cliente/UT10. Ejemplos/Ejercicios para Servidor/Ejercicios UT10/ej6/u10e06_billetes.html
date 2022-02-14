@@ -7,10 +7,16 @@
     <title>u10e06_billetes</title>
   </head>
   <body>
-    Origen:
-    <select id="origen"></select>
-    Destino:
-    <select id="destino"></select>
+    <form name="viajes">
+      Origen:
+      <select id="origen">
+        <option value="default">Seleccione un origen</option>
+      </select>
+      Destino:
+      <select id="destino">
+        <option value="default">Seleccione un destino</option>
+      </select>
+    </form>
     <script>
       //TODO:
       //Al cargar la página web, se
@@ -22,6 +28,69 @@
       //Una vez seleccionado uno de los
       //orígenes, se mostrará la lista de
       //destinos para ese origen.
+      document.addEventListener("DOMContentLoaded", crearAplicacion);
+
+      function crearAplicacion() {
+        let origenes;
+        let destinos;
+        let selectOrigen = document.getElementById("origen");
+        let selectDestinos = document.getElementById("destino");
+        let url = "./viajes.json";
+        fetch(url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (text) {
+            origenes = JSON.parse(text);
+            for (let origen of Object.keys(origenes)) {
+              let nuevoOrigen = document.createElement("option");
+              nuevoOrigen.value = origen.toLowerCase();
+              nuevoOrigen.textContent = origen;
+              selectOrigen.append(nuevoOrigen);
+            }
+            selectOrigen.onchange = function () {
+              let valor = selectOrigen.value;
+              let arrayDestinos = [];
+              if (valor != "default") {
+                switch (valor) {
+                  case "madrid":
+                    selectDestinos.innerHTML = "";
+                    arrayDestinos = origenes.Madrid;
+                    for (let destino of arrayDestinos) {
+                      let nuevoDestino = document.createElement("option");
+                      nuevoDestino.value = destino.toLowerCase;
+                      nuevoDestino.textContent = destino;
+                      selectDestinos.append(nuevoDestino);
+                    }
+                    break;
+                  case "barcelona":
+                    selectDestinos.innerHTML = "";
+                    arrayDestinos = origenes.Barcelona;
+                    for (let destino of arrayDestinos) {
+                      let nuevoDestino = document.createElement("option");
+                      nuevoDestino.value = destino.toLowerCase;
+                      nuevoDestino.textContent = destino;
+                      selectDestinos.append(nuevoDestino);
+                    }
+                    break;
+                  case "valencia":
+                    selectDestinos.innerHTML = "";
+                    arrayDestinos = origenes.Valencia;
+                    for (let destino of arrayDestinos) {
+                      let nuevoDestino = document.createElement("option");
+                      nuevoDestino.value = destino.toLowerCase;
+                      nuevoDestino.textContent = destino;
+                      selectDestinos.append(nuevoDestino);
+                    }
+                    break;
+                }
+              } else {
+                selectDestinos.innerHTML =
+                  "<option value='default'>Seleccione un destino</option>";
+              }
+            };
+          });
+      }
     </script>
   </body>
 </html>
