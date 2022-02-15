@@ -10,14 +10,31 @@
     <select id="teatro">
       <option value="default">--Selecciona un teatro--</option>
     </select>
-    <table id="cartelera"></table>
+    <br />
+    <button id="primero">Primero</button>
+    <button id="anterior">Anterior</button>
+    <button id="siguiente">Siguiente</button>
+    <button id="ultimo">Último</button>
+    <div id="cartelera"></div>
     <script>
+      // Variables globales
+      let obras = [];
+      let arrayObras = [];
+
+      // DOMContentLoaded
       document.addEventListener("DOMContentLoaded", ejecutarAplicacion);
 
+      // Funciones
       function ejecutarAplicacion() {
+        //Variables Locales
         let listaTeatros = document.getElementById("teatro");
         let cartelera = document.getElementById("cartelera");
         let url = "./data/teatros.json";
+
+        // Asignar eventos
+        listaTeatros.addEventListener("change", rellenarCartelera);
+
+        // Carga inicial
 
         fetch(url)
           .then(function (response) {
@@ -31,33 +48,31 @@
           })
           .then(function (text) {
             let teatros = JSON.parse(text);
-            let contador = 1;
             for (let teatro of teatros) {
               let nuevoTeatro = document.createElement("option");
-              nuevoTeatro.value = contador;
+              nuevoTeatro.value = teatro.teatro;
               nuevoTeatro.textContent = teatro.teatro;
               listaTeatros.append(nuevoTeatro);
-              contador++;
             }
           })
           .catch(function (error) {
             alert("Se ha producido un error: " + error.message);
           });
 
-        listaTeatros.addEventListener("change", rellenarTabla);
-
-        function rellenarTabla() {
+        function rellenarCartelera() {
           cartelera.innerHTML = "";
-          switch (listaTeatros.value) {
-            case 1:
-              break;
-            case 2:
-              break;
-            case 3:
-              break;
-            default:
-              break;
-          }
+          fetch("./data/cartelera.json")
+            .then(function (response) {
+              return response.text();
+            })
+            .then(function (text) {
+              obras = JSON.parse(text).obras;
+              for (let obra of obras) {
+                if (obra.teatro == listaTeatros.value) {
+                  arrayObras.push(obra);
+                }
+              }
+            });
         }
       }
     </script>

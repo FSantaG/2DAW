@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>u10e07_teatroJSON</title>
+  </head>
+  <body>
+    <select id="teatro">
+      <option value="default">--Selecciona un teatro--</option>
+    </select>
+    <table id="cartelera"></table>
+    <script>
+      document.addEventListener("DOMContentLoaded", ejecutarAplicacion);
+
+      function ejecutarAplicacion() {
+        let listaTeatros = document.getElementById("teatro");
+        let cartelera = document.getElementById("cartelera");
+        let url = "./data/teatros.json";
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              return response.text();
+            } else {
+              throw new Error(
+                "Error " + response.status + " al intentar acceder al fichero"
+              );
+            }
+          })
+          .then(function (text) {
+            let teatros = JSON.parse(text);
+            for (let teatro of teatros) {
+              let nuevoTeatro = document.createElement("option");
+              nuevoTeatro.value = teatro.teatro;
+              nuevoTeatro.textContent = teatro.teatro;
+              listaTeatros.append(nuevoTeatro);
+            }
+          })
+          .catch(function (error) {
+            alert("Se ha producido un error: " + error.message);
+          });
+
+        listaTeatros.addEventListener("change", rellenarTabla);
+
+        function rellenarTabla() {
+          cartelera.innerHTML = "";
+          fetch("./data/cartelera.json")
+            .then(function (response) {
+              return response.text();
+            })
+            .then(function (text) {
+              crearCabecera();
+              let peliculas = JSON.parse(text);
+              peliculas = peliculas.obras;
+              for (let pelicula of peliculas) {
+                let nuevaPelicula = document.createElement("tr");
+                if (pelicula.teatro == listaTeatros.value) {
+                  let tituloPeli = document.createElement("td");
+                  tituloPeli.textContent = pelicula.titulo;
+
+                  let precioPeli = document.createElement("td");
+                  precioPeli.textContent = pelicula.precio;
+
+                  let sinopsis = document.createElement("td");
+                  sinopsis.textContent = pelicula.sinopsis;
+
+                  let imagenPromocional = document.createElement("td");
+                  imagenPromocional.innerHTML =
+                    "<img src='" + pelicula.imagen + "'/>";
+
+                  nuevaPelicula.append(
+                    tituloPeli,
+                    precioPeli,
+                    sinopsis,
+                    imagenPromocional
+                  );
+                  cartelera.append(nuevaPelicula);
+                }
+              }
+            });
+        }
+
+        function crearCabecera() {
+          let headerTitulo = document.createElement("th");
+          headerTitulo.textContent = "TITULO";
+
+          let headerPrecio = document.createElement("th");
+          headerPrecio.textContent = "PRECIO (€)";
+
+          let headerSinopsis = document.createElement("th");
+          headerSinopsis.textContent = "SINOPSIS";
+
+          let headerImagen = document.createElement("th");
+          headerImagen.textContent = "IMAGEN";
+
+          let cabecera = document.createElement("tr");
+          cabecera.append(
+            headerTitulo,
+            headerPrecio,
+            headerSinopsis,
+            headerImagen
+          );
+          cartelera.append(cabecera);
+        }
+      }
+    </script>
+  </body>
+</html>
