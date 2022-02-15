@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      html {
+        height: 100%;
+      }
+
+      body {
+        margin: 40px;
+        box-sizing: border-box;
+        height: calc(100% - 100px);
+      }
+
+      .wrapper {
+        /*GRID*/
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-areas: "header header" "sidebar contenido" "footer footer";
+        gap: 10px;
+        /**/
+        background-color: #fff;
+        color: #444;
+      }
+
+      .box {
+        background-color: #444;
+        color: #fff;
+        border-radius: 5px;
+        padding: 50px;
+        font-size: 150%;
+      }
+
+      .header,
+      .footer {
+        background-color: #999;
+      }
+
+      /*GRID*/
+      .header {
+        grid-area: header;
+      }
+      .sidebar {
+        grid-area: sidebar;
+      }
+      .content {
+        grid-area: contenido;
+      }
+      .footer {
+        grid-area: footer;
+      }
+      /**/
+    </style>
+  </head>
+  <body class="wrapper">
+    <div class="box header">Header</div>
+    <div class="box sidebar">Sidebar</div>
+    <div class="box content">Content</div>
+    <div class="box footer">Footer</div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vuelo</title>
+    <style>
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+      }
+
+      img {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .pajaro {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background-image: url(pajaro.png);
+        width: 88px;
+        height: 122px;
+        animation: alas 1s steps(10) infinite, movimiento 25s linear infinite;
+      }
+
+      @keyframes alas {
+        to {
+          background-position: -880px;
+        }
+      }
+
+      @keyframes movimiento {
+        20% {
+          transform: translate(200px, 10px) scale(0.8);
+        }
+        40% {
+          transform: translate(300px, 0px) scale(0.6);
+        }
+        60% {
+          transform: translate(400px, 60px) scale(0.4);
+        }
+        80% {
+          transform: translate(500px, 50px) scale(0.2);
+        }
+        to {
+          transform: translate(600px, 100px) scale(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <img class="fondo" src="fondo.jpg" alt="" />
+    <div class="pajaro"></div>
+  </body>
+</html>
