@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouseover, Mouseout, Mouseenter, Mouseleave</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      p {
+        display: inline-block;
+        margin: 15px;
+        height: 100px;
+        width: 100px;
+        background-color: gray;
+        color: blue;
+      }
+      span {
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="mausover"><span>Mouse Over</span></p>
+    <p id="mauseout"><span>Mouse Out</span></p>
+    <p id="mausenter"><span>Mouse Enter</span></p>
+    <p id="mausleave"><span>Mouse Leave</span></p>
+    <p id="move"><span>Mouse Move</span></p>
+  </body>
+  <script>
+    let mausover = document.getElementsByTagName("p")[0];
+    let mausout = document.getElementsByTagName("p")[1];
+    let mausenter = document.getElementsByTagName("p")[2];
+    let mausleave = document.getElementsByTagName("p")[3];
+    let move = document.getElementsByTagName("p")[4];
+
+    mausover.onmouseover = function () {
+      alert(
+        "Mouse Over -> El cursor se mueve hacia el elemento o alguno de sus descendientes"
+      );
+    };
+    mausout.onmouseout = function () {
+      alert(
+        "Mouse Out -> El cursor se mueve hacia FUERA del elemento, o hacia dentro de descendientes"
+      );
+    };
+    mausenter.onmouseenter = function () {
+      alert("Mouse Enter -> El cursor se mueve hacia el elemento");
+    };
+    mausleave.onmouseleave = function () {
+      alert("Mouse Leave -> El cursor se mueve FUERA el elemento");
+    };
+
+    move.onmousemove = function () {
+      alert("Mouse Move -> El cursor se mueve dentro del elemento");
+    };
+  </script>
+</html>
