@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PE2-Ejercicio 1</title>
+    <link rel="stylesheet" href="css/estilos1.css" />
+    <style>
+      /* Solución ejercicio 1 */
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: 100px 1fr 100px;
+        grid-template-areas: "header header header" "enlaces texto ref" "footer footer footer";
+      }
+      header {
+        grid-area: header;
+      }
+      nav {
+        grid-area: enlaces;
+      }
+      main {
+        grid-area: texto;
+      }
+      aside {
+        grid-area: ref;
+      }
+      footer {
+        grid-area: footer;
+      }
+      @media print {
+        body {
+          grid-template-columns: 1fr;
+          grid-template-rows: 4cm 4cm 1fr 4cm;
+          grid-template-areas: "header" "aside" "main" "footer";
+        }
+        nav {
+          visibility: hidden;
+        }
+        header {
+          grid-area: header;
+        }
+        main {
+          grid-area: main;
+        }
+        aside {
+          grid-area: aside;
+        }
+        footer {
+          grid-area: footer;
+        }
+        aside a::after {
+          content: " [" attr(href) "]";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <img
+          src="pictures/logo-danza.png"
+          alt="Logo academia de baile"
+        />Danzando
+      </h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">La academia</a></li>
+        <li><a href="#">Bailes</a></li>
+        <li><a href="#">Horarios</a></li>
+        <li><a href="#">Nosotros</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Bailes</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quam
+        vitae minus voluptas quod molestiae facilis alias vel architecto veniam
+        facere tenetur excepturi, reiciendis similique provident ad illum
+        voluptates rerum at ducimus perspiciatis, accusamus nobis? Odit rem
+        voluptates ipsum eaque!
+      </p>
+    </main>
+    <aside>
+      <h3>Referencias</h3>
+      <ul>
+        <li><a href="https://es.wikipedia.org/wiki/Bachata">Bachata</a></li>
+        <li>
+          <a href="https://es.wikipedia.org/wiki/Merengue_(g%C3%A9nero_musical)"
+            >Merengue</a
+          >
+        </li>
+        <li><a href="https://es.wikipedia.org/wiki/Salsa">Salsa</a></li>
+        <li><a href="https://es.wikipedia.org/wiki/Tango">Tango</a></li>
+      </ul>
+    </aside>
+    <footer>
+      <p>&copy; Juan de Colonia 2021</p>
+    </footer>
+  </body>
+</html>

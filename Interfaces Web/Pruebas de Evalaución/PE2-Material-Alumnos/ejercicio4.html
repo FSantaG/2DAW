@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PE2-Ejercicio 4</title>
+    <link rel="stylesheet" href="css/estilos4.css" />
+    <style>
+      /* Solución ejercicio 4 */
+      /*ANIMACIONES*/
+      /*Nota: Se ha trabajado en ventana completa,
+      En el ordenador de clase*/
+      @keyframes nube1 {
+        from {
+          transform: translate(0px, 0px);
+        }
+        33% {
+          transform: translateX(190%);
+        }
+        66% {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(190%);
+        }
+      }
+      @keyframes nube2 {
+        from {
+          transform: translate(0px, 0px);
+        }
+        33% {
+          transform: translateX(-200%);
+        }
+        66% {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-200%);
+        }
+      }
+
+      @keyframes aparecerTexto {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /*ELEMENTOS*/
+      #nube1 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        animation: nube1 10s;
+      }
+      #nube2 {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        animation: nube2 10s;
+      }
+      p {
+        font-size: 40px;
+        position: absolute;
+        top: 300px;
+        left: 600px;
+        animation: aparecerTexto 4s;
+        animation-delay: 10s;
+        transition: font-size 4s steps(4);
+      }
+      p:hover {
+        font-size: 80px;
+        transition: font-size 4s steps(4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="contenedor">
+      <img id="catedral" src="pictures/catedral.jpg" alt="Catedral de Burgos" />
+      <img class="nube" id="nube1" src="pictures/nube.png" alt="nube 1" />
+      <img class="nube" id="nube2" src="pictures/nube.png" alt="nube 2" />
+      <p>Mín.-12ºC</p>
+    </div>
+  </body>
+</html>

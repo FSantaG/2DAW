@@ -1,0 +1,43 @@
+*{
+    margin:0;
+    padding:0;
+}
+header,nav,main,aside,footer{
+    padding: 1em;
+}
+/* Header y footer */
+header,footer{
+    font-family: "Comic Sans MS", sans-serif, fantasy;
+    background-color: beige;
+}
+/* Barra de navegación */
+nav ul{
+    list-style-type: none;
+}
+nav li{
+    width:100%;
+    background-color: white;
+    text-align: left;
+    border:1px solid black;
+    margin-bottom:1em;
+}
+nav a{
+    text-decoration: none;
+    color:lightslategray;
+}
+nav a:hover,nav a:focus{
+   color:black;
+}
+/* Main */
+main{
+    border:5px ridge lightgray;
+}
+/* Aside */
+aside ul{
+    padding-left:1em;
+}
+/* Footer */
+footer p{
+    text-align: center;
+    margin-top:50px;
+}

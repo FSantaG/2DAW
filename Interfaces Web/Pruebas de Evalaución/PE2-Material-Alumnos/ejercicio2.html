@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PE2-Ejercicio 2</title>
+    <link rel="stylesheet" href="css/estilos2.css" />
+    <style>
+      /* Solución ejercicio 2 */
+      * {
+        box-sizing: border-box;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        font-size: 30px;
+        text-align: center;
+      }
+
+      li {
+        display: flex;
+        align-content: space-around;
+      }
+      a {
+        display: flex;
+        padding: 10px;
+        flex: 50%;
+        align-content: space-around;
+        justify-content: center;
+      }
+
+      @media screen and (min-width: 600px) {
+        ul {
+          flex-direction: row;
+          flex-wrap: nowrap;
+          flex: 50%;
+        }
+        li {
+          display: flex;
+          justify-content: space-evenly;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Tienda</a></li>
+        <li><a href="#">Ofertas</a></li>
+        <li><a href="#">Nosotros</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>
