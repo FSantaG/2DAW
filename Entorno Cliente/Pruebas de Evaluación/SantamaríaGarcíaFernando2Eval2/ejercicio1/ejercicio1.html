@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Desarrollo Entorno Cliente</title>
+    <style>
+      h1 {
+        color: darkred;
+      }
+      ul,
+      li {
+        list-style: none;
+        padding: 0;
+      }
+      label {
+        display: inline-block;
+        width: 8em;
+        text-align: right;
+        margin-right: 0.5em;
+      }
+      input {
+        width: 20em;
+      }
+      .rojo {
+        border-color: red;
+      }
+    </style>
+    <script src="ej1.js"></script>
+  </head>
+
+  <body>
+    <h1>Módulos</h1>
+    <form action="" method="GET">
+      <ul>
+        <li>
+          <label for="codigo">Código del módulo: </label>
+          <input type="text" id="codigo" name="codigo" />
+          <span id="codigoErr"></span>
+        </li>
+        <li>
+          <label for="descripcion">Descripción: </label>
+          <input type="text" id="descripcion" name="descripcion" />
+          <span id="descripcionErr"></span>
+        </li>
+        <li>
+          <label for="curso">Curso: </label>
+          <input type="text" id="curso" name="curso" />
+          <span id="cursoErr"></span>
+        </li>
+        <li>
+          <label for="codigoCiclo">Codigo Ciclo: </label>
+          <input type="text" id="codigoCiclo" name="codigoCiclo" />
+          <span id="codigoCicloErr"> </span>
+        </li>
+        <li>
+          <label for="horas">Horas:</label>
+          <input type="text" id="horas" name="horas" />
+          <span id="horasErr"></span>
+        </li>
+      </ul>
+      <button id="grabarModulo">Grabar módulo</button>
+      <button id="guardarDatos">Guardar datos</button>
+    </form>
+    <table id="datos"></table>
+  </body>
+</html>

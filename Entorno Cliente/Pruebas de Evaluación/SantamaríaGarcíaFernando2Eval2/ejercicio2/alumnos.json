@@ -1,0 +1,27 @@
+[
+	{
+		"NIF": "1111A",
+		"nombre": "Jose López",
+		"modulo": "Desarrollo Cliente"
+	},
+	{
+		"NIF": "1111A",
+		"nombre": "Jose López",
+		"modulo": "Desarrollo Servidor"
+	},
+	{
+		"NIF": "2222B",
+		"nombre": "Marta Rodríguez",
+		"modulo": "Diseño de Interfaces"
+	},
+	{
+		"NIF": "3333C",
+		"nombre": "Juan José Echevarría",
+		"modulo": "Diseño de Interfaces"
+	},
+	{
+		"NIF": "3333C",
+		"nombre": "Juan José Echevarría",
+		"modulo": "Despliegue de Aplicaciones"
+	}
+]
