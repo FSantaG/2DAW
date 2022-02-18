@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oposiciones</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      h1 {
+        font-size: 30px;
+      }
+      div {
+        text-align: center;
+        background-color: #f2dbdb;
+      }
+      input {
+        margin: auto;
+        width: 100px;
+        height: 50px;
+        border: 2px black solid;
+        background-color: #d8d8d8;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="./control/controller.php" method="post">
+      <div>
+        <h1>OPOSICIONES</h1>
+        <input type="submit" name="enviar" value="Consultar" />
+        <input type="submit" name="enviar" value="Insertar" />
+        <input type="submit" name="enviar" value="Borrar" />
+      </div>
+    </form>
+  </body>
+</html>
