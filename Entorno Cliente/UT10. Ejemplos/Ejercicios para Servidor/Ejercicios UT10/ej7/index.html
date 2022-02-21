@@ -1,3 +1,8 @@
+<!--OBSERVACIONES:
+  Al llegar al valor final, hay que hacer otra vez click en los 
+  botonces de avance para que estos desaparezcan. Pasa lo mismo al 
+  llegar al primer valor.
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,6 +10,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>u10e07_teatroJSON</title>
+    <style>
+      .oculto {
+        visibility: hidden;
+      }
+    </style>
   </head>
   <body>
     <select id="teatro">
@@ -20,6 +30,8 @@
       // Variables globales
       let obras = [];
       let arrayObras = [];
+      let contadorObra = 0;
+      let botones = document.getElementsByTagName("button");
 
       // DOMContentLoaded
       document.addEventListener("DOMContentLoaded", ejecutarAplicacion);
@@ -33,6 +45,10 @@
 
         // Asignar eventos
         listaTeatros.addEventListener("change", rellenarCartelera);
+        botones[0].addEventListener("click", volverAlPrimero);
+        botones[1].addEventListener("click", retroceder);
+        botones[2].addEventListener("click", avanzar);
+        botones[3].addEventListener("click", irAlFinal);
 
         // Carga inicial
 
@@ -58,7 +74,7 @@
           .catch(function (error) {
             alert("Se ha producido un error: " + error.message);
           });
-
+        //Funciones
         function rellenarCartelera() {
           cartelera.innerHTML = "";
           fetch("./data/cartelera.json")
@@ -66,13 +82,72 @@
               return response.text();
             })
             .then(function (text) {
+              arrayObras = [];
               obras = JSON.parse(text).obras;
               for (let obra of obras) {
                 if (obra.teatro == listaTeatros.value) {
                   arrayObras.push(obra);
+                  botones[0].classList.add("oculto");
+                  botones[1].classList.add("oculto");
+                  botones[2].classList.remove("oculto");
+                  botones[3].classList.remove("oculto");
+                  contadorObra = 0;
+
+                  mostrarObra(arrayObras[0]);
                 }
               }
             });
+        }
+
+        function mostrarObra(obra) {
+          cartelera.innerHTML =
+            "<form>Título: <input type='text' name='titulo' value='" +
+            obra.titulo +
+            "' readonly/><br/>Precio: <input type='text' name='precio' value='" +
+            obra.precio +
+            "' readonly/><br/><img src='" +
+            obra.imagen +
+            "' alt='Póster de la pelicula'/></form>";
+        }
+        function volverAlPrimero() {
+          contadorObra = 0;
+          botones[0].classList.add("oculto");
+          botones[1].classList.add("oculto");
+          botones[2].classList.remove("oculto");
+          botones[3].classList.remove("oculto");
+
+          mostrarObra(arrayObras[contadorObra]);
+        }
+        function retroceder() {
+          if (contadorObra != 0) {
+            contadorObra--;
+            for (let boton of botones) {
+              boton.classList.remove("oculto");
+            }
+            mostrarObra(arrayObras[contadorObra]);
+          } else if (contadorObra == 0) {
+            volverAlPrimero();
+          }
+        }
+        function avanzar() {
+          if (contadorObra != arrayObras.length - 1) {
+            contadorObra++;
+            for (let boton of botones) {
+              boton.classList.remove("oculto");
+            }
+            mostrarObra(arrayObras[contadorObra]);
+          } else if (contadorObra == arrayObras.length - 1) {
+            irAlFinal();
+          }
+        }
+        function irAlFinal() {
+          contadorObra = arrayObras.length - 1;
+          botones[0].classList.remove("oculto");
+          botones[1].classList.remove("oculto");
+          botones[2].classList.add("oculto");
+          botones[3].classList.add("oculto");
+
+          mostrarObra(arrayObras[contadorObra]);
         }
       }
     </script>
