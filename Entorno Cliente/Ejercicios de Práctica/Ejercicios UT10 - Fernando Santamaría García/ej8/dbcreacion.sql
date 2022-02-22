@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `viajescomprados` (
    `email` varchar(50) NOT NULL,
    `num` int(3) unsigned NOT NULL,
    `precio` int(10) unsigned NOT NULL,
-   `numerotarjeta` int(16) unsigned NOT NULL,
+   `numerotarjeta` bigint(16) unsigned NOT NULL,
    `csv` int(3) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
