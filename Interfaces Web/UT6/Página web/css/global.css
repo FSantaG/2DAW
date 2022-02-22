@@ -1,0 +1,140 @@
+/*MENÚ HAMBURGUESA*/
+#menu {
+  background-color: #333;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+  margin: 15px 0 15px 0;
+  text-align: center;
+}
+/* Estilos del menú*/
+#navegacion {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+/* Ocultar enlaces*/
+#navegacion {
+  display: none;
+}
+
+/* Menú de los enlaces */
+#navegacion > a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Estilo del menú amborgesa */
+.iconoHamburguesa {
+  display: flex;
+  justify-content: center;
+}
+
+/* Remarca */
+#navegacion > a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/*ESTILOS GENERALES*/
+body {
+  background-color: rgb(255, 124, 64);
+  font-family: sans-serif;
+}
+header img {
+  width: 228px;
+  height: 76px;
+}
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-areas: "header" "main" "footer";
+}
+header {
+  grid-area: header;
+}
+main {
+  background-color: rgb(250, 115, 106);
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "modulos bolsa";
+}
+footer {
+  grid-area: footer;
+}
+
+#login {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 45px;
+  background-color: salmon;
+  text-align: center;
+}
+#login a {
+  display: inline-block;
+  margin: auto;
+  text-decoration: none;
+  color: white;
+}
+
+#modulos {
+  background-color: rgb(248, 117, 220);
+  display: flex;
+  flex-direction: column;
+  grid-area: modulos;
+  border: 2px solid black;
+  margin-right: 10px;
+  padding-top: 5px;
+}
+#bolsa {
+  background-color: rgb(248, 117, 220);
+  display: flex;
+  flex-direction: column;
+  grid-area: bolsa;
+  border: 2px solid black;
+  margin-left: 10px;
+  padding-top: 5px;
+}
+
+#modulos nav {
+  background-color: black;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+#modulos div {
+  display: flex;
+}
+#modulos a {
+  text-decoration: none;
+  color: white;
+}
+#modulos a::before {
+  content: ">";
+}
+#modulos a:hover {
+  background-color: white;
+  color: black;
+}
+#bolsa nav {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+h1 {
+  font-size: 2em;
+  align-self: center;
+}
