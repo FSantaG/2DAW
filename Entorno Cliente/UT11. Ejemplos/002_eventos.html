@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Segunda prueba</title>
+    <style>
+      h1 {
+        font-size: 1em;
+      }
+      div .caja {
+        width: 100px;
+        height: 100px;
+        background-color: salmon;
+        border: 2px solid black;
+      }
+      .caja:nth-child(even) {
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      Al hacer click en uno de los botones, los div inmediatamente debajo de él
+      sufren una modificación
+    </h1>
+    <button>Ocultar</button>
+    <div>
+      <div class="caja"></div>
+      <div class="caja"></div>
+    </div>
+    <br />
+    <button>Ocultar</button>
+    <div>
+      <div class="caja"></div>
+      <div class="caja"></div>
+    </div>
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script>
+      //IMPORTANTE
+      //NO ESCRIBIR NUNCA EN EL SCRIPT DONDE SE PONE EL SRC. GRACIAS
+      $(document).ready(iniciar);
+
+      function iniciar() {
+        $("button").click(function () {
+          $(this).next().find("div.caja").fadeToggle(1000);
+        });
+
+        // document
+        //   .getElementsByTagName("button")[0]
+        //   .addEventListener("click", function () {
+        //     $("div").fadeToggle(1000);
+        //   });
+      }
+    </script>
+  </body>
+</html>
