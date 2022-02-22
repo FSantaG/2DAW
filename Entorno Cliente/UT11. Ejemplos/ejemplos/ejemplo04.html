@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ejemplo 4</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <style>
+            .verde {
+                color: green;
+            }
+
+            .marron {
+                color: brown;
+            }
+
+            .borde-doble {
+                border: 10px double #000;
+            }
+
+            .borde-punteado {
+                border: 5px dotted #000;
+            }
+        </style>
+        <title>Tutoriales jQuery - "La función end"</title>
+        <meta charset="UTF-8">
+    </head>
+
+
+    <body>
+        <h3>Primer árbol</h3>
+        <ul class="arbol">
+            <li class="rama">Rama A
+                <ul class="rama">
+                    <li class="hoja">Hoja A_1</li>
+                    <li class="hoja">Hoja A_2</li>
+                </ul>
+            </li>
+            <li class="rama">Rama B
+                <ul>
+                    <li class="hoja">Hoja B_1</li>
+                    <li class="rama">Rama B_A
+                        <ul class="rama">
+                            <li class="hoja">Hoja BA_1</li>
+                            <li class="hoja">Hoja BA_2</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="rama">Rama C
+                <ul class="rama">
+                    <li class="hoja">Hoja C_1</li>
+                    <li class="hoja">Hoja C_2</li>
+                </ul>
+            </li>
+            <li class="rama">Rama D
+                <ul class="rama">
+                    <li class="hoja">Hoja D_1</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>Segundo árbol</h3>
+        <ul class="arbol">
+            <li class="rama">Rama A
+                <ul class="rama">
+                    <li class="hoja">Hoja A_1</li>
+                    <li class="hoja">Hoja A_2</li>
+                </ul>
+            </li>
+            <li class="rama">Rama B
+                <ul>
+                    <li class="hoja">Hoja B_1</li>
+                    <li class="rama">Rama B_A
+                        <ul class="rama">
+                            <li class="hoja">Hoja BA_2</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <script type="text/javascript" src="js/jquery.js">
+        </script>
+        <script>
+            var decorarArboles = function () {
+                $('.arbol') // obtenemos los dos árboles
+                    .find('.rama') // de los arboles, obtenemos sus ramas...
+                        .find('.hoja') // y de las ramas, obtenemos sus hojas...
+                        .addClass('verde') // y añadimos la clase verde a las hojas
+                        .end() // se anula el último filtro, volvemos a las ramas...
+                    .addClass('marron') // y añadimos la clase marron a las ramas
+                    .end() // se anula el último filtro, volvemos a los árboles...
+
+                    .filter(":first") // de los árboles, obtenemos el primero...
+                    .addClass('borde-doble') // añadimos la clase borde-doble al primer árbol
+                    .end() // se anula el último filtro, volvemos a los árboles...
+                    
+                    .filter(":eq(1)") // obtenemos el segundo árbol...
+                    .addClass("borde-punteado"); // y añadimos la clase borde-punteado al segundo árbol
+            };
+
+            $(document).ready(function () {
+                decorarArboles();
+            });
+        </script>
+    </body>
+
+    </html>
+</body>
+
+</html>

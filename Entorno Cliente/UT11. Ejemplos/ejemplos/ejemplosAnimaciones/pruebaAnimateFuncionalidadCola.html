@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Animaciones y funcionalidad de cola</title>
+	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("button").click(function () {
+				// Primer div
+				var div = $("div").first();
+				div.animate({
+					left: '100px'
+				}, "slow");
+				div.animate({
+					fontSize: '3em'
+				}, "slow");
+				// Segundo div
+				var div2 = $("div").last();
+				div2.animate({
+					left: '100px'
+				}, "slow");
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+	<button>Empezar animación</button>
+
+	<div style="background:#98bf21;height:100px;width:200px;position:relative;">HOLA</div>
+	<div style="background:#98bf21;height:100px;width:200px;position:relative;">HOLA</div>
+</body>
+
+</html>

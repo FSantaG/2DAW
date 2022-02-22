@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probando selectores de jQuery</title>
+
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        div#header {
+            background-color: gray;
+            text-align: center;
+        }
+
+        div#wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: auto;
+        }
+
+        div#menu,
+        div#imagenes {
+            padding: 0;
+            margin: 0;
+            float: left;
+        }
+
+        div#menu {
+            width: 50%;
+        }
+
+        div#imagenes {
+            width: 50%;
+        }
+
+        div#footer {
+            border-top: gray solid 1px;
+        }
+
+        #menu li {
+            padding: .5em .2em;
+            font-size: 1.2em;
+        }
+
+        #menu li:hover {
+            background-color: gray;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Probando los selectores jQuery sobre las imágenes</h1>
+    </div>
+    <div id="wrapper">
+        <div id="menu">
+            <ul>
+                <li id="ocultartodo">Ocultar todas</li>
+                <li id="ocultarprimera">Ocultar la primera imagen</li>
+                <li id="ocultarultima">Ocultar la última imagen</li>
+                <li id="ocultarid">Ocultar todas las imágenes con identificador resaltar</li>
+                <li id="ocultarclase">Ocultar todas las imágenes de clase secundaria</li>
+                <li id="ocultarenlace">Ocultar las imágenes que están dentro de un enlace</li>
+                <li id="mostrartodo">Mostrar todas</li>
+            </ul>
+        </div>
+        <div id="imagenes">
+            <ul>
+                <li>
+                    <a href="#"><img src="imagenes/anchovies.jpg" alt="Esta imagen tiene un enlace"
+                            title="Esta imagen tiene un enlace"></a>
+                </li>
+                <li><img class="secundaria" id="resaltar" src="imagenes/bluejellyfish.jpg"
+                        alt="Esta imagen es de la clase secundaria y del identificador resaltar"
+                        title="Esta imagen es de la clase secundaria y del identificador resaltar">
+                </li>
+                <li><img class="secundaria" src="imagenes/jellyfish1.jpg" alt="Esta imagen es de la clase secundaria"
+                        title="Esta imagen es de la clase secundaria">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</body>
+
+</html>

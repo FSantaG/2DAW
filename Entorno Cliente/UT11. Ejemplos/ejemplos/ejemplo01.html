@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<title>Ejemplo 1-Eventos | jQuery</title>
+</head>
+
+<body>
+	<a href="http://jquery.com/">jQuery</a>
+
+	<script src="js/jquery.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("a").click(function(event) {
+				alert("Como puedes ver, el enlace ya no te lleva a jquery.com ");
+				event.preventDefault();
+			});
+		});
+	</script>
+</body>
+
+</html>

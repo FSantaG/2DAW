@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<title>Ejemplo 2-Clases | jQuery</title>
+	<style>
+		a.test {
+			font-weight: bold;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="http://jquery.com/">jQuery</a>
+
+	<!-- Código jQuery -->
+	<script src="js/jquery.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("a").click(function (event) {
+
+				$("a").addClass("test");
+				alert("Como puedes ver, el enlace ya no te lleva a jQuery.com");
+				event.preventDefault();
+
+				$("a").removeClass("test");
+			});
+		});
+	</script>
+</body>
+
+</html>

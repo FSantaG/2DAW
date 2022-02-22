@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery - Otros métodos</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(inicio);
+
+        function inicio() {
+            //MÉTODOS DE TIPOS
+            /* $.isFunction(elem);
+               $.isEmptyObject(elem);
+               $.isPlainObject(elem);
+               $.isArray(elem);
+               $.isNumeric(elem);
+               $.type(elem);
+               */
+            let miArray = [1, 3, 5];
+            alert("isArray: " + $.isArray(miArray));
+            alert("isFunction: " + $.isFunction(miArray));
+            alert("type: " + $.type(miArray));
+
+            //MÉTODOS DE FECHAS
+            let fechayhora = $.now(); //Número de ms desde 1/1/1970
+            alert(Date(fechayhora));
+
+            //MÉTODO DE CADENA
+            alert("TRIM: *" + $.trim("      varios espacios al principio y fin     ") + "*");
+            
+            //MÉTODO DATA
+            //$.data (nombre,valor) / (nombre) / (objeto)
+            //$.removeData(nombre)
+            $("#nombre").click(function () {
+                $("div").data("nombre", "Ada Lovelace");
+            });
+            $("#nombre2").click(function () {
+                alert($("div").data("nombre"));
+            });
+            $("#nombre3").click(function () {
+                $("div").removeData("nombre");
+            });
+
+        }
+    </script>
+</head>
+
+<body>
+    <div>Esto es un div</div>
+    <button id="nombre">Guardar nombre</button>
+    <button id="nombre2">Mostrar nombre</button>
+    <button id="nombre3">Borrar nombre</button>
+    <p></p>
+</body>
+
+</html>

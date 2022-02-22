@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Animación básica en jQuery con show() y hide()</title>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#item1").hide();
+	$("#item2").hide();
+	$("#item3").hide();
+	$("#item1").show("fast",function(){
+		$("#item2").show("fast",function(){
+			$("#item3").show("fast",function(){		
+			});
+		});
+	});
+});
+</script>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+#menu{
+	width: 300px;
+	height: 40px;
+	margin: 0 auto;
+}
+#menu ul{
+	list-style: none;
+}
+#menu li{
+	float: left;
+}
+#menu a{
+	display: block;
+	width: 100px;
+	height: 30px;
+	padding-top: 10px;
+	text-align: center;
+	color: #FFFFFF;
+	background-color: #333333;
+	text-decoration: none;
+	float: left;
+}
+#menu a:hover{
+	text-decoration: underline;
+	background-color: #666666;
+	color: #CCCCCC;
+}
+</style>
+</head>
+<body>
+<div id="menu">
+	<ul>
+    	<li><a href="#" id="item1">Inicio</a></li>
+        <li><a href="#" id="item2">Tutoriales</a></li>
+        <li><a href="#" id="item3">Tips</a></li>
+    </ul>
+</div>
+<p><a href="javascript: history.go(-1);">Regresar</a></p>
+</body>
+</html>

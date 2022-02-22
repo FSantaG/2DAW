@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#coso").hide();
+	$("#coso").show("slow");
+	$("#coso1").hide();
+	$("#coso1").show("fast");
+	$("#coso2").hide();
+	$("#coso2").show(1200);
+	$("#coso3").hide();
+	$("#coso3").show(1000, function(){
+		alert("Ya termine!!!");
+	});
+});
+</script>
+<style>
+#coso
+{
+width: 300px;
+height: 300px;
+background: #0033CC;
+float: left;
+}
+#coso1
+{
+width: 300px;
+height: 300px;
+background: #3399CC;
+float: left;
+}
+#coso2
+{
+width: 300px;
+height: 300px;
+background: #0066FF;
+float: left;
+}
+#coso3
+{
+width: 300px;
+height: 300px;
+background: #990000;
+float: left;
+}
+</style>
+</head>
+
+<body>
+<div id="coso"></div>
+<div id="coso1"></div>
+<div id="coso2"></div>
+<div id="coso3"></div>
+</body>
+</html>
