@@ -49,7 +49,7 @@ body {
   background-color: rgb(255, 124, 64);
   font-family: sans-serif;
 }
-header img {
+#logo {
   width: 228px;
   height: 76px;
 }
