@@ -9,21 +9,49 @@
   </head>
   <body>
     <div id="formulario">
-      <form action="./zonaProfesores.html" method="POST">
+      <form action="./zonaProfesores.html" method="get">
         <a href="./index.html">
-          <img src="img/jc.png" alt="Logo Centro" id="logo" />
+          <img src="img/jc.png" alt="Volver al menú" id="logo" />
         </a>
         <br />
-        Usuario: <input type="text" name="user" placeholder="profesor" />
-        <div id="errorUser"></div>
+        <label for="user">Usuario: </label>
+        <input
+          type="text"
+          name="user"
+          id="user"
+          placeholder="profesor"
+          required
+        />
+        <div class="error" id="username"></div>
+        <!--Destinada a una posible validación por JS-->
         <br />
-        Contraseña: <input type="password" name="pass" placeholder="XXX" />
-        <div id="errorPass"></div>
+        <label for="pass">Contraseña:</label>
+        <input
+          type="password"
+          name="pass"
+          id="pass"
+          placeholder="XXX"
+          required
+        />
+        <div class="error" id="password"></div>
+        <!--Destinada a una posible validación por JS-->
         <p id="recovery">
           ¿Ha olvidado su contraseña? <a href="#">¡Pulse aquí!</a>
         </p>
         <input type="submit" name="envio" value="Iniciar Sesión" />
       </form>
     </div>
+    <script>
+      let formulario = document.forms[0];
+      formulario.onsubmit = function (evento) {
+        if (
+          formulario.elements.user.value != "" &&
+          formulario.elements.pass.value != ""
+        ) {
+          evento.preventDefault();
+          alert("Bienvenid@, " + formulario.elements.user.value);
+        }
+      };
+    </script>
   </body>
 </html>

@@ -16,9 +16,9 @@ form {
   font-weight: bold;
 }
 #logo {
-  width: 228px;
+  width: 178px;
   height: 76px;
-  margin: 15px 15px 15px 0px;
+  margin: 15px 0 15px 0px;
 }
 input[type="text"],
 input[type="password"] {
@@ -40,7 +40,7 @@ input[type="submit"]:hover {
 }
 input[type="submit"]:active {
   box-shadow: none;
-  transition: box-shadow 1s;
+  transition: box-shadow 0.1s;
 }
 #recovery {
   font-weight: normal;
@@ -49,4 +49,7 @@ input[type="submit"]:active {
 #recovery a {
   font-weight: bold;
   color: blue;
+}
+.error {
+  color: red;
 }

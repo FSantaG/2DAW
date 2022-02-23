@@ -35,6 +35,7 @@
 }
 .iconoHamburguesa {
   display: flex;
+  cursor: pointer;
   justify-content: center;
 }
 
@@ -191,10 +192,18 @@ footer {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 1.2em;
+  justify-self: center;
   align-self: center;
+  height: 20px;
+  padding: 2px;
 }
 
+@media (max-width: 683px) {
+  h1 {
+    height: 40px;
+  }
+}
 @media screen and (min-width: 700px) {
   #menu {
     background-color: rgb(93, 138, 81);
@@ -212,5 +221,19 @@ h1 {
 
   .iconoHamburguesa::before {
     content: "";
+  }
+}
+@media print {
+  #login,
+  #menu {
+    display: none;
+  }
+  footer {
+    visibility: hidden;
+  }
+  #logo {
+    position: absolute;
+    top: 50px;
+    left: 35%;
   }
 }
