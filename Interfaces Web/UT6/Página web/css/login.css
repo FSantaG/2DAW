@@ -1,0 +1,52 @@
+body {
+  background-image: linear-gradient(rgb(255, 124, 64), white);
+  background-repeat: no-repeat;
+  font-family: sans-serif;
+}
+#formulario {
+  display: block;
+  border: 5px solid black;
+  border-radius: 30px;
+  width: 228px;
+  margin: 200px auto auto auto;
+  background-color: white;
+}
+form {
+  text-align: center;
+  font-weight: bold;
+}
+#logo {
+  width: 228px;
+  height: 76px;
+  margin: 15px 15px 15px 0px;
+}
+input[type="text"],
+input[type="password"] {
+  width: 114px;
+  border: 2px dashed black;
+}
+input[type="submit"] {
+  margin-bottom: 5px;
+  height: 30px;
+  text-decoration: underline;
+  color: white;
+  background-color: rgb(255, 106, 80);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 5px 5px 2px black;
+}
+input[type="submit"]:hover {
+  background-color: rgb(150, 62, 46);
+}
+input[type="submit"]:active {
+  box-shadow: none;
+  transition: box-shadow 1s;
+}
+#recovery {
+  font-weight: normal;
+  color: blue;
+}
+#recovery a {
+  font-weight: bold;
+  color: blue;
+}

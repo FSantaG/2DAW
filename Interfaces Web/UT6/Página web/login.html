@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicia Sesión</title>
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body>
+    <div id="formulario">
+      <form action="./zonaProfesores.html" method="POST">
+        <a href="./index.html">
+          <img src="img/jc.png" alt="Logo Centro" id="logo" />
+        </a>
+        <br />
+        Usuario: <input type="text" name="user" placeholder="profesor" />
+        <div id="errorUser"></div>
+        <br />
+        Contraseña: <input type="password" name="pass" placeholder="XXX" />
+        <div id="errorPass"></div>
+        <p id="recovery">
+          ¿Ha olvidado su contraseña? <a href="#">¡Pulse aquí!</a>
+        </p>
+        <input type="submit" name="envio" value="Iniciar Sesión" />
+      </form>
+    </div>
+  </body>
+</html>
