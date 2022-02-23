@@ -107,12 +107,17 @@ footer {
   text-align: center;
   padding: 10px;
   border-radius: 0 0 0 15px;
-}
-#login a {
-  display: inline-block;
-  margin: auto;
   text-decoration: none;
   color: black;
+}
+#login:hover,
+#login:active {
+  background-color: rgb(88, 136, 138);
+  color: white;
+}
+#login div {
+  display: inline-block;
+  margin: auto;
 }
 
 #modulos {
