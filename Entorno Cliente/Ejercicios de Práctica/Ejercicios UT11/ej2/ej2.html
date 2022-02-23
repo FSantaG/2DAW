@@ -1,63 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Probando eventos de jQuery</title>
-	<style>
-		img {
-			max-width: 100%;
-		}
-		div#header {
-			background-color: gray;
-			text-align: center;
-		}
-		div#wrapper {
-			max-width: 800px;
-			margin: 0 auto;
-			overflow: auto;
-		}
-		div#izquierda, div#centro, div#derecha {
-			padding: 0 0 0 3%;
-			margin: 0;
-			float: left;
-		}
-		div#izquierda {
-			width: 30%;
-		}
-		div#centro {
-			width: 30%;
-		}
-		div#derecha {
-			width: 30%;
-		}
-		div#footer {
-			border-top: gray solid 1px;
-		}
-		
-	</style>
-</head>
-<body>
-<div id="header">
-	<h1>Probando eventos jQuery</h1>
-</div>
-<div id="wrapper">
-	<div id="izquierda">
-		<p><a href="#"><img src="imagenes/anchovies.jpg" alt=""Prueba los eventos click(), dblclik(), mouseover() y mouseleave()"" title="Prueba los eventos click(), dblclik(), mouseover() y mouseleave()"></a></p>
-		<p class="msg">En este párrafo se verán los eventos que se están produciendo.</p>
-	</div>
-	<div id="centro">
-		<p><a href="#"><img src="imagenes/anchovies.jpg" alt=""Prueba los eventos mousedown(), mouseup() y hover()"" title="Prueba los eventos  mousedown(), mouseup() y hover()"></a></p>
-		<p class="msg">En este párrafo se verán los eventos que se están produciendo.</p>
-	</div>
-	<div id="derecha">
-		<p><input type="text" size="10em"></p>
-		<p class="msg">En este párrafo se verán los eventos que se están produciendo.</p>
-	</div>
-</div>
-<div id="footer">
-</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Probando eventos de jQuery</title>
+    <style>
+      img {
+        max-width: 100%;
+      }
+      div#header {
+        background-color: gray;
+        text-align: center;
+      }
+      div#wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        overflow: auto;
+      }
+      div#izquierda,
+      div#centro,
+      div#derecha {
+        padding: 0 0 0 3%;
+        margin: 0;
+        float: left;
+      }
+      div#izquierda {
+        width: 30%;
+      }
+      div#centro {
+        width: 30%;
+      }
+      div#derecha {
+        width: 30%;
+      }
+      div#footer {
+        border-top: gray solid 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <h1>Probando eventos jQuery</h1>
+    </div>
+    <div id="wrapper">
+      <div id="izquierda">
+        <p>
+          <a href="#"
+            ><img src="imagenes/anchovies.jpg" alt=""Prueba los eventos click(),
+            dblclik(), mouseover() y mouseleave()"" title="Prueba los eventos
+            click(), dblclik(), mouseover() y mouseleave()"></a
+          >
+        </p>
+        <p class="msg">
+          En este párrafo se verán los eventos que se están produciendo.
+        </p>
+      </div>
+      <div id="centro">
+        <p>
+          <a href="#"
+            ><img src="imagenes/anchovies.jpg" alt=""Prueba los eventos
+            mousedown(), mouseup() y hover()"" title="Prueba los eventos
+            mousedown(), mouseup() y hover()"></a
+          >
+        </p>
+        <p class="msg">
+          En este párrafo se verán los eventos que se están produciendo.
+        </p>
+      </div>
+      <div id="derecha">
+        <p><input type="text" size="10em" /></p>
+        <p class="msg">
+          En este párrafo se verán los eventos que se están produciendo.
+        </p>
+      </div>
+    </div>
+    <div id="footer"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(inicio);
 
-</body>
+      function inicio() {
+        $("#izquierda img").click(function () {
+          $("#izquierda .msg").text("Evento: Click");
+        });
+        $("#izquierda img").dblclick(function () {
+          $("#izquierda .msg").text("Evento: Doble Click");
+        });
+        $("#izquierda img").mouseenter(function () {
+          $("#izquierda .msg").text("Evento: Mouse Enter");
+        });
+        $("#izquierda img").mouseleave(function () {
+          $("#izquierda .msg").text("Evento: Mouse Leave");
+        });
+
+        $("#centro img").mousedown(function () {
+          $("#centro .msg").text("Evento: Mouse Down");
+        });
+        $("#centro img").mouseup(function () {
+          $("#centro .msg").text("Evento: Mouse Up");
+        });
+        $("#centro img").hover(function () {
+          $("#centro .msg").text("Evento: Hover");
+        });
+
+        $("#derecha input").focus(function () {
+          $("#derecha .msg").text("Evento: Focus");
+        });
+        $("#derecha input").blur(function () {
+          $("#derecha .msg").text("Evento: Blur");
+        });
+      }
+    </script>
+  </body>
 </html>
